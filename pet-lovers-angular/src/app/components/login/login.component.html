@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - Fundación Patitas Felices</title>
-    <!-- <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/auth.css"> -->
+    <link rel="stylesheet" href="../../../styles.scss">
+    <link rel="stylesheet" href="login.component.scss">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" type="image/jpeg" href="img/logo.jpg">
 </head>
 <body class="auth-body">
     <div class="auth-container">
         <div class="auth-header">
-            <a href="/index" class="back-btn">
+            <a routerLink="/home" class="back-btn">
                 <i class="fas fa-arrow-left"></i>
                 Volver al inicio
             </a>
@@ -60,7 +60,7 @@
                         <span class="checkmark"></span>
                         Recordarme
                     </label>
-                    <a href="forgot-password.html" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                    <a routerLink="/forgot-password" class="forgot-password">¿Olvidaste tu contraseña?</a>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-full">
@@ -74,7 +74,7 @@
 
                 <div class="auth-footer">
                     <p>¿No tienes una cuenta?</p>
-                    <a href="registro.html" class="btn btn-secondary btn-outline">
+                    <a routerLink="/sign-up" class="btn btn-secondary btn-outline">
                         <i class="fas fa-user-plus"></i>
                         Regístrate como Socio
                     </a>
