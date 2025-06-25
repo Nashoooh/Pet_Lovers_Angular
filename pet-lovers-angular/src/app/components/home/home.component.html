@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundación Patitas Felices</title>
-    <link rel="stylesheet" href="../../../styles.scss">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
+<header class="header">
         <nav class="nav">
             <div class="nav-brand">
                 <i class="fas fa-paw"></i>
@@ -94,7 +83,13 @@
         <div class="container">
             <h2>Próximos Eventos</h2>
             <div class="events-grid" id="eventsGrid">
-                <!-- Los eventos se cargarán dinámicamente -->
+                <div *ngFor="let evento of eventos" class="event-card">
+                    <h3>{{ evento.title }}</h3>
+                    <p>{{ evento.description }}</p>
+                    <p><strong>Fecha:</strong> {{ evento.date }} - <strong>Hora:</strong> {{ evento.time }}</p>
+                    <p><strong>Lugar:</strong> {{ evento.location }}</p>
+                    <p><strong>Participantes:</strong> {{ evento.participants.length }}/{{ evento.maxParticipants }}</p>
+                </div>
             </div>
             <div class="events-cta">
                 <p>¿Quieres participar en nuestros eventos?</p>
@@ -227,5 +222,3 @@
 
     <script src="js/data.js"></script>
     <script src="js/script.js"></script>
-</body>
-</html>
