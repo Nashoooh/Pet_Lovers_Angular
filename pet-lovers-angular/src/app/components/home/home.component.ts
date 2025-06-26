@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgFor, CommonModule } from '@angular/common';
-import { db } from '../../data/data'; // ajusta la ruta si es necesario
+import { db } from '../../data/data';
 
 @Component({
   selector: 'app-home',
@@ -12,12 +12,36 @@ import { db } from '../../data/data'; // ajusta la ruta si es necesario
 })
 export class HomeComponent implements OnInit {
   eventos: any[] = [];
+  visibleEventos: any[] = [];
+  currentIndex: number = 0;
+  itemsPerRow: number = 3;
 
   ngOnInit() {
     if (db) {
       this.eventos = db.getEvents();
+      this.updateVisibleEventos();
     } else {
       this.eventos = [];
     }
+  }
+
+  updateVisibleEventos() {
+    const start = this.currentIndex;
+    const end = start + this.itemsPerRow;
+    this.visibleEventos = [];
+
+    for (let i = start; i < end; i++) {
+      this.visibleEventos.push(this.eventos[i % this.eventos.length]);
+    }
+  }
+
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.eventos.length;
+    this.updateVisibleEventos();
+  }
+
+  prev() {
+    this.currentIndex = (this.currentIndex - 1 + this.eventos.length) % this.eventos.length;
+    this.updateVisibleEventos();
   }
 }

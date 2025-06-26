@@ -82,14 +82,22 @@
     <section id="eventos" class="events">
         <div class="container">
             <h2>Próximos Eventos</h2>
-            <div class="events-grid" id="eventsGrid">
-                <div *ngFor="let evento of eventos" class="event-card">
-                    <h3>{{ evento.title }}</h3>
-                    <p>{{ evento.description }}</p>
-                    <p><strong>Fecha:</strong> {{ evento.date }} - <strong>Hora:</strong> {{ evento.time }}</p>
-                    <p><strong>Lugar:</strong> {{ evento.location }}</p>
-                    <p><strong>Participantes:</strong> {{ evento.participants.length }}/{{ evento.maxParticipants }}</p>
+            <div class="carousel" style="position: relative;">
+                <button class="carousel-control prev" (click)="prev()" style="position: absolute; top: 50%; left: -40px; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
+                    <i class="fas fa-chevron-left" style="font-size: 36px; color: #333;"></i>
+                </button>
+                <div class="carousel-track" style="display: flex; gap: 16px; overflow: hidden;">
+                    <div *ngFor="let evento of visibleEventos" class="event-card" style="flex: 0 0 calc(33.333% - 16px);">
+                        <h3>{{ evento.title }}</h3>
+                        <p>{{ evento.description }}</p>
+                        <p><strong>Fecha:</strong> {{ evento.date }} - <strong>Hora:</strong> {{ evento.time }}</p>
+                        <p><strong>Lugar:</strong> {{ evento.location }}</p>
+                        <p><strong>Participantes:</strong> {{ evento.participants.length }}/{{ evento.maxParticipants }}</p>
+                    </div>
                 </div>
+                <button class="carousel-control next" (click)="next()" style="position: absolute; top: 50%; right: -40px; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
+                    <i class="fas fa-chevron-right" style="font-size: 36px; color: #333;"></i>
+                </button>
             </div>
             <div class="events-cta">
                 <p>¿Quieres participar en nuestros eventos?</p>
@@ -220,5 +228,7 @@
         </div>
     </footer>
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<!-- 
     <script src="js/data.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/script.js"></script> -->

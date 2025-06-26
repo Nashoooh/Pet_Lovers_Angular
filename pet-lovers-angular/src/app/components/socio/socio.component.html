@@ -7,19 +7,19 @@
                 <span>Patitas Felices</span>
             </div>
             <nav class="main-nav">
-                <button class="nav-btn active" data-section="dashboard">
+                <button class="nav-btn" [class.active]="activeSection === 'dashboard'" (click)="switchSection('dashboard')">
                     <i class="fas fa-home"></i>
                     <span>Inicio</span>
                 </button>
-                <button class="nav-btn" data-section="events">
+                <button class="nav-btn" [class.active]="activeSection === 'events'" (click)="switchSection('events')">
                     <i class="fas fa-calendar"></i>
                     <span>Eventos</span>
                 </button>
-                <button class="nav-btn" data-section="pets">
+                <button class="nav-btn" [class.active]="activeSection === 'pets'" (click)="switchSection('pets')">
                     <i class="fas fa-heart"></i>
                     <span>Mis Mascotas</span>
                 </button>
-                <button class="nav-btn" data-section="profile">
+                <button class="nav-btn" [class.active]="activeSection === 'profile'" (click)="switchSection('profile')">
                     <i class="fas fa-user"></i>
                     <span>Mi Perfil</span>
                 </button>
@@ -28,11 +28,11 @@
         <div class="header-right">
             <div class="user-menu">
                 <div class="user-info">
-                    <span class="user-name" id="socioName">Socio</span>
+                    <span class="user-name">{{ socioName }}</span>
                     <span class="user-role">Miembro</span>
                 </div>
-                <div class="user-avatar" id="userAvatar">S</div>
-                <button class="logout-btn" onclick="logout()">
+                <div class="user-avatar">{{ userAvatar }}</div>
+                <button (click)="onLogout()" class="logout-btn">
                     <i class="fas fa-sign-out-alt"></i>
                 </button>
             </div>
@@ -47,24 +47,24 @@
 <!-- Main Content -->
 <main class="main-content">
     <!-- Dashboard Section -->
-    <section id="dashboard" class="content-section active">
+    <section id="dashboard" class="content-section" [class.active]="activeSection === 'dashboard'">
         <div class="welcome-banner">
             <div class="welcome-content">
-                <h1>¡Bienvenido/a, <span id="welcomeName">Socio</span>!</h1>
+                <h1>¡Bienvenido/a, <span>{{ welcomeName }}</span>!</h1>
                 <p>Gestiona tus mascotas, únete a eventos y mantente conectado con nuestra comunidad</p>
             </div>
             <div class="welcome-stats">
                 <div class="stat-item">
                     <i class="fas fa-heart"></i>
                     <div>
-                        <span class="stat-number" id="myPetsCount">0</span>
+                        <span class="stat-number">{{ myPetsCount }}</span>
                         <span class="stat-label">Mis Mascotas</span>
                     </div>
                 </div>
                 <div class="stat-item">
                     <i class="fas fa-calendar-check"></i>
                     <div>
-                        <span class="stat-number" id="myEventsCount">0</span>
+                        <span class="stat-number">{{ myEventsCount }}</span>
                         <span class="stat-label">Eventos Apuntado</span>
                     </div>
                 </div>
@@ -74,18 +74,18 @@
         <div class="dashboard-grid">
             <div class="dashboard-card">
                 <h3><i class="fas fa-calendar-alt"></i> Próximos Eventos</h3>
-                <div class="upcoming-events" id="upcomingEvents">
-                    <!-- Los eventos se cargarán dinámicamente -->
+                <div class="upcoming-events">
+                    <!-- Eventos dinámicos -->
                 </div>
-                <a href="#" class="card-action" onclick="switchSection('events')">Ver todos los eventos</a>
+                <a href="#" class="card-action" (click)="navigateToSection('events')">Ver todos los eventos</a>
             </div>
 
             <div class="dashboard-card">
                 <h3><i class="fas fa-paw"></i> Mis Mascotas</h3>
-                <div class="my-pets-preview" id="myPetsPreview">
-                    <!-- Las mascotas se cargarán dinámicamente -->
+                <div class="my-pets-preview">
+                    <!-- Mascotas dinámicas -->
                 </div>
-                <a href="#" class="card-action" onclick="switchSection('pets')">Gestionar mascotas</a>
+                <a href="#" class="card-action" (click)="navigateToSection('pets')">Gestionar mascotas</a>
             </div>
 
             <div class="dashboard-card">
@@ -109,38 +109,82 @@
     </section>
 
     <!-- Events Section -->
-    <section id="events" class="content-section">
+    <section id="events" class="content-section" [class.active]="activeSection === 'events'">
         <div class="section-header">
             <h2>Eventos Disponibles</h2>
             <div class="filter-tabs">
-                <button class="tab-btn active" data-filter="all">Todos</button>
-                <button class="tab-btn" data-filter="available">Disponibles</button>
-                <button class="tab-btn" data-filter="joined">Apuntado</button>
+                <button class="tab-btn" [class.active]="activeFilter === 'all'" (click)="filterEvents('all')">Todos</button>
+                <button class="tab-btn" [class.active]="activeFilter === 'available'" (click)="filterEvents('available')">Disponibles</button>
+                <button class="tab-btn" [class.active]="activeFilter === 'joined'" (click)="filterEvents('joined')">Apuntado</button>
             </div>
         </div>
 
-        <div class="events-grid" id="eventsGrid">
-            <!-- Los eventos se cargarán dinámicamente -->
+        <div class="events-grid">
+            <div *ngFor="let event of filteredEvents" class="event-card">
+                <div class="event-status" [ngClass]="{
+                    'available': event.status === 'available',
+                    'joined': event.status === 'joined',
+                    'full': event.status === 'full'
+                }">
+                    {{ event.status | uppercase }}
+                </div>
+                <h3>{{ event.title }}</h3>
+                <p>{{ event.description }}</p>
+                <p><strong>Fecha:</strong> {{ event.date }} - <strong>Hora:</strong> {{ event.time }}</p>
+                <p><strong>Lugar:</strong> {{ event.location }}</p>
+                <p><strong>Participantes:</strong> {{ event.participants.length }}/{{ event.maxParticipants }}</p>
+                <div class="event-actions">
+                    <button *ngIf="event.status === 'available'" class="btn-join" (click)="joinEvent(event.id)">Unirse</button>
+                    <button *ngIf="event.status === 'joined'" class="btn-leave" (click)="leaveEvent(event.id)">Salir</button>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Pets Section -->
-    <section id="pets" class="content-section">
+    <section id="pets" class="content-section" [class.active]="activeSection === 'pets'">
         <div class="section-header">
             <h2>Mis Mascotas</h2>
-            <button class="btn btn-primary" onclick="openPetModal()">
+            <button class="btn btn-primary" (click)="openAddPetModal()">
                 <i class="fas fa-plus"></i>
                 Agregar Mascota
             </button>
         </div>
 
-        <div class="pets-grid" id="petsGrid">
-            <!-- Las mascotas se cargarán dinámicamente -->
+        <div class="pets-grid">
+            <div *ngFor="let pet of myPets" class="pet-card">
+                <div class="pet-image">
+                    <i class="fas fa-paw"></i>
+                </div>
+                <h4>{{ pet.name }}</h4>
+                <div class="pet-info">
+                    <div class="pet-detail">
+                        <span class="label">Tipo:</span>
+                        <span class="value">{{ pet.type }}</span>
+                    </div>
+                    <div class="pet-detail">
+                        <span class="label">Raza:</span>
+                        <span class="value">{{ pet.breed }}</span>
+                    </div>
+                    <div class="pet-detail">
+                        <span class="label">Edad:</span>
+                        <span class="value">{{ pet.age }} años</span>
+                    </div>
+                    <div class="pet-detail">
+                        <span class="label">Color:</span>
+                        <span class="value">{{ pet.color }}</span>
+                    </div>
+                </div>
+                <div class="pet-actions">
+                    <button class="btn-edit-pet" (click)="editPet(pet.id)">Editar</button>
+                    <button class="btn-delete-pet" (click)="deletePet(pet.id)">Eliminar</button>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Profile Section -->
-    <section id="profile" class="content-section">
+    <section id="profile" class="content-section" [class.active]="activeSection === 'profile'">
         <div class="section-header">
             <h2>Mi Perfil</h2>
         </div>
@@ -150,9 +194,9 @@
                 <div class="profile-header">
                     <div class="profile-avatar" id="profileAvatar">S</div>
                     <div class="profile-info">
-                        <h3 id="profileName">Nombre del Socio</h3>
-                        <p id="profileEmail">email&#64;ejemplo.com</p>
-                        <span class="member-since">Miembro desde <span id="memberSince">2024</span></span>
+                        <h3>{{ profileName }}</h3>
+                        <p>{{ profileEmail }}</p>
+                        <span class="member-since">Miembro desde <span>{{ memberSince }}</span></span>
                     </div>
                 </div>
 
@@ -214,22 +258,22 @@
 <div id="petModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <h3 id="petModalTitle">Agregar Mascota</h3>
-            <button class="modal-close" onclick="closePetModal()">
+            <h3>{{ petModalTitle }}</h3>
+            <button class="modal-close" (click)="closePetModal()">
                 <i class="fas fa-times"></i>
             </button>
         </div>
-        <form id="petForm" class="modal-form">
-            <input type="hidden" id="petId" name="petId">
+        <form (ngSubmit)="savePet()" class="modal-form">
+            <input type="hidden" [(ngModel)]="petForm.id" name="petId">
 
             <div class="form-row">
                 <div class="form-group">
                     <label for="petName">Nombre de la Mascota</label>
-                    <input type="text" id="petName" name="name" required>
+                    <input type="text" id="petName" [(ngModel)]="petForm.name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="petType">Tipo</label>
-                    <select id="petType" name="type" required>
+                    <select id="petType" [(ngModel)]="petForm.type" name="type" required>
                         <option value="">Selecciona el tipo</option>
                         <option value="Perro">Perro</option>
                         <option value="Gato">Gato</option>
@@ -242,30 +286,30 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="petBreed">Raza</label>
-                    <input type="text" id="petBreed" name="breed" required>
+                    <input type="text" id="petBreed" [(ngModel)]="petForm.breed" name="breed" required>
                 </div>
                 <div class="form-group">
                     <label for="petAge">Edad (años)</label>
-                    <input type="number" id="petAge" name="age" min="0" max="30" required>
+                    <input type="number" id="petAge" [(ngModel)]="petForm.age" name="age" min="0" max="30" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="petColor">Color</label>
-                <input type="text" id="petColor" name="color" required>
+                <input type="text" id="petColor" [(ngModel)]="petForm.color" name="color" required>
             </div>
 
             <div class="form-row">
                 <div class="form-group checkbox-group">
                     <label class="checkbox-label">
-                        <input type="checkbox" id="petVaccinated" name="vaccinated">
+                        <input type="checkbox" id="petVaccinated" [(ngModel)]="petForm.vaccinated" name="vaccinated">
                         <span class="checkmark"></span>
                         Vacunado
                     </label>
                 </div>
                 <div class="form-group checkbox-group">
                     <label class="checkbox-label">
-                        <input type="checkbox" id="petSterilized" name="sterilized">
+                        <input type="checkbox" id="petSterilized" [(ngModel)]="petForm.sterilized" name="sterilized">
                         <span class="checkmark"></span>
                         Esterilizado
                     </label>
@@ -274,13 +318,35 @@
 
             <div class="form-group">
                 <label for="petNotes">Notas adicionales</label>
-                <textarea id="petNotes" name="notes" rows="3" placeholder="Información adicional sobre tu mascota..."></textarea>
+                <textarea id="petNotes" [(ngModel)]="petForm.notes" name="notes" rows="3" placeholder="Información adicional sobre tu mascota..."></textarea>
             </div>
 
             <div class="modal-actions">
-                <button type="button" class="btn btn-secondary" onclick="closePetModal()">Cancelar</button>
+                <button type="button" class="btn btn-secondary" (click)="closePetModal()">Cancelar</button>
                 <button type="submit" class="btn btn-primary">Guardar Mascota</button>
             </div>
         </form>
+    </div>
+</div>
+
+<!-- Modal para eventos -->
+<div id="eventModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>{{ selectedEvent?.title }}</h3>
+            <button class="modal-close" (click)="closeEventModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p><strong>Descripción:</strong> {{ selectedEvent?.description }}</p>
+            <p><strong>Fecha:</strong> {{ selectedEvent?.date }} - <strong>Hora:</strong> {{ selectedEvent?.time }}</p>
+            <p><strong>Lugar:</strong> {{ selectedEvent?.location }}</p>
+            <p><strong>Participantes:</strong> {{ selectedEvent?.participants.length }}/{{ selectedEvent?.maxParticipants }}</p>
+        </div>
+        <div class="modal-actions">
+            <button *ngIf="!selectedEvent?.participants.includes(authService.getCurrentUser()?.id)" class="btn btn-primary" (click)="joinEvent(selectedEvent?.id)">Inscribirse</button>
+            <button *ngIf="selectedEvent?.participants.includes(authService.getCurrentUser()?.id)" class="btn btn-secondary" (click)="leaveEvent(selectedEvent?.id)">Desinscribirse</button>
+        </div>
     </div>
 </div>
