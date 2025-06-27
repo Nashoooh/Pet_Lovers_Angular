@@ -36,10 +36,10 @@
                     <i class="fas fa-sign-out-alt"></i>
                 </button>
             </div>
-            <a routerLink="/home" class="btn btn-outline">
+            <!-- <a routerLink="/home" class="btn btn-outline">
                 <i class="fas fa-globe"></i>
                 Sitio Web
-            </a>
+            </a> -->
         </div>
     </div>
 </header>
@@ -75,33 +75,42 @@
             <div class="dashboard-card">
                 <h3><i class="fas fa-calendar-alt"></i> Próximos Eventos</h3>
                 <div class="upcoming-events">
-                    <!-- Eventos dinámicos -->
+                    <div *ngIf="upcomingEvents && upcomingEvents.length > 0; else noEvents">
+                        <div class="upcoming-event" *ngFor="let event of upcomingEvents">
+                            <div class="event-date-small">{{ formatDate(event.date) }}</div>
+                            <h4>{{ event.title }}</h4>
+                            <p>{{ event.location }}</p>
+                        </div>
+                    </div>
+                    <ng-template #noEvents>
+                        <p class="no-data">No hay eventos próximos</p>
+                    </ng-template>
                 </div>
-                <a href="#" class="card-action" (click)="navigateToSection('events')">Ver todos los eventos</a>
+                <span class="card-action" (click)="navigateToSection('events')">Ver todos los eventos</span>
             </div>
-
+        
             <div class="dashboard-card">
                 <h3><i class="fas fa-paw"></i> Mis Mascotas</h3>
                 <div class="my-pets-preview">
-                    <!-- Mascotas dinámicas -->
+                    <div *ngIf="myPets && myPets.length > 0; else noPets">
+                        <div class="pet-preview" *ngFor="let pet of myPets.slice(0, 3)">
+                            <i class="fas fa-{{ pet.type === 'Perro' ? 'dog' : pet.type === 'Gato' ? 'cat' : 'paw' }}"></i>
+                            <span>{{ pet.name }}</span>
+                        </div>
+                    </div>
+                    <ng-template #noPets>
+                        <p class="no-data">No tienes mascotas registradas</p>
+                    </ng-template>
                 </div>
-                <a href="#" class="card-action" (click)="navigateToSection('pets')">Gestionar mascotas</a>
+                <span class="card-action" (click)="navigateToSection('pets')">Gestionar mascotas</span>
             </div>
-
+        
             <div class="dashboard-card">
                 <h3><i class="fas fa-info-circle"></i> Consejos y Novedades</h3>
                 <div class="tips-list">
                     <div class="tip-item">
                         <i class="fas fa-lightbulb"></i>
                         <span>Recuerda mantener al día las vacunas de tus mascotas</span>
-                    </div>
-                    <div class="tip-item">
-                        <i class="fas fa-heart"></i>
-                        <span>El ejercicio diario es fundamental para su bienestar</span>
-                    </div>
-                    <div class="tip-item">
-                        <i class="fas fa-users"></i>
-                        <span>Únete a nuestros eventos de socialización</span>
                     </div>
                 </div>
             </div>
