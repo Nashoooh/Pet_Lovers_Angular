@@ -18,6 +18,7 @@ export class AdminComponent implements OnInit {
   events: any[] = [];
   socios: any[] = [];
   pets: any[] = [];
+  users: any[] = [];
   recentEvents: any[] = [];
   recentSocios: any[] = [];
   isEventModalOpen: boolean = false; // Controla la visibilidad del modal de eventos
@@ -28,6 +29,8 @@ export class AdminComponent implements OnInit {
   isDeleteModalOpen: boolean = false; // Controla la visibilidad del modal de eliminación
   eventToDeleteId: string | null = null; // ID del evento a eliminar
   eventToDeleteTitle: string | null = null; // Título del evento a eliminar
+  searchTerm: string = '';
+  filteredSocios: any[] = [];
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -79,11 +82,13 @@ export class AdminComponent implements OnInit {
 
   loadSocios(): void {
     this.socios = db ? db.getUsers().filter((user: { type: string; }) => user.type === 'socio') : [];
+    this.filteredSocios = [...this.socios]; // Inicializa los socios filtrados
   }
 
   loadPets(): void {
     if (db) {
       this.pets = db.getPets();
+      this.users = db.getUsers();
     } else {
       console.error('Database object is null');
     }
@@ -295,6 +300,31 @@ export class AdminComponent implements OnInit {
   onLogout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+  
+  filterSocios(): void {
+    const term = this.searchTerm.toLowerCase();
+    this.filteredSocios = this.socios.filter(socio =>
+      socio.name.toLowerCase().includes(term) || socio.email.toLowerCase().includes(term)
+    );
+  }
+
+  getPetsByOwner(ownerId: string): any[] {
+    return db ? db.getPets().filter((pet: { ownerId: string; }) => pet.ownerId === ownerId) : [];
+  }
+  
+  getEventsByParticipant(participantId: string): any[] {
+    return db ? db.getEvents().filter((event: { participants: string | string[]; }) => event.participants.includes(participantId)) : [];
+  }
+  
+  formatDate(date: string): string {
+    const d = new Date(date);
+    return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
+  }
+  
+  getOwnerName(ownerId: string): string {
+    const owner = this.users.find(user => user.id === ownerId);
+    return owner ? owner.name : 'N/A';
   }
   
 }

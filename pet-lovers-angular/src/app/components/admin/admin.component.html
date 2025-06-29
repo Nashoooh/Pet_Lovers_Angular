@@ -186,42 +186,103 @@
     <!-- Socios Section -->
     <section id="socios" class="content-section" [class.active]="activeSection === 'socios'">
         <div class="section-header">
-            <h2>Gestión de Socios</h2>
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Buscar socio..." id="socioSearch">
-            </div>
+          <h2>Gestión de Socios</h2>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Buscar socio..." id="socioSearch" [(ngModel)]="searchTerm" (input)="filterSocios()">
+          </div>
         </div>
-
+      
         <div class="socios-grid" id="sociosGrid">
-            <!-- Los socios se cargarán dinámicamente -->
+          <div *ngIf="filteredSocios.length === 0" style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-light);">
+            No hay socios registrados
+          </div>
+          <div *ngFor="let socio of filteredSocios" class="socio-card">
+            <div class="socio-header">
+              <div class="socio-avatar">
+                {{ socio.name.charAt(0).toUpperCase() }}
+              </div>
+              <div class="socio-info">
+                <h4>{{ socio.name }}</h4>
+                <p>{{ socio.email }}</p>
+              </div>
+            </div>
+            <div class="socio-details">
+              <div class="socio-detail">
+                <i class="fas fa-phone"></i>
+                <span>{{ socio.phone }}</span>
+              </div>
+              <div *ngIf="socio.address" class="socio-detail">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>{{ socio.address }}</span>
+              </div>
+              <div class="socio-detail">
+                <i class="fas fa-calendar"></i>
+                <span>Registrado el {{ formatDate(socio.createdAt) }}</span>
+              </div>
+            </div>
+            <div class="socio-stats">
+              <div class="socio-stat">
+                <span class="number">{{ getPetsByOwner(socio.id).length }}</span>
+                <span class="label">Mascotas</span>
+              </div>
+              <div class="socio-stat">
+                <span class="number">{{ getEventsByParticipant(socio.id).length }}</span>
+                <span class="label">Eventos</span>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
     <!-- Pets Section -->
     <section id="pets" class="content-section" [class.active]="activeSection === 'pets'">
         <div class="section-header">
-            <h2>Mascotas Registradas</h2>
+          <h2>Mascotas Registradas</h2>
         </div>
-
+      
         <div class="pets-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Mascota</th>
-                        <th>Propietario</th>
-                        <th>Tipo</th>
-                        <th>Raza</th>
-                        <th>Edad</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-                <tbody id="petsTableBody">
-                    <!-- Las mascotas se cargarán dinámicamente -->
-                </tbody>
-            </table>
+          <table>
+            <thead>
+              <tr>
+                <th>Mascota</th>
+                <th>Propietario</th>
+                <th>Tipo</th>
+                <th>Raza</th>
+                <th>Edad</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="pets.length === 0">
+                <td colspan="6" style="text-align: center; padding: 2rem; color: var(--text-light);">
+                  No hay mascotas registradas
+                </td>
+              </tr>
+              <tr *ngFor="let pet of pets">
+                <td>
+                  <strong>{{ pet.name }}</strong><br>
+                  <small style="color: var(--text-light);">{{ pet.color }}</small>
+                </td>
+                <td>{{ getOwnerName(pet.ownerId) }}</td>
+                <td>{{ pet.type }}</td>
+                <td>{{ pet.breed }}</td>
+                <td>{{ pet.age }} año{{ pet.age !== 1 ? 's' : '' }}</td>
+                <td>
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <span class="badge" [ngClass]="pet.vaccinated ? 'badge-vaccinated' : 'badge-not-vaccinated'">
+                      {{ pet.vaccinated ? 'Vacunado' : 'No vacunado' }}
+                    </span>
+                    <span class="badge" [ngClass]="pet.sterilized ? 'badge-sterilized' : 'badge-not-sterilized'">
+                      {{ pet.sterilized ? 'Esterilizado' : 'No esterilizado' }}
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-    </section>
+      </section>
 </main>
 
 <!-- Modal para crear/editar evento -->
