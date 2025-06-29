@@ -5,6 +5,7 @@ import { db } from '../data/data';
   providedIn: 'root'
 })
 export class AuthService {
+  registeredEmails: any;
 
   login(email: string, password: string, rememberMe: boolean = false): any {
     if (!db) return null;
@@ -43,5 +44,39 @@ export class AuthService {
 
   private isLocalStorageAvailable(): boolean {
     return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+  }
+
+  updatePassword(email: string, newPassword: string): boolean {
+    if (!db) {
+      console.error('La base de datos no está disponible.');
+      return false;
+    }
+  
+    // Usa el método updateUserPassword de la clase Database
+    const isUpdated = db.updateUserPassword(email, newPassword);
+    if (isUpdated) {
+      console.log(`Contraseña actualizada para el usuario con correo: ${email}`);
+      return true;
+    } else {
+      console.error('No se pudo actualizar la contraseña. Usuario no encontrado.');
+      return false;
+    }
+  }
+
+  verifyEmail(email: string): boolean {
+    if (!db) return false;
+    const user = db.getUsers().find((user: { email: string }) => user.email === email);
+    return !!user; // Devuelve true si el usuario existe, false si no.
+  }
+  
+  sendRecoveryEmail(email: string): boolean {
+    if (!db) return false;
+    const userExists = this.verifyEmail(email);
+    if (userExists) {
+      // Simula el envío del correo electrónico
+      console.log(`Se ha enviado un enlace de recuperación al correo: ${email}`);
+      return true;
+    }
+    return false;
   }
 }
