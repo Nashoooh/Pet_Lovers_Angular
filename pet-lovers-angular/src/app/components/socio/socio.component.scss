@@ -1,5 +1,59 @@
 /* Estilos para el panel de socio */
 
+.success-message {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+/* Event Status Styles */
+.event-status {
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  color: white;
+}
+
+.status-available {
+  background-color: #28a745; /* Verde */
+}
+
+.status-joined {
+  background-color: #007bff; /* Azul */
+}
+
+.status-full {
+  background-color: #dc3545; /* Rojo */
+}
+
+.event-actions {
+  margin-top: 10px;
+}
+
+.btn-join {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-leave {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 .socio-body {
     margin: 0;
     font-family: 'Arial', sans-serif;

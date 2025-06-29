@@ -507,6 +507,11 @@
     display: flex;
 }
 
+.modal-body {
+    padding: 20px; /* Espacio interno alrededor del formulario */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+  }
+  
 .modal-content {
     background: var(--white);
     border-radius: 20px;

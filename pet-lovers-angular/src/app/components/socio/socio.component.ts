@@ -25,7 +25,16 @@ export class SocioComponent implements OnInit {
   profileEmail: string = '';
   profileAvatar: string = '';
   memberSince: string = '';
-
+  profilePhone: string = '';
+  profileAddress: string = '';
+  successMessage: string = '';
+  formName: string = '';
+  formPhone: string = '';
+  formEmail: string = '';
+  formAddress: string = '';
+  activeFilter: string = 'all'; // Filtro activo: 'all', 'available', 'joined'
+  filteredEvents: any[] = []; // Eventos filtrados
+  
   petForm: any = {
     id: null,
     name: '',
@@ -39,9 +48,6 @@ export class SocioComponent implements OnInit {
   };
 
   petModalTitle: string = 'Agregar Mascota';
-
-  activeFilter: string = 'all';
-  filteredEvents: any[] = [];
 
   activeSection: string = 'dashboard';
 
@@ -61,7 +67,12 @@ export class SocioComponent implements OnInit {
     }
 
     this.initializeSocio(currentUser);
-  }
+      // Inicializar los valores del formulario
+      this.formName = currentUser.name;
+      this.formPhone = currentUser.phone;
+      this.formEmail = currentUser.email;
+      this.formAddress = currentUser.address || '';
+    }
 
   onLogout(): void {
     this.authService.logout();
@@ -94,13 +105,19 @@ export class SocioComponent implements OnInit {
   loadEvents(): void {
     const currentUser = this.authService.getCurrentUser();
     const events = this.db?.getEvents() || [];
-
+  
     this.events = events.map((event: any) => {
-        const isJoined = currentUser ? event.participants.includes(currentUser.id) : false;
-        return { ...event, isJoined };
+      const isJoined = currentUser ? event.participants.includes(currentUser.id) : false;
+      const status = isJoined
+        ? 'Apuntado'
+        : event.participants.length >= event.maxParticipants
+        ? 'Lleno'
+        : 'Disponible';
+      console.log('Evento:', event.title, 'Estado:', status); // Depuración
+      return { ...event, status }; // Traduce el estado al español
     });
-
-    this.filterEvents(this.activeFilter);
+  
+    this.filterEvents(this.activeFilter); // Aplica el filtro activo
   }
 
   addEvent(eventData: any): void {
@@ -128,6 +145,8 @@ export class SocioComponent implements OnInit {
     this.profileEmail = currentUser.email;
     this.profileAvatar = currentUser.name.charAt(0).toUpperCase();
     this.memberSince = this.db?.formatDate(currentUser.createdAt) || '';
+    this.profilePhone = currentUser.phone || '';
+    this.profileAddress = currentUser.address || '';
 
     const myPets = this.db?.getPetsByOwner(currentUser.id) || [];
     const myEvents = this.db?.getEvents()?.filter((event: any) => event.participants.includes(currentUser.id)) || [];
@@ -191,12 +210,16 @@ export class SocioComponent implements OnInit {
 
   filterEvents(filter: string): void {
     this.activeFilter = filter;
+  
+    const currentUser = this.authService.getCurrentUser();
+    const allEvents = this.events || [];
+  
     if (filter === 'all') {
-      this.filteredEvents = this.events;
+      this.filteredEvents = allEvents; // Mostrar todos los eventos
     } else if (filter === 'available') {
-      this.filteredEvents = this.events.filter(event => event.status === 'available');
+      this.filteredEvents = allEvents.filter(event => event.status === 'Disponible');
     } else if (filter === 'joined') {
-      this.filteredEvents = this.events.filter(event => event.status === 'joined');
+      this.filteredEvents = allEvents.filter(event => event.status === 'Apuntado');
     }
   }
 
@@ -241,18 +264,22 @@ export class SocioComponent implements OnInit {
   joinEvent(eventId: string): void {
     const currentUser = this.authService.getCurrentUser();
     if (currentUser) {
-      this.db?.joinEvent(eventId, currentUser.id);
-      this.loadEvents();
-      this.filterEvents(this.activeFilter);
+      const success = this.db?.joinEvent(eventId, currentUser.id);
+      if (success) {
+        this.loadEvents(); // Recarga los eventos
+        this.filterEvents(this.activeFilter); // Aplica el filtro activo
+      }
     }
   }
-
+  
   leaveEvent(eventId: string): void {
     const currentUser = this.authService.getCurrentUser();
     if (currentUser) {
-      this.db?.leaveEvent(eventId, currentUser.id);
-      this.loadEvents();
-      this.filterEvents(this.activeFilter);
+      const success = this.db?.leaveEvent(eventId, currentUser.id);
+      if (success) {
+        this.loadEvents(); // Recarga los eventos
+        this.filterEvents(this.activeFilter); // Aplica el filtro activo
+      }
     }
   }
 
@@ -297,5 +324,48 @@ export class SocioComponent implements OnInit {
   formatDate(date: string): string {
     const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'short', year: 'numeric' };
     return new Date(date).toLocaleDateString('es-ES', options);
+  }
+
+  updateProfile(event: Event): void {
+    event.preventDefault(); // Evita el comportamiento predeterminado del formulario
+
+    const currentUser = this.authService.getCurrentUser();
+    if (!currentUser) {
+      console.error('No se encontró un usuario logueado.');
+      return;
+    }
+
+    const updatedData = {
+      name: this.formName,
+      phone: this.formPhone,
+      email: this.formEmail,
+      address: this.formAddress
+    };
+
+    const updatedUser = this.db?.updateUser(currentUser.id, updatedData);
+    if (updatedUser) {
+      console.log('Perfil actualizado:', updatedUser);
+    
+      // Actualiza los datos del perfil
+      this.profileName = updatedUser.name; // Actualiza el nombre del perfil
+      this.profileEmail = updatedUser.email; // Actualiza el correo del perfil
+      this.memberSince = this.db?.formatDate(updatedUser.createdAt) || ''; // Actualiza la fecha de miembro
+    
+      // Actualiza los datos del header
+      this.socioName = updatedUser.name; // Actualiza el nombre del usuario en el header
+      this.userAvatar = updatedUser.name.charAt(0).toUpperCase(); // Actualiza el avatar del usuario en el header
+    
+      // Actualiza el mensaje de bienvenida
+      this.welcomeName = updatedUser.name; // Actualiza el nombre de bienvenida
+
+      // Actualiza el dashboard
+      this.loadDashboardData(updatedUser); // Recalcula las estadísticas del dashboard
+    
+      // Mensaje de éxito
+      this.successMessage = '¡Perfil actualizado exitosamente!';
+      setTimeout(() => {
+        this.successMessage = ''; // Limpia el mensaje después de 3 segundos
+      }, 3000);
+    }
   }
 }

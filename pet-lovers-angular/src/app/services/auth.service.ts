@@ -9,7 +9,7 @@ export class AuthService {
   login(email: string, password: string, rememberMe: boolean = false): any {
     if (!db) return null;
     const user = db.authenticate(email, password);
-    if (user && rememberMe) {
+    if (user && rememberMe && this.isLocalStorageAvailable()) {
       localStorage.setItem('rememberedUser', JSON.stringify(user));
     }
     return user;
@@ -34,7 +34,14 @@ export class AuthService {
   }
 
   checkRememberedUser(): any {
-    const rememberedUser = localStorage.getItem('rememberedUser');
-    return rememberedUser ? JSON.parse(rememberedUser) : null;
+    if (this.isLocalStorageAvailable()) {
+      const rememberedUser = localStorage.getItem('rememberedUser');
+      return rememberedUser ? JSON.parse(rememberedUser) : null;
+    }
+    return null;
+  }
+
+  private isLocalStorageAvailable(): boolean {
+    return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
   }
 }

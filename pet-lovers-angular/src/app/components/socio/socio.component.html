@@ -130,24 +130,24 @@
 
         <div class="events-grid">
             <div *ngFor="let event of filteredEvents" class="event-card">
-                <div class="event-status" [ngClass]="{
-                    'available': event.status === 'available',
-                    'joined': event.status === 'joined',
-                    'full': event.status === 'full'
+              <div class="event-status" [ngClass]="{
+                  'status-disponible': event.status === 'Disponible',
+                  'status-apuntado': event.status === 'Apuntado',
+                  'status-lleno': event.status === 'Lleno'
                 }">
-                    {{ event.status | uppercase }}
-                </div>
-                <h3>{{ event.title }}</h3>
-                <p>{{ event.description }}</p>
-                <p><strong>Fecha:</strong> {{ event.date }} - <strong>Hora:</strong> {{ event.time }}</p>
-                <p><strong>Lugar:</strong> {{ event.location }}</p>
-                <p><strong>Participantes:</strong> {{ event.participants.length }}/{{ event.maxParticipants }}</p>
-                <div class="event-actions">
-                    <button *ngIf="event.status === 'available'" class="btn-join" (click)="joinEvent(event.id)">Unirse</button>
-                    <button *ngIf="event.status === 'joined'" class="btn-leave" (click)="leaveEvent(event.id)">Salir</button>
-                </div>
+                {{ event.status }}
+              </div>
+              <h3>{{ event.title }}</h3>
+              <p>{{ event.description }}</p>
+              <p><strong>Fecha:</strong> {{ event.date }} - <strong>Hora:</strong> {{ event.time }}</p>
+              <p><strong>Lugar:</strong> {{ event.location }}</p>
+              <p><strong>Participantes:</strong> {{ event.participants.length }}/{{ event.maxParticipants }}</p>
+              <div class="event-actions">
+                <button *ngIf="event.status === 'Disponible'" class="btn-join" (click)="joinEvent(event.id)">Unirse</button>
+                <button *ngIf="event.status === 'Apuntado'" class="btn-leave" (click)="leaveEvent(event.id)">Salir</button>
+              </div>
             </div>
-        </div>
+          </div>
     </section>
 
     <!-- Pets Section -->
@@ -200,44 +200,48 @@
 
         <div class="profile-content">
             <div class="profile-card">
-                <div class="profile-header">
-                    <div class="profile-avatar" id="profileAvatar">S</div>
-                    <div class="profile-info">
-                        <h3>{{ profileName }}</h3>
-                        <p>{{ profileEmail }}</p>
-                        <span class="member-since">Miembro desde <span>{{ memberSince }}</span></span>
-                    </div>
+              <div class="profile-header">
+                <div class="profile-avatar" id="profileAvatar">{{ profileName.charAt(0).toUpperCase() }}</div>
+                <div class="profile-info">
+                  <h3>{{ profileName }}</h3>
+                  <p>{{ profileEmail }}</p>
+                  <span class="member-since">Miembro desde <span>{{ memberSince }}</span></span>
                 </div>
+              </div>
 
-                <form id="profileForm" class="profile-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="profileNameInput">Nombre Completo</label>
-                            <input type="text" id="profileNameInput" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="profilePhoneInput">Teléfono</label>
-                            <input type="tel" id="profilePhoneInput" name="phone" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="profileEmailInput">Correo Electrónico</label>
-                        <input type="email" id="profileEmailInput" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="profileAddressInput">Dirección</label>
-                        <input type="text" id="profileAddressInput" name="address">
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-save"></i>
-                            Guardar Cambios
-                        </button>
-                    </div>
-                </form>
+              <div *ngIf="successMessage" class="success-message">
+                {{ successMessage }}
+              </div>
+            
+              <form id="profileForm" class="profile-form" (submit)="updateProfile($event)">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="profileNameInput">Nombre Completo</label>
+                    <input type="text" id="profileNameInput" name="name" [(ngModel)]="formName" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="profilePhoneInput">Teléfono</label>
+                    <input type="tel" id="profilePhoneInput" name="phone" [(ngModel)]="formPhone" required>
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                  <label for="profileEmailInput">Correo Electrónico</label>
+                  <input type="email" id="profileEmailInput" name="email" [(ngModel)]="formEmail" required>
+                </div>
+              
+                <div class="form-group">
+                  <label for="profileAddressInput">Dirección</label>
+                  <input type="text" id="profileAddressInput" name="address" [(ngModel)]="formAddress">
+                </div>
+              
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i>
+                    Guardar Cambios
+                  </button>
+                </div>
+              </form>
             </div>
 
             <div class="activity-card">
