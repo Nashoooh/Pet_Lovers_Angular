@@ -1,3 +1,14 @@
+/**
+ * @description Componente para restablecimiento de contraseña.
+ * Permite al usuario definir una nueva contraseña, validando requisitos y confirmación.
+ * Muestra feedback visual y redirige al login tras el éxito.
+ *
+ * @usageNotes
+ * <app-reset-password></app-reset-password>
+ *
+ * Este componente espera recibir el email del usuario como parámetro en la URL.
+ */
+
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, RouterLink} from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -30,6 +41,10 @@ export class ResetPasswordComponent {
     private route: ActivatedRoute // Servicio para obtener parámetros de la URL
   ) {}
 
+  /**
+   * @description Inicializa el componente y obtiene el email desde los parámetros de la URL.
+   * @returns void
+   */
   ngOnInit(): void {
     // Obtén el correo electrónico desde los parámetros de la URL
     this.route.queryParams.subscribe(params => {
@@ -37,6 +52,10 @@ export class ResetPasswordComponent {
     });
   }
 
+  /**
+   * @description Valida los requisitos de la nueva contraseña (longitud, mayúscula, minúscula, número, símbolo).
+   * @returns void
+   */
   validatePassword(): void {
     this.passwordRequirements['length'] = this.newPassword.length >= 6;
     this.passwordRequirements['uppercase'] = /[A-Z]/.test(this.newPassword);
@@ -45,6 +64,13 @@ export class ResetPasswordComponent {
     this.passwordRequirements['symbol'] = /[!@#$%^&*]/.test(this.newPassword);
   }
 
+  /**
+   * @description Realiza el proceso de restablecimiento de contraseña.
+   * Valida campos, muestra feedback y llama al servicio de autenticación.
+   * @returns void
+   * @usageNotes
+   * Llama a este método desde el formulario con (ngSubmit)="resetPassword()".
+   */
   resetPassword(): void {
     if (!this.newPassword || !this.confirmPassword) {
       alert('Por favor completa todos los campos.');
@@ -70,13 +96,21 @@ export class ResetPasswordComponent {
     }, 1000);
   }
 
+  /**
+   * @description Abre el modal de restablecimiento de contraseña.
+   * @returns void
+   */
   openPasswordResetModal(): void {
     this.isPasswordResetModalOpen = true;
   }
 
+  /**
+   * @description Cierra el modal de restablecimiento de contraseña y redirige al login.
+   * @returns void
+   */
   closePasswordResetModal(): void {
-    this.isPasswordResetModalOpen = false; // Cierra el modal
-    this.router.navigate(['/login']); // Redirige al login después de cerrar el modal
+    this.isPasswordResetModalOpen = false;
+    this.router.navigate(['/login']);
   }
 
 }

@@ -1,3 +1,14 @@
+/**
+ * @description Componente de panel de administración.
+ * Permite a los administradores gestionar usuarios, eventos y ver estadísticas generales del sistema.
+ * Incluye navegación entre secciones, acciones CRUD y feedback visual.
+ *
+ * @usageNotes
+ * <app-admin></app-admin>
+ *
+ * Este componente es accesible solo para usuarios autenticados como administradores.
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
@@ -35,6 +46,10 @@ export class AdminComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  /**
+   * @description Inicializa el componente y carga los datos principales del panel admin.
+   * @returns void
+   */
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
     if (!this.currentUser || this.currentUser.type !== 'admin') {
@@ -45,6 +60,10 @@ export class AdminComponent implements OnInit {
     this.initializeAdmin();
   }
 
+  /**
+   * @description Inicializa el panel de administración cargando estadísticas, dashboard, eventos, socios y mascotas.
+   * @returns void
+   */
   initializeAdmin(): void {
     this.loadStats();
     this.loadDashboard();
@@ -53,6 +72,10 @@ export class AdminComponent implements OnInit {
     this.loadPets();
   }
 
+  /**
+   * @description Carga las estadísticas generales del sistema.
+   * @returns void
+   */
   loadStats(): void {
     if (db) {
       this.stats = db.getStats();
@@ -61,6 +84,10 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Carga los datos del dashboard, incluyendo eventos y usuarios recientes.
+   * @returns void
+   */
   loadDashboard(): void {
     const allEvents = db ? db.getEvents() : [];
     const allUsers = db ? db.getUsers().filter((user: { type: string; }) => user.type === 'socio') : [];
@@ -72,6 +99,10 @@ export class AdminComponent implements OnInit {
     this.recentSocios = allUsers.slice(-3).reverse();
   }
 
+  /**
+   * @description Carga la lista de eventos registrados.
+   * @returns void
+   */
   loadEvents(): void {
     if (db) {
       this.events = db.getEvents();
@@ -81,11 +112,19 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Carga la lista de socios registrados.
+   * @returns void
+   */
   loadSocios(): void {
     this.socios = db ? db.getUsers().filter((user: { type: string; }) => user.type === 'socio') : [];
     this.filteredSocios = [...this.socios]; // Inicializa los socios filtrados
   }
 
+  /**
+   * @description Carga la lista de mascotas y usuarios (dueños de mascotas).
+   * @returns void
+   */
   loadPets(): void {
     if (db) {
       this.pets = db.getPets();
@@ -95,20 +134,38 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Cambia la sección activa del panel admin.
+   * @param section Nombre de la sección a mostrar.
+   * @returns void
+   */
   handleNavigation(section: string): void {
     this.activeSection = section;
   }
 
+  /**
+   * @description Alterna el estado del sidebar (abierto/cerrado).
+   * @returns void
+   */
   toggleSidebar(): void {
     const sidebar = document.querySelector('.sidebar');
     sidebar?.classList.toggle('open');
   }
 
+  /**
+   * @description Cierra el sidebar si está abierto.
+   * @returns void
+   */
   closeSidebar(): void {
     const sidebar = document.querySelector('.sidebar');
     sidebar?.classList.remove('open');
   }
 
+  /**
+   * @description Abre el modal para crear o editar un evento.
+   * @param eventId ID del evento a editar (opcional).
+   * @returns void
+   */
   openEventModal(eventId: string | null = null): void {
     this.isEventModalOpen = true; // Abre el modal
   
@@ -131,6 +188,11 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Abre el modal para ver la lista de participantes de un evento.
+   * @param eventId ID del evento cuyos participantes se desean ver.
+   * @returns void
+   */
   openParticipantsModal(eventId: string): void {
     console.log('Botón Ver presionado para el evento con ID:', eventId);
     const event = this.events.find(e => e.id === eventId);
@@ -152,15 +214,27 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Cierra el modal de eventos.
+   * @returns void
+   */
   closeEventModal(): void {
     this.isEventModalOpen = false;
   }
 
+  /**
+   * @description Cierra el modal de participantes.
+   * @returns void
+   */
   closeParticipantsModal(): void {
     this.isParticipantsModalOpen = false; // Cierra el modal
     this.participants = []; // Limpia la lista de participantes
   }
   
+  /**
+   * @description Guarda un evento (crea o edita según corresponda).
+   * @returns void
+   */
   saveEvent(): void {
     if (this.eventFormData.id) {
       // Editar evento existente usando updateEvent
@@ -184,6 +258,11 @@ export class AdminComponent implements OnInit {
     this.closeEventModal();
   }
 
+  /**
+   * @description Maneja el envío del formulario del evento, ya sea para crear o actualizar.
+   * @param eventData Datos del evento a guardar.
+   * @returns void
+   */
   handleEventSubmit(eventData: any): void {
     const eventId = eventData.eventId;
 
@@ -208,6 +287,11 @@ export class AdminComponent implements OnInit {
     this.loadDashboard();
   }
 
+  /**
+   * @description Edita un evento existente, cargando sus datos en el formulario.
+   * @param eventId ID del evento a editar.
+   * @returns void
+   */
   editEvent(eventId: string): void {
     const event = this.events.find(e => e.id === eventId);
     if (event) {
@@ -219,6 +303,11 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Elimina un evento del sistema.
+   * @param eventId ID del evento a eliminar.
+   * @returns void
+   */
   deleteEvent(eventId: string): void {
     const event = this.events.find(e => e.id === eventId);
     if (event && confirm(`¿Estás seguro de que quieres eliminar el evento "${event.title}"?`)) {
@@ -245,12 +334,22 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Abre el modal de eliminación de evento para confirmar la acción.
+   * @param eventId ID del evento a eliminar.
+   * @param eventTitle Título del evento a eliminar.
+   * @returns void
+   */
   openDeleteModal(eventId: string, eventTitle: string): void {
     this.isDeleteModalOpen = true;
     this.eventToDeleteId = eventId;
     this.eventToDeleteTitle = eventTitle;
   }
 
+  /**
+   * @description Confirma la eliminación de un evento y actualiza la interfaz.
+   * @returns void
+   */
   confirmDeleteEvent(): void {
     if (this.eventToDeleteId) {
       if (db) {
@@ -279,12 +378,21 @@ export class AdminComponent implements OnInit {
     this.closeDeleteModal();
   }
 
+  /**
+   * @description Cierra el modal de eliminación.
+   * @returns void
+   */
   closeDeleteModal(): void {
     this.isDeleteModalOpen = false;
     this.eventToDeleteId = null;
     this.eventToDeleteTitle = null;
   }
 
+  /**
+   * @description Muestra los participantes de un evento en la consola (lógica a implementar para modal).
+   * @param eventId ID del evento cuyos participantes se desean ver.
+   * @returns void
+   */
   viewParticipants(eventId: string): void {
     const participants = db ? db.getEventParticipants(eventId) : [];
     const event = db ? db.getEvents().find((e: { id: string; }) => e.id === eventId) : null;
@@ -293,16 +401,30 @@ export class AdminComponent implements OnInit {
     console.log(`Participantes del evento "${event.title}":`, participants);
   }
 
+  /**
+   * @description Muestra una notificación en la interfaz.
+   * @param message Mensaje de la notificación.
+   * @param type Tipo de notificación (success, error, info, etc.).
+   * @returns void
+   */
   showNotification(message: string, type: string = 'info'): void {
     // Implementa la lógica para mostrar notificaciones en Angular
     console.log(`[${type.toUpperCase()}] ${message}`);
   }
 
+  /**
+   * @description Cierra la sesión del administrador y redirige al login.
+   * @returns void
+   */
   onLogout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
   
+  /**
+   * @description Filtra la lista de socios según el término de búsqueda.
+   * @returns void
+   */
   filterSocios(): void {
     const term = this.searchTerm.toLowerCase();
     this.filteredSocios = this.socios.filter(socio =>
@@ -310,19 +432,39 @@ export class AdminComponent implements OnInit {
     );
   }
 
+  /**
+   * @description Obtiene las mascotas de un dueño específico.
+   * @param ownerId ID del dueño cuyas mascotas se desean obtener.
+   * @returns Array de mascotas del dueño.
+   */
   getPetsByOwner(ownerId: string): any[] {
     return db ? db.getPets().filter((pet: { ownerId: string; }) => pet.ownerId === ownerId) : [];
   }
   
+  /**
+   * @description Obtiene los eventos en los que participa un usuario específico.
+   * @param participantId ID del participante cujos eventos se desean obtener.
+   * @returns Array de eventos en los que participa el usuario.
+   */
   getEventsByParticipant(participantId: string): any[] {
     return db ? db.getEvents().filter((event: { participants: string | string[]; }) => event.participants.includes(participantId)) : [];
   }
   
+  /**
+   * @description Formatea una fecha en el formato dd/mm/yyyy.
+   * @param date Fecha a formatear.
+   * @returns Fecha formateada como cadena.
+   */
   formatDate(date: string): string {
     const d = new Date(date);
     return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
   }
   
+  /**
+   * @description Obtiene el nombre de un dueño a partir de su ID.
+   * @param ownerId ID del dueño.
+   * @returns Nombre del dueño o 'N/A' si no se encuentra.
+   */
   getOwnerName(ownerId: string): string {
     const owner = this.users.find(user => user.id === ownerId);
     return owner ? owner.name : 'N/A';

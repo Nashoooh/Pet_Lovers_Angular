@@ -1,0 +1,4601 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pet-lovers-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">pet-lovers-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AdminComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/admin/admin.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-admin</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>FormsModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./admin.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./admin.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeSection" >activeSection</a>
+                            </li>
+                            <li>
+                                <a href="#currentUser" >currentUser</a>
+                            </li>
+                            <li>
+                                <a href="#eventFormData" >eventFormData</a>
+                            </li>
+                            <li>
+                                <a href="#events" >events</a>
+                            </li>
+                            <li>
+                                <a href="#eventToDeleteId" >eventToDeleteId</a>
+                            </li>
+                            <li>
+                                <a href="#eventToDeleteTitle" >eventToDeleteTitle</a>
+                            </li>
+                            <li>
+                                <a href="#filteredSocios" >filteredSocios</a>
+                            </li>
+                            <li>
+                                <a href="#isDeleteModalOpen" >isDeleteModalOpen</a>
+                            </li>
+                            <li>
+                                <a href="#isEventModalOpen" >isEventModalOpen</a>
+                            </li>
+                            <li>
+                                <a href="#isParticipantsModalOpen" >isParticipantsModalOpen</a>
+                            </li>
+                            <li>
+                                <a href="#isSidebarOpen" >isSidebarOpen</a>
+                            </li>
+                            <li>
+                                <a href="#participants" >participants</a>
+                            </li>
+                            <li>
+                                <a href="#participantsModalTitle" >participantsModalTitle</a>
+                            </li>
+                            <li>
+                                <a href="#pets" >pets</a>
+                            </li>
+                            <li>
+                                <a href="#recentEvents" >recentEvents</a>
+                            </li>
+                            <li>
+                                <a href="#recentSocios" >recentSocios</a>
+                            </li>
+                            <li>
+                                <a href="#searchTerm" >searchTerm</a>
+                            </li>
+                            <li>
+                                <a href="#socios" >socios</a>
+                            </li>
+                            <li>
+                                <a href="#stats" >stats</a>
+                            </li>
+                            <li>
+                                <a href="#users" >users</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeDeleteModal" >closeDeleteModal</a>
+                            </li>
+                            <li>
+                                <a href="#closeEventModal" >closeEventModal</a>
+                            </li>
+                            <li>
+                                <a href="#closeParticipantsModal" >closeParticipantsModal</a>
+                            </li>
+                            <li>
+                                <a href="#closeSidebar" >closeSidebar</a>
+                            </li>
+                            <li>
+                                <a href="#confirmDeleteEvent" >confirmDeleteEvent</a>
+                            </li>
+                            <li>
+                                <a href="#deleteEvent" >deleteEvent</a>
+                            </li>
+                            <li>
+                                <a href="#editEvent" >editEvent</a>
+                            </li>
+                            <li>
+                                <a href="#filterSocios" >filterSocios</a>
+                            </li>
+                            <li>
+                                <a href="#formatDate" >formatDate</a>
+                            </li>
+                            <li>
+                                <a href="#getEventsByParticipant" >getEventsByParticipant</a>
+                            </li>
+                            <li>
+                                <a href="#getOwnerName" >getOwnerName</a>
+                            </li>
+                            <li>
+                                <a href="#getPetsByOwner" >getPetsByOwner</a>
+                            </li>
+                            <li>
+                                <a href="#handleEventSubmit" >handleEventSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#handleNavigation" >handleNavigation</a>
+                            </li>
+                            <li>
+                                <a href="#initializeAdmin" >initializeAdmin</a>
+                            </li>
+                            <li>
+                                <a href="#loadDashboard" >loadDashboard</a>
+                            </li>
+                            <li>
+                                <a href="#loadEvents" >loadEvents</a>
+                            </li>
+                            <li>
+                                <a href="#loadPets" >loadPets</a>
+                            </li>
+                            <li>
+                                <a href="#loadSocios" >loadSocios</a>
+                            </li>
+                            <li>
+                                <a href="#loadStats" >loadStats</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onLogout" >onLogout</a>
+                            </li>
+                            <li>
+                                <a href="#openDeleteModal" >openDeleteModal</a>
+                            </li>
+                            <li>
+                                <a href="#openEventModal" >openEventModal</a>
+                            </li>
+                            <li>
+                                <a href="#openParticipantsModal" >openParticipantsModal</a>
+                            </li>
+                            <li>
+                                <a href="#saveEvent" >saveEvent</a>
+                            </li>
+                            <li>
+                                <a href="#showNotification" >showNotification</a>
+                            </li>
+                            <li>
+                                <a href="#toggleSidebar" >toggleSidebar</a>
+                            </li>
+                            <li>
+                                <a href="#viewParticipants" >viewParticipants</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/admin/admin.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeDeleteModal"></a>
+                    <span class="name">
+                        <span ><b>closeDeleteModal</b></span>
+                        <a href="#closeDeleteModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeDeleteModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="385"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:385</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeEventModal"></a>
+                    <span class="name">
+                        <span ><b>closeEventModal</b></span>
+                        <a href="#closeEventModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeEventModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="221"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:221</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeParticipantsModal"></a>
+                    <span class="name">
+                        <span ><b>closeParticipantsModal</b></span>
+                        <a href="#closeParticipantsModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeParticipantsModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="229"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:229</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeSidebar"></a>
+                    <span class="name">
+                        <span ><b>closeSidebar</b></span>
+                        <a href="#closeSidebar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeSidebar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="159"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmDeleteEvent"></a>
+                    <span class="name">
+                        <span ><b>confirmDeleteEvent</b></span>
+                        <a href="#confirmDeleteEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirmDeleteEvent()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="353"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:353</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteEvent"></a>
+                    <span class="name">
+                        <span ><b>deleteEvent</b></span>
+                        <a href="#deleteEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteEvent(eventId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="311"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:311</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>eventId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del evento a eliminar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editEvent"></a>
+                    <span class="name">
+                        <span ><b>editEvent</b></span>
+                        <a href="#editEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editEvent(eventId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="295"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:295</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>eventId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del evento a editar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterSocios"></a>
+                    <span class="name">
+                        <span ><b>filterSocios</b></span>
+                        <a href="#filterSocios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>filterSocios()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="428"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:428</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatDate"></a>
+                    <span class="name">
+                        <span ><b>formatDate</b></span>
+                        <a href="#formatDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formatDate(date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="458"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:458</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>date</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Fecha a formatear.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Fecha formateada como cadena.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEventsByParticipant"></a>
+                    <span class="name">
+                        <span ><b>getEventsByParticipant</b></span>
+                        <a href="#getEventsByParticipant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getEventsByParticipant(participantId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="449"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:449</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>participantId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del participante cujos eventos se desean obtener.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>any[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Array de eventos en los que participa el usuario.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getOwnerName"></a>
+                    <span class="name">
+                        <span ><b>getOwnerName</b></span>
+                        <a href="#getOwnerName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getOwnerName(ownerId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="468"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:468</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ownerId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del dueño.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Nombre del dueño o &#39;N/A&#39; si no se encuentra.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPetsByOwner"></a>
+                    <span class="name">
+                        <span ><b>getPetsByOwner</b></span>
+                        <a href="#getPetsByOwner"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPetsByOwner(ownerId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="440"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:440</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ownerId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del dueño cuyas mascotas se desean obtener.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>any[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Array de mascotas del dueño.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleEventSubmit"></a>
+                    <span class="name">
+                        <span ><b>handleEventSubmit</b></span>
+                        <a href="#handleEventSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleEventSubmit(eventData: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="266"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:266</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>eventData</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Datos del evento a guardar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleNavigation"></a>
+                    <span class="name">
+                        <span ><b>handleNavigation</b></span>
+                        <a href="#handleNavigation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleNavigation(section: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>section</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Nombre de la sección a mostrar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeAdmin"></a>
+                    <span class="name">
+                        <span ><b>initializeAdmin</b></span>
+                        <a href="#initializeAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeAdmin()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadDashboard"></a>
+                    <span class="name">
+                        <span ><b>loadDashboard</b></span>
+                        <a href="#loadDashboard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadDashboard()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadEvents"></a>
+                    <span class="name">
+                        <span ><b>loadEvents</b></span>
+                        <a href="#loadEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadEvents()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadPets"></a>
+                    <span class="name">
+                        <span ><b>loadPets</b></span>
+                        <a href="#loadPets"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadPets()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadSocios"></a>
+                    <span class="name">
+                        <span ><b>loadSocios</b></span>
+                        <a href="#loadSocios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadSocios()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadStats"></a>
+                    <span class="name">
+                        <span ><b>loadStats</b></span>
+                        <a href="#loadStats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadStats()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onLogout"></a>
+                    <span class="name">
+                        <span ><b>onLogout</b></span>
+                        <a href="#onLogout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onLogout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="419"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:419</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDeleteModal"></a>
+                    <span class="name">
+                        <span ><b>openDeleteModal</b></span>
+                        <a href="#openDeleteModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openDeleteModal(eventId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, eventTitle: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="343"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:343</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>eventId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del evento a eliminar.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>eventTitle</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Título del evento a eliminar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openEventModal"></a>
+                    <span class="name">
+                        <span ><b>openEventModal</b></span>
+                        <a href="#openEventModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openEventModal(eventId: string | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="169"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>eventId</td>
+                                            <td>
+                                                        <code>string | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>null</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>ID del evento a editar (opcional).</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openParticipantsModal"></a>
+                    <span class="name">
+                        <span ><b>openParticipantsModal</b></span>
+                        <a href="#openParticipantsModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openParticipantsModal(eventId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="196"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:196</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>eventId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del evento cuyos participantes se desean ver.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveEvent"></a>
+                    <span class="name">
+                        <span ><b>saveEvent</b></span>
+                        <a href="#saveEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>saveEvent()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="238"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:238</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showNotification"></a>
+                    <span class="name">
+                        <span ><b>showNotification</b></span>
+                        <a href="#showNotification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showNotification(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="410"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:410</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>Mensaje de la notificación.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;info&#x27;</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>Tipo de notificación (success, error, info, etc.).</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSidebar"></a>
+                    <span class="name">
+                        <span ><b>toggleSidebar</b></span>
+                        <a href="#toggleSidebar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleSidebar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="150"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:150</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="viewParticipants"></a>
+                    <span class="name">
+                        <span ><b>viewParticipants</b></span>
+                        <a href="#viewParticipants"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>viewParticipants(eventId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="396"
+                                    class="link-to-prism">src/app/components/admin/admin.component.ts:396</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>eventId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del evento cuyos participantes se desean ver.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeSection"></a>
+                    <span class="name">
+                        <span ><b>activeSection</b></span>
+                        <a href="#activeSection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;dashboard&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/admin/admin.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentUser"></a>
+                    <span class="name">
+                        <span ><b>currentUser</b></span>
+                        <a href="#currentUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/admin/admin.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eventFormData"></a>
+                    <span class="name">
+                        <span ><b>eventFormData</b></span>
+                        <a href="#eventFormData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/admin/admin.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="events"></a>
+                    <span class="name">
+                        <span ><b>events</b></span>
+                        <a href="#events"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/admin/admin.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eventToDeleteId"></a>
+                    <span class="name">
+                        <span ><b>eventToDeleteId</b></span>
+                        <a href="#eventToDeleteId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/admin/admin.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eventToDeleteTitle"></a>
+                    <span class="name">
+                        <span ><b>eventToDeleteTitle</b></span>
+                        <a href="#eventToDeleteTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/admin/admin.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filteredSocios"></a>
+                    <span class="name">
+                        <span ><b>filteredSocios</b></span>
+                        <a href="#filteredSocios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/admin/admin.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDeleteModalOpen"></a>
+                    <span class="name">
+                        <span ><b>isDeleteModalOpen</b></span>
+                        <a href="#isDeleteModalOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/admin/admin.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEventModalOpen"></a>
+                    <span class="name">
+                        <span ><b>isEventModalOpen</b></span>
+                        <a href="#isEventModalOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/admin/admin.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isParticipantsModalOpen"></a>
+                    <span class="name">
+                        <span ><b>isParticipantsModalOpen</b></span>
+                        <a href="#isParticipantsModalOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/admin/admin.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSidebarOpen"></a>
+                    <span class="name">
+                        <span ><b>isSidebarOpen</b></span>
+                        <a href="#isSidebarOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/admin/admin.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="participants"></a>
+                    <span class="name">
+                        <span ><b>participants</b></span>
+                        <a href="#participants"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/admin/admin.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="participantsModalTitle"></a>
+                    <span class="name">
+                        <span ><b>participantsModalTitle</b></span>
+                        <a href="#participantsModalTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/admin/admin.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pets"></a>
+                    <span class="name">
+                        <span ><b>pets</b></span>
+                        <a href="#pets"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/admin/admin.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recentEvents"></a>
+                    <span class="name">
+                        <span ><b>recentEvents</b></span>
+                        <a href="#recentEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/admin/admin.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recentSocios"></a>
+                    <span class="name">
+                        <span ><b>recentSocios</b></span>
+                        <a href="#recentSocios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/admin/admin.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchTerm"></a>
+                    <span class="name">
+                        <span ><b>searchTerm</b></span>
+                        <a href="#searchTerm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/admin/admin.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="socios"></a>
+                    <span class="name">
+                        <span ><b>socios</b></span>
+                        <a href="#socios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/admin/admin.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stats"></a>
+                    <span class="name">
+                        <span ><b>stats</b></span>
+                        <a href="#stats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/admin/admin.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="users"></a>
+                    <span class="name">
+                        <span ><b>users</b></span>
+                        <a href="#users"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/admin/admin.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { AuthService } from &#x27;../../services/auth.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { db } from &#x27;../../data/data&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;; // Importa FormsModule para usar [(ngModel)]
+
+@Component({
+  selector: &#x27;app-admin&#x27;,
+  imports: [CommonModule, FormsModule],
+  templateUrl: &#x27;./admin.component.html&#x27;,
+  styleUrls: [&#x27;./admin.component.scss&#x27;]
+})
+export class AdminComponent implements OnInit {
+  currentUser: any;
+  activeSection: string &#x3D; &#x27;dashboard&#x27;; // Sección activa
+  stats: any &#x3D; {};
+  events: any[] &#x3D; [];
+  socios: any[] &#x3D; [];
+  pets: any[] &#x3D; [];
+  users: any[] &#x3D; [];
+  recentEvents: any[] &#x3D; [];
+  recentSocios: any[] &#x3D; [];
+  isEventModalOpen: boolean &#x3D; false; // Controla la visibilidad del modal de eventos
+  eventFormData: any;
+  isParticipantsModalOpen: boolean &#x3D; false; // Controla la visibilidad del modal de participantes
+  participants: any[] &#x3D; []; // Lista de participantes del evento actual
+  participantsModalTitle: string &#x3D; &#x27;&#x27;; // Título del modal de participantes
+  isDeleteModalOpen: boolean &#x3D; false; // Controla la visibilidad del modal de eliminación
+  eventToDeleteId: string | null &#x3D; null; // ID del evento a eliminar
+  eventToDeleteTitle: string | null &#x3D; null; // Título del evento a eliminar
+  searchTerm: string &#x3D; &#x27;&#x27;;
+  filteredSocios: any[] &#x3D; [];
+  isSidebarOpen: boolean &#x3D; false; // Controla el estado del sidebar
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  /**
+   * @description Inicializa el componente y carga los datos principales del panel admin.
+   * @returns void
+   */
+  ngOnInit(): void {
+    this.currentUser &#x3D; this.authService.getCurrentUser();
+    if (!this.currentUser || this.currentUser.type !&#x3D;&#x3D; &#x27;admin&#x27;) {
+      this.router.navigate([&#x27;/login&#x27;]);
+      return;
+    }
+
+    this.initializeAdmin();
+  }
+
+  /**
+   * @description Inicializa el panel de administración cargando estadísticas, dashboard, eventos, socios y mascotas.
+   * @returns void
+   */
+  initializeAdmin(): void {
+    this.loadStats();
+    this.loadDashboard();
+    this.loadEvents();
+    this.loadSocios();
+    this.loadPets();
+  }
+
+  /**
+   * @description Carga las estadísticas generales del sistema.
+   * @returns void
+   */
+  loadStats(): void {
+    if (db) {
+      this.stats &#x3D; db.getStats();
+    } else {
+      console.error(&#x27;Database object is null&#x27;);
+    }
+  }
+
+  /**
+   * @description Carga los datos del dashboard, incluyendo eventos y usuarios recientes.
+   * @returns void
+   */
+  loadDashboard(): void {
+    const allEvents &#x3D; db ? db.getEvents() : [];
+    const allUsers &#x3D; db ? db.getUsers().filter((user: { type: string; }) &#x3D;&gt; user.type &#x3D;&#x3D;&#x3D; &#x27;socio&#x27;) : [];
+
+    // Eventos recientes
+    this.recentEvents &#x3D; allEvents.slice(-3).reverse();
+
+    // Socios recientes
+    this.recentSocios &#x3D; allUsers.slice(-3).reverse();
+  }
+
+  /**
+   * @description Carga la lista de eventos registrados.
+   * @returns void
+   */
+  loadEvents(): void {
+    if (db) {
+      this.events &#x3D; db.getEvents();
+      console.log(&#x27;Eventos cargados:&#x27;, this.events); // Depuración
+    } else {
+      console.error(&#x27;Database object is null&#x27;);
+    }
+  }
+
+  /**
+   * @description Carga la lista de socios registrados.
+   * @returns void
+   */
+  loadSocios(): void {
+    this.socios &#x3D; db ? db.getUsers().filter((user: { type: string; }) &#x3D;&gt; user.type &#x3D;&#x3D;&#x3D; &#x27;socio&#x27;) : [];
+    this.filteredSocios &#x3D; [...this.socios]; // Inicializa los socios filtrados
+  }
+
+  /**
+   * @description Carga la lista de mascotas y usuarios (dueños de mascotas).
+   * @returns void
+   */
+  loadPets(): void {
+    if (db) {
+      this.pets &#x3D; db.getPets();
+      this.users &#x3D; db.getUsers();
+    } else {
+      console.error(&#x27;Database object is null&#x27;);
+    }
+  }
+
+  /**
+   * @description Cambia la sección activa del panel admin.
+   * @param section Nombre de la sección a mostrar.
+   * @returns void
+   */
+  handleNavigation(section: string): void {
+    this.activeSection &#x3D; section;
+  }
+
+  /**
+   * @description Alterna el estado del sidebar (abierto/cerrado).
+   * @returns void
+   */
+  toggleSidebar(): void {
+    const sidebar &#x3D; document.querySelector(&#x27;.sidebar&#x27;);
+    sidebar?.classList.toggle(&#x27;open&#x27;);
+  }
+
+  /**
+   * @description Cierra el sidebar si está abierto.
+   * @returns void
+   */
+  closeSidebar(): void {
+    const sidebar &#x3D; document.querySelector(&#x27;.sidebar&#x27;);
+    sidebar?.classList.remove(&#x27;open&#x27;);
+  }
+
+  /**
+   * @description Abre el modal para crear o editar un evento.
+   * @param eventId ID del evento a editar (opcional).
+   * @returns void
+   */
+  openEventModal(eventId: string | null &#x3D; null): void {
+    this.isEventModalOpen &#x3D; true; // Abre el modal
+  
+    if (eventId) {
+      const event &#x3D; this.events.find(e &#x3D;&gt; e.id &#x3D;&#x3D;&#x3D; eventId);
+      if (event) {
+        this.eventFormData &#x3D; { ...event }; // Carga los datos del evento en el formulario
+      }
+    } else {
+      this.eventFormData &#x3D; {
+        id: null,
+        title: &#x27;&#x27;,
+        description: &#x27;&#x27;,
+        date: &#x27;&#x27;,
+        time: &#x27;&#x27;,
+        location: &#x27;&#x27;,
+        maxParticipants: 0,
+        participants: []
+      };
+    }
+  }
+
+  /**
+   * @description Abre el modal para ver la lista de participantes de un evento.
+   * @param eventId ID del evento cuyos participantes se desean ver.
+   * @returns void
+   */
+  openParticipantsModal(eventId: string): void {
+    console.log(&#x27;Botón Ver presionado para el evento con ID:&#x27;, eventId);
+    const event &#x3D; this.events.find(e &#x3D;&gt; e.id &#x3D;&#x3D;&#x3D; eventId);
+    if (event) {
+      console.log(&#x27;Evento encontrado:&#x27;, event);
+  
+      this.participants &#x3D; event.participants.map((participantId: any) &#x3D;&gt; {
+        const user &#x3D; db ? db.getUsers().find((u: { id: any; }) &#x3D;&gt; u.id &#x3D;&#x3D;&#x3D; participantId) : null;
+        return user || { name: &#x27;Usuario no encontrado&#x27;, email: &#x27;&#x27;, phone: &#x27;&#x27; };
+      });
+  
+      console.log(&#x27;Participantes cargados:&#x27;, this.participants);
+  
+      this.participantsModalTitle &#x3D; &#x60;Participantes del Evento: ${event.title}&#x60;;
+      this.isParticipantsModalOpen &#x3D; true; // Abre el modal
+      console.log(&#x27;isParticipantsModalOpen:&#x27;, this.isParticipantsModalOpen);
+    } else {
+      console.log(&#x27;Evento no encontrado&#x27;);
+    }
+  }
+
+  /**
+   * @description Cierra el modal de eventos.
+   * @returns void
+   */
+  closeEventModal(): void {
+    this.isEventModalOpen &#x3D; false;
+  }
+
+  /**
+   * @description Cierra el modal de participantes.
+   * @returns void
+   */
+  closeParticipantsModal(): void {
+    this.isParticipantsModalOpen &#x3D; false; // Cierra el modal
+    this.participants &#x3D; []; // Limpia la lista de participantes
+  }
+  
+  /**
+   * @description Guarda un evento (crea o edita según corresponda).
+   * @returns void
+   */
+  saveEvent(): void {
+    if (this.eventFormData.id) {
+      // Editar evento existente usando updateEvent
+      if (db) {
+        db.updateEvent(this.eventFormData.id, this.eventFormData);
+      } else {
+        console.error(&#x27;Database object is null&#x27;);
+      }
+    } else {
+      // Crear nuevo evento usando addEvent
+      if (db) {
+        const newEvent &#x3D; { ...this.eventFormData, id: Date.now().toString() };
+        db.addEvent(newEvent);
+      } else {
+        console.error(&#x27;Database object is null&#x27;);
+      }
+    }
+  
+    // Recargar eventos y cerrar el modal
+    this.loadEvents();
+    this.closeEventModal();
+  }
+
+  /**
+   * @description Maneja el envío del formulario del evento, ya sea para crear o actualizar.
+   * @param eventData Datos del evento a guardar.
+   * @returns void
+   */
+  handleEventSubmit(eventData: any): void {
+    const eventId &#x3D; eventData.eventId;
+
+    if (eventId) {
+      if (db) {
+        db.updateEvent(eventId, eventData);
+      } else {
+        console.error(&#x27;Database object is null&#x27;);
+      }
+      this.showNotification(&#x27;Evento actualizado correctamente&#x27;, &#x27;success&#x27;);
+    } else {
+      if (db) {
+        db.addEvent(eventData);
+      } else {
+        console.error(&#x27;Database object is null&#x27;);
+      }
+      this.showNotification(&#x27;Evento creado correctamente&#x27;, &#x27;success&#x27;);
+    }
+
+    this.loadEvents();
+    this.loadStats();
+    this.loadDashboard();
+  }
+
+  /**
+   * @description Edita un evento existente, cargando sus datos en el formulario.
+   * @param eventId ID del evento a editar.
+   * @returns void
+   */
+  editEvent(eventId: string): void {
+    const event &#x3D; this.events.find(e &#x3D;&gt; e.id &#x3D;&#x3D;&#x3D; eventId);
+    if (event) {
+      console.log(&#x60;Editar evento con ID: ${eventId}&#x60;);
+      this.eventFormData &#x3D; { ...event }; // Carga los datos del evento en el formulario
+      this.isEventModalOpen &#x3D; true; // Abre el modal para editar el evento
+    } else {
+      console.error(&#x60;Evento con ID ${eventId} no encontrado&#x60;);
+    }
+  }
+
+  /**
+   * @description Elimina un evento del sistema.
+   * @param eventId ID del evento a eliminar.
+   * @returns void
+   */
+  deleteEvent(eventId: string): void {
+    const event &#x3D; this.events.find(e &#x3D;&gt; e.id &#x3D;&#x3D;&#x3D; eventId);
+    if (event &amp;&amp; confirm(&#x60;¿Estás seguro de que quieres eliminar el evento &quot;${event.title}&quot;?&#x60;)) {
+      if (db) {
+        db.deleteEvent(eventId); // Usa el método del servicio para eliminar el evento
+      } else {
+        console.error(&#x27;El objeto db no está inicializado&#x27;);
+        return;
+      }
+  
+      // Actualiza el array local de eventos
+      this.events &#x3D; this.events.filter(e &#x3D;&gt; e.id !&#x3D;&#x3D; eventId);
+  
+      // Actualiza el localStorage
+      localStorage.setItem(&#x27;events&#x27;, JSON.stringify(this.events));
+  
+      // Recarga los datos y actualiza la interfaz
+      this.loadEvents(); // Recarga los eventos
+      this.loadStats(); // Actualiza las estadísticas
+      this.loadDashboard(); // Actualiza el dashboard
+  
+      // Muestra una notificación de éxito
+      this.showNotification(&#x27;Evento eliminado correctamente&#x27;, &#x27;success&#x27;);
+    }
+  }
+
+  /**
+   * @description Abre el modal de eliminación de evento para confirmar la acción.
+   * @param eventId ID del evento a eliminar.
+   * @param eventTitle Título del evento a eliminar.
+   * @returns void
+   */
+  openDeleteModal(eventId: string, eventTitle: string): void {
+    this.isDeleteModalOpen &#x3D; true;
+    this.eventToDeleteId &#x3D; eventId;
+    this.eventToDeleteTitle &#x3D; eventTitle;
+  }
+
+  /**
+   * @description Confirma la eliminación de un evento y actualiza la interfaz.
+   * @returns void
+   */
+  confirmDeleteEvent(): void {
+    if (this.eventToDeleteId) {
+      if (db) {
+        db.deleteEvent(this.eventToDeleteId); // Usa el método del servicio para eliminar el evento
+      } else {
+        console.error(&#x27;El objeto db no está inicializado&#x27;);
+        return;
+      }
+
+      // Actualiza el array local de eventos
+      this.events &#x3D; this.events.filter(e &#x3D;&gt; e.id !&#x3D;&#x3D; this.eventToDeleteId);
+
+      // Actualiza el localStorage
+      localStorage.setItem(&#x27;events&#x27;, JSON.stringify(this.events));
+
+      // Recarga los datos y actualiza la interfaz
+      this.loadEvents(); // Recarga los eventos
+      this.loadStats(); // Actualiza las estadísticas
+      this.loadDashboard(); // Actualiza el dashboard
+
+      // Muestra una notificación de éxito
+      this.showNotification(&#x27;Evento eliminado correctamente&#x27;, &#x27;success&#x27;);
+    }
+
+    // Cierra el modal
+    this.closeDeleteModal();
+  }
+
+  /**
+   * @description Cierra el modal de eliminación.
+   * @returns void
+   */
+  closeDeleteModal(): void {
+    this.isDeleteModalOpen &#x3D; false;
+    this.eventToDeleteId &#x3D; null;
+    this.eventToDeleteTitle &#x3D; null;
+  }
+
+  /**
+   * @description Muestra los participantes de un evento en la consola (lógica a implementar para modal).
+   * @param eventId ID del evento cuyos participantes se desean ver.
+   * @returns void
+   */
+  viewParticipants(eventId: string): void {
+    const participants &#x3D; db ? db.getEventParticipants(eventId) : [];
+    const event &#x3D; db ? db.getEvents().find((e: { id: string; }) &#x3D;&gt; e.id &#x3D;&#x3D;&#x3D; eventId) : null;
+
+    // Aquí puedes implementar la lógica para mostrar los participantes en un modal
+    console.log(&#x60;Participantes del evento &quot;${event.title}&quot;:&#x60;, participants);
+  }
+
+  /**
+   * @description Muestra una notificación en la interfaz.
+   * @param message Mensaje de la notificación.
+   * @param type Tipo de notificación (success, error, info, etc.).
+   * @returns void
+   */
+  showNotification(message: string, type: string &#x3D; &#x27;info&#x27;): void {
+    // Implementa la lógica para mostrar notificaciones en Angular
+    console.log(&#x60;[${type.toUpperCase()}] ${message}&#x60;);
+  }
+
+  /**
+   * @description Cierra la sesión del administrador y redirige al login.
+   * @returns void
+   */
+  onLogout(): void {
+    this.authService.logout();
+    this.router.navigate([&#x27;/login&#x27;]);
+  }
+  
+  /**
+   * @description Filtra la lista de socios según el término de búsqueda.
+   * @returns void
+   */
+  filterSocios(): void {
+    const term &#x3D; this.searchTerm.toLowerCase();
+    this.filteredSocios &#x3D; this.socios.filter(socio &#x3D;&gt;
+      socio.name.toLowerCase().includes(term) || socio.email.toLowerCase().includes(term)
+    );
+  }
+
+  /**
+   * @description Obtiene las mascotas de un dueño específico.
+   * @param ownerId ID del dueño cuyas mascotas se desean obtener.
+   * @returns Array de mascotas del dueño.
+   */
+  getPetsByOwner(ownerId: string): any[] {
+    return db ? db.getPets().filter((pet: { ownerId: string; }) &#x3D;&gt; pet.ownerId &#x3D;&#x3D;&#x3D; ownerId) : [];
+  }
+  
+  /**
+   * @description Obtiene los eventos en los que participa un usuario específico.
+   * @param participantId ID del participante cujos eventos se desean obtener.
+   * @returns Array de eventos en los que participa el usuario.
+   */
+  getEventsByParticipant(participantId: string): any[] {
+    return db ? db.getEvents().filter((event: { participants: string | string[]; }) &#x3D;&gt; event.participants.includes(participantId)) : [];
+  }
+  
+  /**
+   * @description Formatea una fecha en el formato dd/mm/yyyy.
+   * @param date Fecha a formatear.
+   * @returns Fecha formateada como cadena.
+   */
+  formatDate(date: string): string {
+    const d &#x3D; new Date(date);
+    return &#x60;${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}&#x60;;
+  }
+  
+  /**
+   * @description Obtiene el nombre de un dueño a partir de su ID.
+   * @param ownerId ID del dueño.
+   * @returns Nombre del dueño o &#x27;N/A&#x27; si no se encuentra.
+   */
+  getOwnerName(ownerId: string): string {
+    const owner &#x3D; this.users.find(user &#x3D;&gt; user.id &#x3D;&#x3D;&#x3D; ownerId);
+    return owner ? owner.name : &#x27;N/A&#x27;;
+  }
+  
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;aside class&#x3D;&quot;sidebar&quot;&gt;
+    &lt;div class&#x3D;&quot;sidebar-header&quot;&gt;
+        &lt;div class&#x3D;&quot;sidebar-brand&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-paw&quot;&gt;&lt;/i&gt;
+            &lt;span&gt;Patitas Felices&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;button class&#x3D;&quot;sidebar-close&quot; (click)&#x3D;&quot;closeSidebar()&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-times&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;nav class&#x3D;&quot;sidebar-nav&quot;&gt;
+        &lt;ul&gt;
+            &lt;li class&#x3D;&quot;nav-item&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;dashboard&#x27;&quot;&gt;
+                &lt;a class&#x3D;&quot;nav-link&quot; (click)&#x3D;&quot;handleNavigation(&#x27;dashboard&#x27;); closeSidebar()&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-tachometer-alt&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;Dashboard&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;events&#x27;&quot;&gt;
+                &lt;a class&#x3D;&quot;nav-link&quot; (click)&#x3D;&quot;handleNavigation(&#x27;events&#x27;); closeSidebar()&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-calendar&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;Eventos&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;socios&#x27;&quot;&gt;
+                &lt;a class&#x3D;&quot;nav-link&quot; (click)&#x3D;&quot;handleNavigation(&#x27;socios&#x27;); closeSidebar()&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-users&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;Socios&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;pets&#x27;&quot;&gt;
+                &lt;a class&#x3D;&quot;nav-link&quot; (click)&#x3D;&quot;handleNavigation(&#x27;pets&#x27;); closeSidebar()&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-heart&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;Mascotas&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+
+    &lt;div class&#x3D;&quot;sidebar-footer&quot;&gt;
+        &lt;div class&#x3D;&quot;user-info&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-user-shield&quot;&gt;&lt;/i&gt;
+            &lt;div&gt;
+                &lt;span class&#x3D;&quot;user-name&quot; id&#x3D;&quot;adminName&quot;&gt;Administrador&lt;/span&gt;
+                &lt;span class&#x3D;&quot;user-role&quot;&gt;Admin&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button (click)&#x3D;&quot;onLogout()&quot; class&#x3D;&quot;logout-btn&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-sign-out-alt&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/aside&gt;
+
+&lt;!-- Main Content --&gt;
+&lt;main class&#x3D;&quot;main-content&quot;&gt;
+    &lt;!-- Header --&gt;
+    &lt;header class&#x3D;&quot;content-header&quot;&gt;
+      &lt;div class&#x3D;&quot;header-left&quot;&gt;
+          &lt;button class&#x3D;&quot;sidebar-toggle&quot; (click)&#x3D;&quot;toggleSidebar()&quot;&gt;
+              &lt;i class&#x3D;&quot;fas fa-bars&quot;&gt;&lt;/i&gt;
+          &lt;/button&gt;
+          &lt;h1 id&#x3D;&quot;pageTitle&quot;&gt;Dashboard&lt;/h1&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;!-- Dashboard Section --&gt;
+    &lt;section id&#x3D;&quot;dashboard&quot; class&#x3D;&quot;content-section&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;dashboard&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;stats-grid&quot;&gt;
+            &lt;div class&#x3D;&quot;stat-card&quot;&gt;
+                &lt;div class&#x3D;&quot;stat-icon&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-users&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;stat-content&quot;&gt;
+                    &lt;h3&gt;{{ stats.totalSocios }}&lt;/h3&gt;
+                    &lt;p&gt;Socios Activos&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;stat-card&quot;&gt;
+                &lt;div class&#x3D;&quot;stat-icon&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-calendar&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;stat-content&quot;&gt;
+                    &lt;h3&gt;{{ stats.totalEvents }}&lt;/h3&gt;
+                    &lt;p&gt;Eventos Totales&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;stat-card&quot;&gt;
+                &lt;div class&#x3D;&quot;stat-icon&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-heart&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;stat-content&quot;&gt;
+                    &lt;h3&gt;{{ stats.totalPets }}&lt;/h3&gt;
+                    &lt;p&gt;Mascotas Registradas&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;stat-card&quot;&gt;
+                &lt;div class&#x3D;&quot;stat-icon&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-user-check&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;stat-content&quot;&gt;
+                    &lt;h3&gt;{{ stats.totalParticipants }}&lt;/h3&gt;
+                    &lt;p&gt;Participaciones&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/section&gt;
+
+    &lt;!-- Events Section --&gt;
+    &lt;section id&#x3D;&quot;events&quot; class&#x3D;&quot;content-section&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;events&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;section-header&quot;&gt;
+            &lt;h2&gt;Gestión de Eventos&lt;/h2&gt;
+            &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;openEventModal()&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-plus&quot;&gt;&lt;/i&gt;
+                Nuevo Evento
+            &lt;/button&gt;
+        &lt;/div&gt;
+    
+        &lt;div class&#x3D;&quot;events-table&quot;&gt;
+            &lt;table&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Evento&lt;/th&gt;
+                        &lt;th&gt;Fecha&lt;/th&gt;
+                        &lt;th&gt;Ubicación&lt;/th&gt;
+                        &lt;th&gt;Participantes&lt;/th&gt;
+                        &lt;th&gt;Acciones&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    &lt;tr *ngFor&#x3D;&quot;let event of events&quot;&gt;
+                      &lt;td&gt;
+                        &lt;strong&gt;{{ event.title }}&lt;/strong&gt;&lt;br&gt;
+                        &lt;small&gt;{{ event.description }}&lt;/small&gt;
+                      &lt;/td&gt;
+                      &lt;td&gt;
+                        {{ event.date }}&lt;br&gt;
+                        &lt;small&gt;{{ event.time }}&lt;/small&gt;
+                      &lt;/td&gt;
+                      &lt;td&gt;{{ event.location }}&lt;/td&gt;
+                      &lt;td&gt;{{ event.participants.length }}/{{ event.maxParticipants }}&lt;/td&gt;
+                      &lt;td&gt;
+                        &lt;div class&#x3D;&quot;table-actions&quot;&gt;
+                          &lt;button class&#x3D;&quot;btn-sm btn-view&quot; (click)&#x3D;&quot;openParticipantsModal(event.id)&quot;&gt;
+                            &lt;i class&#x3D;&quot;fas fa-eye&quot;&gt;&lt;/i&gt; Ver
+                          &lt;/button&gt;
+                          &lt;button class&#x3D;&quot;btn-sm btn-edit&quot; (click)&#x3D;&quot;openEventModal(event.id)&quot;&gt;
+                            &lt;i class&#x3D;&quot;fas fa-edit&quot;&gt;&lt;/i&gt; Editar
+                          &lt;/button&gt;
+                          &lt;button class&#x3D;&quot;btn-sm btn-delete&quot; (click)&#x3D;&quot;openDeleteModal(event.id, event.title)&quot;&gt;
+                            &lt;i class&#x3D;&quot;fas fa-trash&quot;&gt;&lt;/i&gt; Eliminar
+                          &lt;/button&gt;
+                        &lt;/div&gt;
+                      &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr *ngIf&#x3D;&quot;events.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+                      &lt;td colspan&#x3D;&quot;5&quot; style&#x3D;&quot;text-align: center;&quot;&gt;No hay eventos registrados&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Socios Section --&gt;
+    &lt;section id&#x3D;&quot;socios&quot; class&#x3D;&quot;content-section&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;socios&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;section-header&quot;&gt;
+          &lt;h2&gt;Gestión de Socios&lt;/h2&gt;
+          &lt;div class&#x3D;&quot;search-box&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-search&quot;&gt;&lt;/i&gt;
+            &lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;Buscar socio...&quot; id&#x3D;&quot;socioSearch&quot; [(ngModel)]&#x3D;&quot;searchTerm&quot; (input)&#x3D;&quot;filterSocios()&quot;&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      
+        &lt;div class&#x3D;&quot;socios-grid&quot; id&#x3D;&quot;sociosGrid&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;filteredSocios.length &#x3D;&#x3D;&#x3D; 0&quot; style&#x3D;&quot;grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-light);&quot;&gt;
+            No hay socios registrados
+          &lt;/div&gt;
+          &lt;div *ngFor&#x3D;&quot;let socio of filteredSocios&quot; class&#x3D;&quot;socio-card&quot;&gt;
+            &lt;div class&#x3D;&quot;socio-header&quot;&gt;
+              &lt;div class&#x3D;&quot;socio-avatar&quot;&gt;
+                {{ socio.name.charAt(0).toUpperCase() }}
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;socio-info&quot;&gt;
+                &lt;h4&gt;{{ socio.name }}&lt;/h4&gt;
+                &lt;p&gt;{{ socio.email }}&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;socio-details&quot;&gt;
+              &lt;div class&#x3D;&quot;socio-detail&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-phone&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;{{ socio.phone }}&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;socio.address&quot; class&#x3D;&quot;socio-detail&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-map-marker-alt&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;{{ socio.address }}&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;socio-detail&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-calendar&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;Registrado el {{ formatDate(socio.createdAt) }}&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;socio-stats&quot;&gt;
+              &lt;div class&#x3D;&quot;socio-stat&quot;&gt;
+                &lt;span class&#x3D;&quot;number&quot;&gt;{{ getPetsByOwner(socio.id).length }}&lt;/span&gt;
+                &lt;span class&#x3D;&quot;label&quot;&gt;Mascotas&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;socio-stat&quot;&gt;
+                &lt;span class&#x3D;&quot;number&quot;&gt;{{ getEventsByParticipant(socio.id).length }}&lt;/span&gt;
+                &lt;span class&#x3D;&quot;label&quot;&gt;Eventos&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+    &lt;!-- Pets Section --&gt;
+    &lt;section id&#x3D;&quot;pets&quot; class&#x3D;&quot;content-section&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;pets&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;section-header&quot;&gt;
+          &lt;h2&gt;Mascotas Registradas&lt;/h2&gt;
+        &lt;/div&gt;
+      
+        &lt;div class&#x3D;&quot;pets-table&quot;&gt;
+          &lt;table&gt;
+            &lt;thead&gt;
+              &lt;tr&gt;
+                &lt;th&gt;Mascota&lt;/th&gt;
+                &lt;th&gt;Propietario&lt;/th&gt;
+                &lt;th&gt;Tipo&lt;/th&gt;
+                &lt;th&gt;Raza&lt;/th&gt;
+                &lt;th&gt;Edad&lt;/th&gt;
+                &lt;th&gt;Estado&lt;/th&gt;
+              &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+              &lt;tr *ngIf&#x3D;&quot;pets.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+                &lt;td colspan&#x3D;&quot;6&quot; style&#x3D;&quot;text-align: center; padding: 2rem; color: var(--text-light);&quot;&gt;
+                  No hay mascotas registradas
+                &lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr *ngFor&#x3D;&quot;let pet of pets&quot;&gt;
+                &lt;td&gt;
+                  &lt;strong&gt;{{ pet.name }}&lt;/strong&gt;&lt;br&gt;
+                  &lt;small style&#x3D;&quot;color: var(--text-light);&quot;&gt;{{ pet.color }}&lt;/small&gt;
+                &lt;/td&gt;
+                &lt;td&gt;{{ getOwnerName(pet.ownerId) }}&lt;/td&gt;
+                &lt;td&gt;{{ pet.type }}&lt;/td&gt;
+                &lt;td&gt;{{ pet.breed }}&lt;/td&gt;
+                &lt;td&gt;{{ pet.age }} año{{ pet.age !&#x3D;&#x3D; 1 ? &#x27;s&#x27; : &#x27;&#x27; }}&lt;/td&gt;
+                &lt;td&gt;
+                  &lt;div style&#x3D;&quot;display: flex; gap: 0.5rem; flex-wrap: wrap;&quot;&gt;
+                    &lt;span class&#x3D;&quot;badge&quot; [ngClass]&#x3D;&quot;pet.vaccinated ? &#x27;badge-vaccinated&#x27; : &#x27;badge-not-vaccinated&#x27;&quot;&gt;
+                      {{ pet.vaccinated ? &#x27;Vacunado&#x27; : &#x27;No vacunado&#x27; }}
+                    &lt;/span&gt;
+                    &lt;span class&#x3D;&quot;badge&quot; [ngClass]&#x3D;&quot;pet.sterilized ? &#x27;badge-sterilized&#x27; : &#x27;badge-not-sterilized&#x27;&quot;&gt;
+                      {{ pet.sterilized ? &#x27;Esterilizado&#x27; : &#x27;No esterilizado&#x27; }}
+                    &lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/tbody&gt;
+          &lt;/table&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;!-- Modal para crear/editar evento --&gt;
+&lt;div *ngIf&#x3D;&quot;isEventModalOpen&quot; class&#x3D;&quot;modal show&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;h3&gt;{{ eventFormData.id ? &#x27;Editar Evento&#x27; : &#x27;Nuevo Evento&#x27; }}&lt;/h3&gt;
+        &lt;button class&#x3D;&quot;modal-close&quot; (click)&#x3D;&quot;closeEventModal()&quot;&gt;
+          &lt;i class&#x3D;&quot;fas fa-times&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+        &lt;form (ngSubmit)&#x3D;&quot;saveEvent()&quot;&gt;
+            &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;eventTitle&quot;&gt;Título del Evento&lt;/label&gt;
+            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;eventTitle&quot; [(ngModel)]&#x3D;&quot;eventFormData.title&quot; name&#x3D;&quot;title&quot; required&gt;
+            &lt;/div&gt;
+    
+            &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;eventDescription&quot;&gt;Descripción&lt;/label&gt;
+            &lt;textarea id&#x3D;&quot;eventDescription&quot; [(ngModel)]&#x3D;&quot;eventFormData.description&quot; name&#x3D;&quot;description&quot; rows&#x3D;&quot;3&quot; required&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+    
+            &lt;div class&#x3D;&quot;form-row&quot;&gt;
+            &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                &lt;label for&#x3D;&quot;eventDate&quot;&gt;Fecha&lt;/label&gt;
+                &lt;input type&#x3D;&quot;date&quot; id&#x3D;&quot;eventDate&quot; [(ngModel)]&#x3D;&quot;eventFormData.date&quot; name&#x3D;&quot;date&quot; required&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                &lt;label for&#x3D;&quot;eventTime&quot;&gt;Hora&lt;/label&gt;
+                &lt;input type&#x3D;&quot;time&quot; id&#x3D;&quot;eventTime&quot; [(ngModel)]&#x3D;&quot;eventFormData.time&quot; name&#x3D;&quot;time&quot; required&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+    
+            &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;eventLocation&quot;&gt;Ubicación&lt;/label&gt;
+            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;eventLocation&quot; [(ngModel)]&#x3D;&quot;eventFormData.location&quot; name&#x3D;&quot;location&quot; required&gt;
+            &lt;/div&gt;
+    
+            &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;eventMaxParticipants&quot;&gt;Máximo de Participantes&lt;/label&gt;
+            &lt;input type&#x3D;&quot;number&quot; id&#x3D;&quot;eventMaxParticipants&quot; [(ngModel)]&#x3D;&quot;eventFormData.maxParticipants&quot; name&#x3D;&quot;maxParticipants&quot; min&#x3D;&quot;1&quot; required&gt;
+            &lt;/div&gt;
+    
+            &lt;div class&#x3D;&quot;modal-actions&quot;&gt;
+            &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;closeEventModal()&quot;&gt;Cancelar&lt;/button&gt;
+            &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;saveEvent()&quot;&gt;Guardar Evento&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;!-- Modal para ver participantes --&gt;
+&lt;div *ngIf&#x3D;&quot;isParticipantsModalOpen&quot; id&#x3D;&quot;participantsModal&quot; class&#x3D;&quot;modal show&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;h3&gt;{{ participantsModalTitle }}&lt;/h3&gt;
+        &lt;button class&#x3D;&quot;modal-close&quot; (click)&#x3D;&quot;closeParticipantsModal()&quot;&gt;
+          &lt;i class&#x3D;&quot;fas fa-times&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;participants-list&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;participants.length &#x3D;&#x3D;&#x3D; 0&quot; style&#x3D;&quot;text-align: center; color: var(--text-light);&quot;&gt;
+          No hay participantes registrados
+        &lt;/div&gt;
+        &lt;div *ngFor&#x3D;&quot;let participant of participants&quot; class&#x3D;&quot;participant-item&quot;&gt;
+          &lt;div class&#x3D;&quot;participant-avatar&quot;&gt;
+            {{ participant.name.charAt(0).toUpperCase() }}
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;participant-info&quot;&gt;
+            &lt;h4&gt;{{ participant.name }}&lt;/h4&gt;
+            &lt;p&gt;{{ participant.email }} • {{ participant.phone }}&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;!-- Modal de confirmación de eliminación --&gt;
+&lt;div *ngIf&#x3D;&quot;isDeleteModalOpen&quot; class&#x3D;&quot;modal show&quot;&gt;
+&lt;div class&#x3D;&quot;modal-content&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+    &lt;h3&gt;Confirmar eliminación&lt;/h3&gt;
+    &lt;button class&#x3D;&quot;modal-close&quot; (click)&#x3D;&quot;closeDeleteModal()&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-times&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;p&gt;¿Estás seguro de que quieres eliminar el evento &quot;&lt;strong&gt;{{ eventToDeleteTitle }}&lt;/strong&gt;&quot;?&lt;/p&gt;
+        &lt;div class&#x3D;&quot;modal-actions&quot;&gt;
+            &lt;button class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;closeDeleteModal()&quot;&gt;Cancelar&lt;/button&gt;
+            &lt;button class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;confirmDeleteEvent()&quot;&gt;Eliminar&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./admin.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* Estilos para el panel de administrador */
+
+.admin-body {
+    margin: 0;
+    font-family: &#x27;Arial&#x27;, sans-serif;
+    background: var(--light-gray);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(135deg, var(--text-dark), #2C2C2C);
+    color: var(--white);
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.sidebar-brand i {
+    margin-right: 10px;
+    color: var(--soft-pink);
+    font-size: 1.8rem;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 2rem 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin-bottom: 0.5rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+
+.nav-item.active .nav-link {
+    background: rgba(184, 230, 255, 0.2);
+    color: var(--white);
+    border-left-color: var(--soft-pink);
+}
+
+.nav-link i {
+    margin-right: 1rem;
+    font-size: 1.1rem;
+    width: 20px;
+}
+
+.sidebar-footer {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-info i {
+    font-size: 2rem;
+    color: var(--soft-pink);
+}
+
+.user-name {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.user-role {
+    display: block;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-left: 280px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-header {
+    background: var(--white);
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    color: var(--text-dark);
+    display: none;
+}
+
+.sidebar-toggle:hover {
+    background: var(--light-gray);
+}
+
+#pageTitle {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--soft-blue);
+    color: var(--text-dark);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--soft-blue);
+    color: var(--white);
+}
+
+/* Content Sections */
+.content-section {
+    display: none;
+    padding: 2rem;
+    flex: 1;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.stat-card:nth-child(1) .stat-icon {
+    background: linear-gradient(135deg, var(--soft-pink), var(--pastel-pink));
+}
+
+.stat-card:nth-child(2) .stat-icon {
+    background: linear-gradient(135deg, var(--soft-blue), var(--pastel-blue));
+}
+
+.stat-card:nth-child(3) .stat-icon {
+    background: linear-gradient(135deg, var(--soft-green), var(--pastel-green));
+}
+
+.stat-card:nth-child(4) .stat-icon {
+    background: linear-gradient(135deg, var(--soft-purple), var(--pastel-purple));
+}
+
+.stat-content h3 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.stat-content p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.dashboard-section {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.dashboard-section h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    font-size: 1.3rem;
+}
+
+/* Section Header */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.search-box {
+    position: relative;
+    max-width: 300px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+}
+
+.search-box input {
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    border: 2px solid var(--pastel-blue);
+    border-radius: 25px;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--soft-blue);
+}
+
+/* Tables */
+.events-table,
+.pets-table {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.events-table table,
+.pets-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.events-table th,
+.pets-table th {
+    background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-purple));
+    color: var(--text-dark);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.events-table td,
+.pets-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    color: var(--text-dark);
+}
+
+.events-table tbody tr:hover,
+.pets-table tbody tr:hover {
+    background: var(--light-gray);
+}
+
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.btn-view {
+    background: var(--pastel-blue);
+    color: var(--text-dark);
+}
+
+.btn-edit {
+    background: var(--pastel-yellow);
+    color: var(--text-dark);
+}
+
+.btn-delete {
+    background: #ffcdd2;
+    color: #d32f2f;
+}
+
+.btn-sm:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Socios Grid */
+.socios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.socio-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.socio-card:hover {
+    transform: translateY(-5px);
+}
+
+.socio-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.socio-avatar {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--soft-pink), var(--pastel-purple));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.5rem;
+}
+
+.socio-info h4 {
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.socio-info p {
+    margin: 0.25rem 0 0 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.socio-details {
+    margin-bottom: 1rem;
+}
+
+.socio-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.socio-detail i {
+    color: var(--soft-blue);
+    width: 16px;
+}
+
+.socio-stats {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.socio-stat {
+    text-align: center;
+}
+
+.socio-stat .number {
+    display: block;
+    font-weight: bold;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.socio-stat .label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-body {
+    padding: 20px; /* Espacio interno alrededor del formulario */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+  }
+  
+.modal-content {
+    background: var(--white);
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    padding: 2rem 2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: var(--light-gray);
+    color: var(--text-dark);
+}
+
+.modal-form {
+    padding: 2rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+/* Recent items */
+.recent-event,
+.recent-socio {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background: var(--light-gray);
+    margin-bottom: 1rem;
+}
+
+.recent-event i,
+.recent-socio i {
+    color: var(--soft-purple);
+    font-size: 1.2rem;
+}
+
+.recent-content h4 {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.recent-content p {
+    margin: 0.25rem 0 0 0;
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+/* Participants list */
+.participants-list {
+    padding: 2rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.participant-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background: var(--light-gray);
+    margin-bottom: 1rem;
+}
+
+.participant-avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--soft-green), var(--pastel-green));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: bold;
+}
+
+.participant-info h4 {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.participant-info p {
+    margin: 0.25rem 0 0 0;
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+/* Badge */
+.badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.badge-vaccinated {
+    background: var(--pastel-green);
+    color: var(--text-dark);
+}
+
+.badge-not-vaccinated {
+    background: #ffcdd2;
+    color: #d32f2f;
+}
+
+.badge-sterilized {
+    background: var(--pastel-blue);
+    color: var(--text-dark);
+}
+
+.badge-not-sterilized {
+    background: var(--pastel-yellow);
+    color: var(--text-dark);
+}
+
+@media (min-width: 769px) {
+    .sidebar-close {
+        display: none !important;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    /* Sidebar como overlay completo */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        transform: translateX(-100%);
+        z-index: 10000;
+        transition: transform 0.3s ease;
+        background: linear-gradient(135deg, var(--text-dark), #2C2C2C);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    /* Main content sin margen */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* Header modifications for mobile */
+    .content-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: var(--white);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .sidebar-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--pastel-blue);
+        color: var(--text-dark);
+        border: none;
+        border-radius: 8px;
+        padding: 0.75rem;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar-toggle:hover {
+        background: var(--soft-blue);
+        color: var(--white);
+    }
+
+    /* Mobile navigation improvements */
+    .sidebar-header {
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+    }
+
+    .sidebar-brand {
+        justify-content: center;
+        font-size: 1.3rem;
+    }
+
+    /* Close button for mobile sidebar */
+    .sidebar-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar-close:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--white);
+    }
+
+    /* Mobile navigation items */
+    .sidebar-nav {
+        padding: 1rem 0;
+    }
+
+    .nav-link {
+        padding: 1.25rem 2rem;
+        font-size: 1rem;
+        justify-content: flex-start;
+    }
+
+    .nav-link i {
+        margin-right: 1rem;
+        font-size: 1.2rem;
+        width: 25px;
+        text-align: center;
+    }
+
+    /* Mobile footer */
+    .sidebar-footer {
+        margin-top: auto;
+        padding: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Dashboard adjustments */
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+
+    .stat-card {
+        padding: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .dashboard-content {
+        grid-template-columns: 1fr;
+    }
+
+    /* Section headers mobile */
+    .section-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Tables responsive */
+    .events-table,
+    .pets-table {
+        overflow-x: auto;
+    }
+
+    .events-table table,
+    .pets-table table {
+        min-width: 600px;
+    }
+
+    .events-table th,
+    .pets-table th,
+    .events-table td,
+    .pets-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    /* Socios grid mobile */
+    .socios-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .socio-card {
+        padding: 1.5rem;
+    }
+
+    /* Forms mobile */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        margin: 1rem;
+        width: calc(100% - 2rem);
+        max-height: calc(100vh - 2rem);
+    }
+
+    .modal-form {
+        padding: 1.5rem;
+    }
+
+    /* Search box mobile */
+    .search-box {
+        max-width: 100%;
+    }
+
+    /* Buttons mobile */
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .table-actions {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .btn-sm {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .content-header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .header-left {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    #pageTitle {
+        font-size: 1.3rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .sidebar-brand {
+        font-size: 1.1rem;
+    }
+
+    .nav-link {
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><aside class="sidebar">    <div class="sidebar-header">        <div class="sidebar-brand">            <i class="fas fa-paw"></i>            <span>Patitas Felices</span>        </div>        <button class="sidebar-close" (click)="closeSidebar()">            <i class="fas fa-times"></i>        </button>    </div>    <nav class="sidebar-nav">        <ul>            <li class="nav-item" [class.active]="activeSection === \'dashboard\'">                <a class="nav-link" (click)="handleNavigation(\'dashboard\'); closeSidebar()">                    <i class="fas fa-tachometer-alt"></i>                    <span>Dashboard</span>                </a>            </li>            <li class="nav-item" [class.active]="activeSection === \'events\'">                <a class="nav-link" (click)="handleNavigation(\'events\'); closeSidebar()">                    <i class="fas fa-calendar"></i>                    <span>Eventos</span>                </a>            </li>            <li class="nav-item" [class.active]="activeSection === \'socios\'">                <a class="nav-link" (click)="handleNavigation(\'socios\'); closeSidebar()">                    <i class="fas fa-users"></i>                    <span>Socios</span>                </a>            </li>            <li class="nav-item" [class.active]="activeSection === \'pets\'">                <a class="nav-link" (click)="handleNavigation(\'pets\'); closeSidebar()">                    <i class="fas fa-heart"></i>                    <span>Mascotas</span>                </a>            </li>        </ul>    </nav>    <div class="sidebar-footer">        <div class="user-info">            <i class="fas fa-user-shield"></i>            <div>                <span class="user-name" id="adminName">Administrador</span>                <span class="user-role">Admin</span>            </div>        </div>        <button (click)="onLogout()" class="logout-btn">            <i class="fas fa-sign-out-alt"></i>        </button>    </div></aside><!-- Main Content --><main class="main-content">    <!-- Header -->    <header class="content-header">      <div class="header-left">          <button class="sidebar-toggle" (click)="toggleSidebar()">              <i class="fas fa-bars"></i>          </button>          <h1 id="pageTitle">Dashboard</h1>      </div>    </header>    <!-- Dashboard Section -->    <section id="dashboard" class="content-section" [class.active]="activeSection === \'dashboard\'">        <div class="stats-grid">            <div class="stat-card">                <div class="stat-icon">                    <i class="fas fa-users"></i>                </div>                <div class="stat-content">                    <h3>{{ stats.totalSocios }}</h3>                    <p>Socios Activos</p>                </div>            </div>            <div class="stat-card">                <div class="stat-icon">                    <i class="fas fa-calendar"></i>                </div>                <div class="stat-content">                    <h3>{{ stats.totalEvents }}</h3>                    <p>Eventos Totales</p>                </div>            </div>            <div class="stat-card">                <div class="stat-icon">                    <i class="fas fa-heart"></i>                </div>                <div class="stat-content">                    <h3>{{ stats.totalPets }}</h3>                    <p>Mascotas Registradas</p>                </div>            </div>            <div class="stat-card">                <div class="stat-icon">                    <i class="fas fa-user-check"></i>                </div>                <div class="stat-content">                    <h3>{{ stats.totalParticipants }}</h3>                    <p>Participaciones</p>                </div>            </div>        </div>    </section>    <!-- Events Section -->    <section id="events" class="content-section" [class.active]="activeSection === \'events\'">        <div class="section-header">            <h2>Gestión de Eventos</h2>            <button class="btn btn-primary" (click)="openEventModal()">                <i class="fas fa-plus"></i>                Nuevo Evento            </button>        </div>            <div class="events-table">            <table>                <thead>                    <tr>                        <th>Evento</th>                        <th>Fecha</th>                        <th>Ubicación</th>                        <th>Participantes</th>                        <th>Acciones</th>                    </tr>                </thead>                <tbody>                    <tr *ngFor="let event of events">                      <td>                        <strong>{{ event.title }}</strong><br>                        <small>{{ event.description }}</small>                      </td>                      <td>                        {{ event.date }}<br>                        <small>{{ event.time }}</small>                      </td>                      <td>{{ event.location }}</td>                      <td>{{ event.participants.length }}/{{ event.maxParticipants }}</td>                      <td>                        <div class="table-actions">                          <button class="btn-sm btn-view" (click)="openParticipantsModal(event.id)">                            <i class="fas fa-eye"></i> Ver                          </button>                          <button class="btn-sm btn-edit" (click)="openEventModal(event.id)">                            <i class="fas fa-edit"></i> Editar                          </button>                          <button class="btn-sm btn-delete" (click)="openDeleteModal(event.id, event.title)">                            <i class="fas fa-trash"></i> Eliminar                          </button>                        </div>                      </td>                    </tr>                    <tr *ngIf="events.length === 0">                      <td colspan="5" style="text-align: center;">No hay eventos registrados</td>                    </tr>                  </tbody>            </table>        </div>    </section>    <!-- Socios Section -->    <section id="socios" class="content-section" [class.active]="activeSection === \'socios\'">        <div class="section-header">          <h2>Gestión de Socios</h2>          <div class="search-box">            <i class="fas fa-search"></i>            <input type="text" placeholder="Buscar socio..." id="socioSearch" [(ngModel)]="searchTerm" (input)="filterSocios()">          </div>        </div>              <div class="socios-grid" id="sociosGrid">          <div *ngIf="filteredSocios.length === 0" style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-light);">            No hay socios registrados          </div>          <div *ngFor="let socio of filteredSocios" class="socio-card">            <div class="socio-header">              <div class="socio-avatar">                {{ socio.name.charAt(0).toUpperCase() }}              </div>              <div class="socio-info">                <h4>{{ socio.name }}</h4>                <p>{{ socio.email }}</p>              </div>            </div>            <div class="socio-details">              <div class="socio-detail">                <i class="fas fa-phone"></i>                <span>{{ socio.phone }}</span>              </div>              <div *ngIf="socio.address" class="socio-detail">                <i class="fas fa-map-marker-alt"></i>                <span>{{ socio.address }}</span>              </div>              <div class="socio-detail">                <i class="fas fa-calendar"></i>                <span>Registrado el {{ formatDate(socio.createdAt) }}</span>              </div>            </div>            <div class="socio-stats">              <div class="socio-stat">                <span class="number">{{ getPetsByOwner(socio.id).length }}</span>                <span class="label">Mascotas</span>              </div>              <div class="socio-stat">                <span class="number">{{ getEventsByParticipant(socio.id).length }}</span>                <span class="label">Eventos</span>              </div>            </div>          </div>        </div>      </section>    <!-- Pets Section -->    <section id="pets" class="content-section" [class.active]="activeSection === \'pets\'">        <div class="section-header">          <h2>Mascotas Registradas</h2>        </div>              <div class="pets-table">          <table>            <thead>              <tr>                <th>Mascota</th>                <th>Propietario</th>                <th>Tipo</th>                <th>Raza</th>                <th>Edad</th>                <th>Estado</th>              </tr>            </thead>            <tbody>              <tr *ngIf="pets.length === 0">                <td colspan="6" style="text-align: center; padding: 2rem; color: var(--text-light);">                  No hay mascotas registradas                </td>              </tr>              <tr *ngFor="let pet of pets">                <td>                  <strong>{{ pet.name }}</strong><br>                  <small style="color: var(--text-light);">{{ pet.color }}</small>                </td>                <td>{{ getOwnerName(pet.ownerId) }}</td>                <td>{{ pet.type }}</td>                <td>{{ pet.breed }}</td>                <td>{{ pet.age }} año{{ pet.age !== 1 ? \'s\' : \'\' }}</td>                <td>                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">                    <span class="badge" [ngClass]="pet.vaccinated ? \'badge-vaccinated\' : \'badge-not-vaccinated\'">                      {{ pet.vaccinated ? \'Vacunado\' : \'No vacunado\' }}                    </span>                    <span class="badge" [ngClass]="pet.sterilized ? \'badge-sterilized\' : \'badge-not-sterilized\'">                      {{ pet.sterilized ? \'Esterilizado\' : \'No esterilizado\' }}                    </span>                  </div>                </td>              </tr>            </tbody>          </table>        </div>      </section></main><!-- Modal para crear/editar evento --><div *ngIf="isEventModalOpen" class="modal show">    <div class="modal-content">      <div class="modal-header">        <h3>{{ eventFormData.id ? \'Editar Evento\' : \'Nuevo Evento\' }}</h3>        <button class="modal-close" (click)="closeEventModal()">          <i class="fas fa-times"></i>        </button>      </div>      <div class="modal-body">        <form (ngSubmit)="saveEvent()">            <div class="form-group">            <label for="eventTitle">Título del Evento</label>            <input type="text" id="eventTitle" [(ngModel)]="eventFormData.title" name="title" required>            </div>                <div class="form-group">            <label for="eventDescription">Descripción</label>            <textarea id="eventDescription" [(ngModel)]="eventFormData.description" name="description" rows="3" required></textarea>            </div>                <div class="form-row">            <div class="form-group">                <label for="eventDate">Fecha</label>                <input type="date" id="eventDate" [(ngModel)]="eventFormData.date" name="date" required>            </div>            <div class="form-group">                <label for="eventTime">Hora</label>                <input type="time" id="eventTime" [(ngModel)]="eventFormData.time" name="time" required>            </div>            </div>                <div class="form-group">            <label for="eventLocation">Ubicación</label>            <input type="text" id="eventLocation" [(ngModel)]="eventFormData.location" name="location" required>            </div>                <div class="form-group">            <label for="eventMaxParticipants">Máximo de Participantes</label>            <input type="number" id="eventMaxParticipants" [(ngModel)]="eventFormData.maxParticipants" name="maxParticipants" min="1" required>            </div>                <div class="modal-actions">            <button type="button" class="btn btn-secondary" (click)="closeEventModal()">Cancelar</button>            <button type="button" class="btn btn-primary" (click)="saveEvent()">Guardar Evento</button>            </div>        </form>      </div>    </div>  </div><!-- Modal para ver participantes --><div *ngIf="isParticipantsModalOpen" id="participantsModal" class="modal show">    <div class="modal-content">      <div class="modal-header">        <h3>{{ participantsModalTitle }}</h3>        <button class="modal-close" (click)="closeParticipantsModal()">          <i class="fas fa-times"></i>        </button>      </div>      <div class="participants-list">        <div *ngIf="participants.length === 0" style="text-align: center; color: var(--text-light);">          No hay participantes registrados        </div>        <div *ngFor="let participant of participants" class="participant-item">          <div class="participant-avatar">            {{ participant.name.charAt(0).toUpperCase() }}          </div>          <div class="participant-info">            <h4>{{ participant.name }}</h4>            <p>{{ participant.email }} • {{ participant.phone }}</p>          </div>        </div>      </div>    </div>  </div><!-- Modal de confirmación de eliminación --><div *ngIf="isDeleteModalOpen" class="modal show"><div class="modal-content">    <div class="modal-header">    <h3>Confirmar eliminación</h3>    <button class="modal-close" (click)="closeDeleteModal()">        <i class="fas fa-times"></i>    </button>    </div>    <div class="modal-body">    <p>¿Estás seguro de que quieres eliminar el evento "<strong>{{ eventToDeleteTitle }}</strong>"?</p>        <div class="modal-actions">            <button class="btn btn-secondary" (click)="closeDeleteModal()">Cancelar</button>            <button class="btn btn-danger" (click)="confirmDeleteEvent()">Eliminar</button>        </div>    </div></div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SocioComponent', 'selector': 'app-socio'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AdminComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

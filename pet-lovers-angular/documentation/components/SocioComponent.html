@@ -1,0 +1,4297 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pet-lovers-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">pet-lovers-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SocioComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/socio/socio.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-socio</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>FormsModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./socio.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./socio.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeFilter" >activeFilter</a>
+                            </li>
+                            <li>
+                                <a href="#activeSection" >activeSection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#authService" >authService</a>
+                            </li>
+                            <li>
+                                <a href="#db" >db</a>
+                            </li>
+                            <li>
+                                <a href="#events" >events</a>
+                            </li>
+                            <li>
+                                <a href="#filteredEvents" >filteredEvents</a>
+                            </li>
+                            <li>
+                                <a href="#formAddress" >formAddress</a>
+                            </li>
+                            <li>
+                                <a href="#formEmail" >formEmail</a>
+                            </li>
+                            <li>
+                                <a href="#formName" >formName</a>
+                            </li>
+                            <li>
+                                <a href="#formPhone" >formPhone</a>
+                            </li>
+                            <li>
+                                <a href="#memberSince" >memberSince</a>
+                            </li>
+                            <li>
+                                <a href="#myEventsCount" >myEventsCount</a>
+                            </li>
+                            <li>
+                                <a href="#myPets" >myPets</a>
+                            </li>
+                            <li>
+                                <a href="#myPetsCount" >myPetsCount</a>
+                            </li>
+                            <li>
+                                <a href="#petForm" >petForm</a>
+                            </li>
+                            <li>
+                                <a href="#petModalTitle" >petModalTitle</a>
+                            </li>
+                            <li>
+                                <a href="#profileAddress" >profileAddress</a>
+                            </li>
+                            <li>
+                                <a href="#profileAvatar" >profileAvatar</a>
+                            </li>
+                            <li>
+                                <a href="#profileEmail" >profileEmail</a>
+                            </li>
+                            <li>
+                                <a href="#profileName" >profileName</a>
+                            </li>
+                            <li>
+                                <a href="#profilePhone" >profilePhone</a>
+                            </li>
+                            <li>
+                                <a href="#selectedEvent" >selectedEvent</a>
+                            </li>
+                            <li>
+                                <a href="#socioName" >socioName</a>
+                            </li>
+                            <li>
+                                <a href="#successMessage" >successMessage</a>
+                            </li>
+                            <li>
+                                <a href="#upcomingEvents" >upcomingEvents</a>
+                            </li>
+                            <li>
+                                <a href="#userAvatar" >userAvatar</a>
+                            </li>
+                            <li>
+                                <a href="#welcomeName" >welcomeName</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closePetModal" >closePetModal</a>
+                            </li>
+                            <li>
+                                <a href="#deletePet" >deletePet</a>
+                            </li>
+                            <li>
+                                <a href="#editPet" >editPet</a>
+                            </li>
+                            <li>
+                                <a href="#filterEvents" >filterEvents</a>
+                            </li>
+                            <li>
+                                <a href="#initializeSocio" >initializeSocio</a>
+                            </li>
+                            <li>
+                                <a href="#joinEvent" >joinEvent</a>
+                            </li>
+                            <li>
+                                <a href="#leaveEvent" >leaveEvent</a>
+                            </li>
+                            <li>
+                                <a href="#loadDashboardData" >loadDashboardData</a>
+                            </li>
+                            <li>
+                                <a href="#loadEvents" >loadEvents</a>
+                            </li>
+                            <li>
+                                <a href="#loadMyPets" >loadMyPets</a>
+                            </li>
+                            <li>
+                                <a href="#loadProfile" >loadProfile</a>
+                            </li>
+                            <li>
+                                <a href="#navigateToSection" >navigateToSection</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onLogout" >onLogout</a>
+                            </li>
+                            <li>
+                                <a href="#openAddPetModal" >openAddPetModal</a>
+                            </li>
+                            <li>
+                                <a href="#openPetModal" >openPetModal</a>
+                            </li>
+                            <li>
+                                <a href="#savePet" >savePet</a>
+                            </li>
+                            <li>
+                                <a href="#switchSection" >switchSection</a>
+                            </li>
+                            <li>
+                                <a href="#updateProfile" >updateProfile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/components/socio/socio.component.ts:66</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closePetModal"></a>
+                    <span class="name">
+                        <span ><b>closePetModal</b></span>
+                        <a href="#closePetModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closePetModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="243"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:243</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deletePet"></a>
+                    <span class="name">
+                        <span ><b>deletePet</b></span>
+                        <a href="#deletePet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deletePet(petId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="353"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:353</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>petId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de la mascota a eliminar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editPet"></a>
+                    <span class="name">
+                        <span ><b>editPet</b></span>
+                        <a href="#editPet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editPet(petId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="339"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:339</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>petId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de la mascota a editar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterEvents"></a>
+                    <span class="name">
+                        <span ><b>filterEvents</b></span>
+                        <a href="#filterEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>filterEvents(filter: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="299"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:299</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filter</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Filtro a aplicar (&#39;all&#39;, &#39;available&#39;, &#39;joined&#39;).</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeSocio"></a>
+                    <span class="name">
+                        <span ><b>initializeSocio</b></span>
+                        <a href="#initializeSocio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeSocio(currentUser: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>currentUser</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Usuario autenticado actual.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="joinEvent"></a>
+                    <span class="name">
+                        <span ><b>joinEvent</b></span>
+                        <a href="#joinEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>joinEvent(eventId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="152"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:152</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>eventId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del evento.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leaveEvent"></a>
+                    <span class="name">
+                        <span ><b>leaveEvent</b></span>
+                        <a href="#leaveEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>leaveEvent(eventId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="168"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:168</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>eventId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del evento.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadDashboardData"></a>
+                    <span class="name">
+                        <span ><b>loadDashboardData</b></span>
+                        <a href="#loadDashboardData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadDashboardData(currentUser: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="113"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>currentUser</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Usuario autenticado actual.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadEvents"></a>
+                    <span class="name">
+                        <span ><b>loadEvents</b></span>
+                        <a href="#loadEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadEvents()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadMyPets"></a>
+                    <span class="name">
+                        <span ><b>loadMyPets</b></span>
+                        <a href="#loadMyPets"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadMyPets(currentUser: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="184"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:184</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>currentUser</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Usuario autenticado actual.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadProfile"></a>
+                    <span class="name">
+                        <span ><b>loadProfile</b></span>
+                        <a href="#loadProfile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadProfile(currentUser: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:194</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>currentUser</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Usuario autenticado actual.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateToSection"></a>
+                    <span class="name">
+                        <span ><b>navigateToSection</b></span>
+                        <a href="#navigateToSection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateToSection(section: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="264"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:264</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>section</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Nombre de la sección a la que se navega.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onLogout"></a>
+                    <span class="name">
+                        <span ><b>onLogout</b></span>
+                        <a href="#onLogout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onLogout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openAddPetModal"></a>
+                    <span class="name">
+                        <span ><b>openAddPetModal</b></span>
+                        <a href="#openAddPetModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openAddPetModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="318"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:318</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openPetModal"></a>
+                    <span class="name">
+                        <span ><b>openPetModal</b></span>
+                        <a href="#openPetModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openPetModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="232"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:232</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="savePet"></a>
+                    <span class="name">
+                        <span ><b>savePet</b></span>
+                        <a href="#savePet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>savePet()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="274"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:274</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Llama a este método desde el formulario de mascota con (ngSubmit)=&quot;savePet()&quot;.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="switchSection"></a>
+                    <span class="name">
+                        <span ><b>switchSection</b></span>
+                        <a href="#switchSection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>switchSection(section: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="255"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:255</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>section</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Nombre de la sección a mostrar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateProfile"></a>
+                    <span class="name">
+                        <span ><b>updateProfile</b></span>
+                        <a href="#updateProfile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateProfile(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="363"
+                                    class="link-to-prism">src/app/components/socio/socio.component.ts:363</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Evento del formulario.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>void</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeFilter"></a>
+                    <span class="name">
+                        <span ><b>activeFilter</b></span>
+                        <a href="#activeFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;all&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/components/socio/socio.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeSection"></a>
+                    <span class="name">
+                        <span ><b>activeSection</b></span>
+                        <a href="#activeSection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;dashboard&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/components/socio/socio.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>authService</b></span>
+                        <a href="#authService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/components/socio/socio.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="db"></a>
+                    <span class="name">
+                        <span ><b>db</b></span>
+                        <a href="#db"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>db</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/components/socio/socio.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="events"></a>
+                    <span class="name">
+                        <span ><b>events</b></span>
+                        <a href="#events"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/socio/socio.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filteredEvents"></a>
+                    <span class="name">
+                        <span ><b>filteredEvents</b></span>
+                        <a href="#filteredEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/socio/socio.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formAddress"></a>
+                    <span class="name">
+                        <span ><b>formAddress</b></span>
+                        <a href="#formAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/socio/socio.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formEmail"></a>
+                    <span class="name">
+                        <span ><b>formEmail</b></span>
+                        <a href="#formEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/socio/socio.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formName"></a>
+                    <span class="name">
+                        <span ><b>formName</b></span>
+                        <a href="#formName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/socio/socio.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formPhone"></a>
+                    <span class="name">
+                        <span ><b>formPhone</b></span>
+                        <a href="#formPhone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/socio/socio.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="memberSince"></a>
+                    <span class="name">
+                        <span ><b>memberSince</b></span>
+                        <a href="#memberSince"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/socio/socio.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="myEventsCount"></a>
+                    <span class="name">
+                        <span ><b>myEventsCount</b></span>
+                        <a href="#myEventsCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/socio/socio.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="myPets"></a>
+                    <span class="name">
+                        <span ><b>myPets</b></span>
+                        <a href="#myPets"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/socio/socio.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="myPetsCount"></a>
+                    <span class="name">
+                        <span ><b>myPetsCount</b></span>
+                        <a href="#myPetsCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/socio/socio.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="petForm"></a>
+                    <span class="name">
+                        <span ><b>petForm</b></span>
+                        <a href="#petForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    id: null,
+    name: &#x27;&#x27;,
+    type: &#x27;&#x27;,
+    breed: &#x27;&#x27;,
+    age: null,
+    color: &#x27;&#x27;,
+    vaccinated: false,
+    sterilized: false,
+    notes: &#x27;&#x27;
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/components/socio/socio.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="petModalTitle"></a>
+                    <span class="name">
+                        <span ><b>petModalTitle</b></span>
+                        <a href="#petModalTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Agregar Mascota&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/components/socio/socio.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profileAddress"></a>
+                    <span class="name">
+                        <span ><b>profileAddress</b></span>
+                        <a href="#profileAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/socio/socio.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profileAvatar"></a>
+                    <span class="name">
+                        <span ><b>profileAvatar</b></span>
+                        <a href="#profileAvatar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/socio/socio.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profileEmail"></a>
+                    <span class="name">
+                        <span ><b>profileEmail</b></span>
+                        <a href="#profileEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/socio/socio.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profileName"></a>
+                    <span class="name">
+                        <span ><b>profileName</b></span>
+                        <a href="#profileName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/socio/socio.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profilePhone"></a>
+                    <span class="name">
+                        <span ><b>profilePhone</b></span>
+                        <a href="#profilePhone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/socio/socio.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedEvent"></a>
+                    <span class="name">
+                        <span ><b>selectedEvent</b></span>
+                        <a href="#selectedEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/components/socio/socio.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="socioName"></a>
+                    <span class="name">
+                        <span ><b>socioName</b></span>
+                        <a href="#socioName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/socio/socio.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="successMessage"></a>
+                    <span class="name">
+                        <span ><b>successMessage</b></span>
+                        <a href="#successMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/socio/socio.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="upcomingEvents"></a>
+                    <span class="name">
+                        <span ><b>upcomingEvents</b></span>
+                        <a href="#upcomingEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/socio/socio.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userAvatar"></a>
+                    <span class="name">
+                        <span ><b>userAvatar</b></span>
+                        <a href="#userAvatar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/socio/socio.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="welcomeName"></a>
+                    <span class="name">
+                        <span ><b>welcomeName</b></span>
+                        <a href="#welcomeName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/socio/socio.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { AuthService } from &#x27;../../services/auth.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { db } from &#x27;../../data/data&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+
+@Component({
+  selector: &#x27;app-socio&#x27;,
+  templateUrl: &#x27;./socio.component.html&#x27;,
+  styleUrls: [&#x27;./socio.component.scss&#x27;],
+  standalone: true,
+  imports: [CommonModule, FormsModule]
+})
+export class SocioComponent implements OnInit {
+  socioName: string &#x3D; &#x27;&#x27;;
+  welcomeName: string &#x3D; &#x27;&#x27;;
+  userAvatar: string &#x3D; &#x27;&#x27;;
+  myPetsCount: number &#x3D; 0;
+  myEventsCount: number &#x3D; 0;
+  upcomingEvents: any[] &#x3D; [];
+  events: any[] &#x3D; [];
+  myPets: any[] &#x3D; [];
+  profileName: string &#x3D; &#x27;&#x27;;
+  profileEmail: string &#x3D; &#x27;&#x27;;
+  profileAvatar: string &#x3D; &#x27;&#x27;;
+  memberSince: string &#x3D; &#x27;&#x27;;
+  profilePhone: string &#x3D; &#x27;&#x27;;
+  profileAddress: string &#x3D; &#x27;&#x27;;
+  successMessage: string &#x3D; &#x27;&#x27;;
+  formName: string &#x3D; &#x27;&#x27;;
+  formPhone: string &#x3D; &#x27;&#x27;;
+  formEmail: string &#x3D; &#x27;&#x27;;
+  formAddress: string &#x3D; &#x27;&#x27;;
+  activeFilter: string &#x3D; &#x27;all&#x27;; // Filtro activo: &#x27;all&#x27;, &#x27;available&#x27;, &#x27;joined&#x27;
+  filteredEvents: any[] &#x3D; []; // Eventos filtrados
+  
+  petForm: any &#x3D; {
+    id: null,
+    name: &#x27;&#x27;,
+    type: &#x27;&#x27;,
+    breed: &#x27;&#x27;,
+    age: null,
+    color: &#x27;&#x27;,
+    vaccinated: false,
+    sterilized: false,
+    notes: &#x27;&#x27;
+  };
+
+  petModalTitle: string &#x3D; &#x27;Agregar Mascota&#x27;;
+
+  activeSection: string &#x3D; &#x27;dashboard&#x27;;
+
+  selectedEvent: any &#x3D; null;
+
+  constructor(public authService: AuthService, private router: Router) {
+    this.authService &#x3D; authService;
+  }
+
+  db &#x3D; db;
+
+  ngOnInit(): void {
+    const currentUser &#x3D; this.authService.getCurrentUser();
+    if (!currentUser || currentUser.type !&#x3D;&#x3D; &#x27;socio&#x27;) {
+      this.router.navigate([&#x27;/login&#x27;]);
+      return;
+    }
+
+    this.initializeSocio(currentUser);
+      // Inicializar los valores del formulario
+      this.formName &#x3D; currentUser.name;
+      this.formPhone &#x3D; currentUser.phone;
+      this.formEmail &#x3D; currentUser.email;
+      this.formAddress &#x3D; currentUser.address || &#x27;&#x27;;
+    }
+
+  onLogout(): void {
+    this.authService.logout();
+    this.router.navigate([&#x27;/login&#x27;]);
+  }
+
+  /**
+   * @description Inicializa los datos del socio logueado y carga las secciones principales.
+   * @param currentUser Usuario autenticado actual.
+   */
+  initializeSocio(currentUser: any): void {
+    this.socioName &#x3D; currentUser.name;
+    this.welcomeName &#x3D; currentUser.name;
+    this.userAvatar &#x3D; currentUser.name.charAt(0).toUpperCase();
+
+    this.loadDashboardData(currentUser);
+    this.loadEvents();
+    this.loadMyPets(currentUser);
+    this.loadProfile(currentUser);
+  }
+
+  /**
+   * @description Carga datos del dashboard: cantidad de mascotas, eventos y próximos eventos.
+   * @param currentUser Usuario autenticado actual.
+   */
+  loadDashboardData(currentUser: any): void {
+    const myPets &#x3D; this.db?.getPetsByOwner(currentUser.id) || [];
+    const allEvents &#x3D; this.db?.getEvents() || [];
+    const myEvents &#x3D; allEvents.filter((event: any) &#x3D;&gt; event.participants.includes(currentUser.id));
+
+    this.myPetsCount &#x3D; myPets.length;
+    this.myEventsCount &#x3D; myEvents.length;
+
+    const upcomingEvents &#x3D; allEvents.filter((event: any) &#x3D;&gt; !this.db?.isEventPast(event.date)).slice(0, 3);
+    this.upcomingEvents &#x3D; upcomingEvents;
+  }
+
+  /**
+   * @description Carga todos los eventos y marca si el usuario está inscrito en cada uno.
+   * @returns void
+   */
+  loadEvents(): void {
+    const currentUser &#x3D; this.authService.getCurrentUser();
+    const events &#x3D; this.db?.getEvents() || [];
+  
+    this.events &#x3D; events.map((event: any) &#x3D;&gt; {
+      const isJoined &#x3D; currentUser ? event.participants.includes(currentUser.id) : false;
+      const status &#x3D; isJoined
+        ? &#x27;Apuntado&#x27;
+        : event.participants.length &gt;&#x3D; event.maxParticipants
+        ? &#x27;Lleno&#x27;
+        : &#x27;Disponible&#x27;;
+      console.log(&#x27;Evento:&#x27;, event.title, &#x27;Estado:&#x27;, status); // Depuración
+      return { ...event, status }; // Traduce el estado al español
+    });
+  
+    this.filterEvents(this.activeFilter); // Aplica el filtro activo
+  }
+
+  /**
+   * @description Inscribe al usuario en un evento.
+   * @param eventId ID del evento.
+   * @returns void
+   */
+  joinEvent(eventId: string): void {
+    const currentUser &#x3D; this.authService.getCurrentUser();
+    if (currentUser) {
+      const success &#x3D; this.db?.joinEvent(eventId, currentUser.id);
+      if (success) {
+        this.loadEvents(); // Recarga los eventos
+        this.filterEvents(this.activeFilter); // Aplica el filtro activo
+      }
+    }
+  }
+  
+  /**
+   * @description Elimina la inscripción del usuario en un evento.
+   * @param eventId ID del evento.
+   * @returns void
+   */
+  leaveEvent(eventId: string): void {
+    const currentUser &#x3D; this.authService.getCurrentUser();
+    if (currentUser) {
+      const success &#x3D; this.db?.leaveEvent(eventId, currentUser.id);
+      if (success) {
+        this.loadEvents(); // Recarga los eventos
+        this.filterEvents(this.activeFilter); // Aplica el filtro activo
+      }
+    }
+  }
+
+  /**
+   * @description Carga las mascotas del usuario logueado.
+   * @param currentUser Usuario autenticado actual.
+   * @returns void
+   */
+  loadMyPets(currentUser: any): void {
+    const myPets &#x3D; this.db?.getPetsByOwner(currentUser.id) || [];
+    this.myPets &#x3D; myPets;
+  }
+
+  /**
+   * @description Carga y muestra los datos del perfil del usuario.
+   * @param currentUser Usuario autenticado actual.
+   * @returns void
+   */
+  loadProfile(currentUser: any): void {
+    this.profileName &#x3D; currentUser.name;
+    this.profileEmail &#x3D; currentUser.email;
+    this.profileAvatar &#x3D; currentUser.name.charAt(0).toUpperCase();
+    this.memberSince &#x3D; this.db?.formatDate(currentUser.createdAt) || &#x27;&#x27;;
+    this.profilePhone &#x3D; currentUser.phone || &#x27;&#x27;;
+    this.profileAddress &#x3D; currentUser.address || &#x27;&#x27;;
+
+    const myPets &#x3D; this.db?.getPetsByOwner(currentUser.id) || [];
+    const myEvents &#x3D; this.db?.getEvents()?.filter((event: any) &#x3D;&gt; event.participants.includes(currentUser.id)) || [];
+
+    this.myPetsCount &#x3D; myPets.length;
+    this.myEventsCount &#x3D; myEvents.length;
+
+    // Cargar datos en los inputs del perfil
+    const profileForm &#x3D; document.getElementById(&#x27;profileForm&#x27;) as HTMLFormElement;
+    if (profileForm) {
+      (profileForm.elements.namedItem(&#x27;name&#x27;) as HTMLInputElement).value &#x3D; currentUser.name;
+      (profileForm.elements.namedItem(&#x27;email&#x27;) as HTMLInputElement).value &#x3D; currentUser.email;
+      (profileForm.elements.namedItem(&#x27;phone&#x27;) as HTMLInputElement).value &#x3D; currentUser.phone || &#x27;&#x27;;
+      (profileForm.elements.namedItem(&#x27;address&#x27;) as HTMLInputElement).value &#x3D; currentUser.address || &#x27;&#x27;;
+    }
+
+    // Actualizar estadísticas en el perfil
+    const totalEventsJoined &#x3D; document.getElementById(&#x27;totalEventsJoined&#x27;);
+    const totalPetsRegistered &#x3D; document.getElementById(&#x27;totalPetsRegistered&#x27;);
+    if (totalEventsJoined) {
+      totalEventsJoined.textContent &#x3D; String(this.myEventsCount);
+    }
+    if (totalPetsRegistered) {
+      totalPetsRegistered.textContent &#x3D; String(this.myPetsCount);
+    }
+  }
+
+  /**
+   * @description Abre el modal para agregar o editar una mascota.
+   * @returns void
+   */
+  openPetModal(): void {
+    const modal &#x3D; document.getElementById(&#x27;petModal&#x27;);
+    if (modal) {
+      modal.style.display &#x3D; &#x27;block&#x27;;
+    }
+  }
+
+  /**
+   * @description Cierra el modal de mascota.
+   * @returns void
+   */
+  closePetModal(): void {
+    const modal &#x3D; document.getElementById(&#x27;petModal&#x27;);
+    if (modal) {
+      modal.style.display &#x3D; &#x27;none&#x27;;
+    }
+  }
+
+  /**
+   * @description Cambia la sección activa del panel socio.
+   * @param section Nombre de la sección a mostrar.
+   * @returns void
+   */
+  switchSection(section: string): void {
+    this.activeSection &#x3D; section;
+  }
+
+  /**
+   * @description Navega a una sección específica del panel socio.
+   * @param section Nombre de la sección a la que se navega.
+   * @returns void
+   */
+  navigateToSection(section: string): void {
+    this.switchSection(section);
+  }
+
+  /**
+   * @description Guarda una mascota nueva o editada. Asigna ownerId si es nueva.
+   * @returns void
+   * @usageNotes
+   * Llama a este método desde el formulario de mascota con (ngSubmit)&#x3D;&quot;savePet()&quot;.
+   */
+  savePet(): void {
+    const currentUser &#x3D; this.authService.getCurrentUser();
+    if (!currentUser) {
+        console.error(&#x27;No se encontró un usuario logueado.&#x27;);
+        return;
+    }
+
+    if (this.petForm.id) {
+      // Edit existing pet logic
+      this.db?.updatePet(this.petForm.id, this.petForm);
+    } else {
+      // Add new pet logic
+      this.petForm.ownerId &#x3D; currentUser.id; // Asignar el ownerId del usuario logueado
+      this.db?.addPet(this.petForm);
+    }
+
+    this.loadMyPets(currentUser);
+    this.closePetModal();
+  }
+
+  /**
+   * @description Filtra los eventos según el filtro activo.
+   * @param filter Filtro a aplicar (&#x27;all&#x27;, &#x27;available&#x27;, &#x27;joined&#x27;).
+   * @returns void
+   */
+  filterEvents(filter: string): void {
+    this.activeFilter &#x3D; filter;
+  
+    const currentUser &#x3D; this.authService.getCurrentUser();
+    const allEvents &#x3D; this.events || [];
+  
+    if (filter &#x3D;&#x3D;&#x3D; &#x27;all&#x27;) {
+      this.filteredEvents &#x3D; allEvents; // Mostrar todos los eventos
+    } else if (filter &#x3D;&#x3D;&#x3D; &#x27;available&#x27;) {
+      this.filteredEvents &#x3D; allEvents.filter(event &#x3D;&gt; event.status &#x3D;&#x3D;&#x3D; &#x27;Disponible&#x27;);
+    } else if (filter &#x3D;&#x3D;&#x3D; &#x27;joined&#x27;) {
+      this.filteredEvents &#x3D; allEvents.filter(event &#x3D;&gt; event.status &#x3D;&#x3D;&#x3D; &#x27;Apuntado&#x27;);
+    }
+  }
+
+  /**
+   * @description Abre el modal de mascota para agregar una nueva mascota.
+   * @returns void
+   */
+  openAddPetModal(): void {
+    this.petForm &#x3D; {
+      id: null,
+      name: &#x27;&#x27;,
+      type: &#x27;&#x27;,
+      breed: &#x27;&#x27;,
+      age: null,
+      color: &#x27;&#x27;,
+      vaccinated: false,
+      sterilized: false,
+      notes: &#x27;&#x27;
+    };
+    this.petModalTitle &#x3D; &#x27;Agregar Mascota&#x27;;
+    this.openPetModal();
+  }
+
+  /**
+   * @description Abre el modal de mascota para editar una mascota existente.
+   * @param petId ID de la mascota a editar.
+   * @returns void
+   */
+  editPet(petId: string): void {
+    const pet &#x3D; this.myPets.find(p &#x3D;&gt; p.id &#x3D;&#x3D;&#x3D; petId);
+    if (pet) {
+      this.petForm &#x3D; { ...pet };
+      this.petModalTitle &#x3D; &#x27;Editar Mascota&#x27;;
+      this.openPetModal();
+    }
+  }
+
+  /**
+   * @description Elimina una mascota del usuario.
+   * @param petId ID de la mascota a eliminar.
+   * @returns void
+   */
+  deletePet(petId: string): void {
+    this.db?.deletePet(petId);
+    this.loadMyPets(this.authService.getCurrentUser());
+  }
+
+  /**
+   * @description Actualiza los datos del perfil del usuario.
+   * @param event Evento del formulario.
+   * @returns void
+   */
+  updateProfile(event: Event): void {
+    event.preventDefault(); // Evita el comportamiento predeterminado del formulario
+
+    const currentUser &#x3D; this.authService.getCurrentUser();
+    if (!currentUser) {
+      console.error(&#x27;No se encontró un usuario logueado.&#x27;);
+      return;
+    }
+
+    const updatedData &#x3D; {
+      name: this.formName,
+      phone: this.formPhone,
+      email: this.formEmail,
+      address: this.formAddress
+    };
+
+    const updatedUser &#x3D; this.db?.updateUser(currentUser.id, updatedData);
+    if (updatedUser) {
+      console.log(&#x27;Perfil actualizado:&#x27;, updatedUser);
+    
+      // Actualiza los datos del perfil
+      this.profileName &#x3D; updatedUser.name; // Actualiza el nombre del perfil
+      this.profileEmail &#x3D; updatedUser.email; // Actualiza el correo del perfil
+      this.memberSince &#x3D; this.db?.formatDate(updatedUser.createdAt) || &#x27;&#x27;; // Actualiza la fecha de miembro
+    
+      // Actualiza los datos del header
+      this.socioName &#x3D; updatedUser.name; // Actualiza el nombre del usuario en el header
+      this.userAvatar &#x3D; updatedUser.name.charAt(0).toUpperCase(); // Actualiza el avatar del usuario en el header
+    
+      // Actualiza el mensaje de bienvenida
+      this.welcomeName &#x3D; updatedUser.name; // Actualiza el nombre de bienvenida
+
+      // Actualiza el dashboard
+      this.loadDashboardData(updatedUser); // Recalcula las estadísticas del dashboard
+    
+      // Mensaje de éxito
+      this.successMessage &#x3D; &#x27;¡Perfil actualizado exitosamente!&#x27;;
+      setTimeout(() &#x3D;&gt; {
+        this.successMessage &#x3D; &#x27;&#x27;; // Limpia el mensaje después de 3 segundos
+      }, 3000);
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Header --&gt;
+&lt;header class&#x3D;&quot;socio-header&quot;&gt;
+    &lt;div class&#x3D;&quot;header-content&quot;&gt;
+        &lt;div class&#x3D;&quot;header-left&quot;&gt;
+            &lt;div class&#x3D;&quot;brand&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-paw&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;Patitas Felices&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;nav class&#x3D;&quot;main-nav&quot;&gt;
+                &lt;button class&#x3D;&quot;nav-btn&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;dashboard&#x27;&quot; (click)&#x3D;&quot;switchSection(&#x27;dashboard&#x27;)&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-home&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;Inicio&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;button class&#x3D;&quot;nav-btn&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;events&#x27;&quot; (click)&#x3D;&quot;switchSection(&#x27;events&#x27;)&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-calendar&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;Eventos&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;button class&#x3D;&quot;nav-btn&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;pets&#x27;&quot; (click)&#x3D;&quot;switchSection(&#x27;pets&#x27;)&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-heart&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;Mis Mascotas&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;button class&#x3D;&quot;nav-btn&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;profile&#x27;&quot; (click)&#x3D;&quot;switchSection(&#x27;profile&#x27;)&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-user&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;Mi Perfil&lt;/span&gt;
+                &lt;/button&gt;
+            &lt;/nav&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;header-right&quot;&gt;
+            &lt;div class&#x3D;&quot;user-menu&quot;&gt;
+                &lt;div class&#x3D;&quot;user-info&quot;&gt;
+                    &lt;span class&#x3D;&quot;user-name&quot;&gt;{{ socioName }}&lt;/span&gt;
+                    &lt;span class&#x3D;&quot;user-role&quot;&gt;Miembro&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;user-avatar&quot;&gt;{{ userAvatar }}&lt;/div&gt;
+                &lt;button (click)&#x3D;&quot;onLogout()&quot; class&#x3D;&quot;logout-btn&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-sign-out-alt&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- &lt;a routerLink&#x3D;&quot;/home&quot; class&#x3D;&quot;btn btn-outline&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-globe&quot;&gt;&lt;/i&gt;
+                Sitio Web
+            &lt;/a&gt; --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;!-- Main Content --&gt;
+&lt;main class&#x3D;&quot;main-content&quot;&gt;
+    &lt;!-- Dashboard Section --&gt;
+    &lt;section id&#x3D;&quot;dashboard&quot; class&#x3D;&quot;content-section&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;dashboard&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;welcome-banner&quot;&gt;
+            &lt;div class&#x3D;&quot;welcome-content&quot;&gt;
+                &lt;h1&gt;¡Bienvenido/a, &lt;span&gt;{{ welcomeName }}&lt;/span&gt;!&lt;/h1&gt;
+                &lt;p&gt;Gestiona tus mascotas, únete a eventos y mantente conectado con nuestra comunidad&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;welcome-stats&quot;&gt;
+                &lt;div class&#x3D;&quot;stat-item&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-heart&quot;&gt;&lt;/i&gt;
+                    &lt;div&gt;
+                        &lt;span class&#x3D;&quot;stat-number&quot;&gt;{{ myPetsCount }}&lt;/span&gt;
+                        &lt;span class&#x3D;&quot;stat-label&quot;&gt;Mis Mascotas&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;stat-item&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-calendar-check&quot;&gt;&lt;/i&gt;
+                    &lt;div&gt;
+                        &lt;span class&#x3D;&quot;stat-number&quot;&gt;{{ myEventsCount }}&lt;/span&gt;
+                        &lt;span class&#x3D;&quot;stat-label&quot;&gt;Eventos Apuntado&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;dashboard-grid&quot;&gt;
+            &lt;div class&#x3D;&quot;dashboard-card&quot;&gt;
+                &lt;h3&gt;&lt;i class&#x3D;&quot;fas fa-calendar-alt&quot;&gt;&lt;/i&gt; Próximos Eventos&lt;/h3&gt;
+                &lt;div class&#x3D;&quot;upcoming-events&quot;&gt;
+                    &lt;div *ngIf&#x3D;&quot;upcomingEvents &amp;&amp; upcomingEvents.length &gt; 0; else noEvents&quot;&gt;
+                        &lt;div class&#x3D;&quot;upcoming-event&quot; *ngFor&#x3D;&quot;let event of upcomingEvents&quot;&gt;
+                            &lt;div class&#x3D;&quot;event-date-small&quot;&gt;{{ formatDate(event.date) }}&lt;/div&gt;
+                            &lt;h4&gt;{{ event.title }}&lt;/h4&gt;
+                            &lt;p&gt;{{ event.location }}&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;ng-template #noEvents&gt;
+                        &lt;p class&#x3D;&quot;no-data&quot;&gt;No hay eventos próximos&lt;/p&gt;
+                    &lt;/ng-template&gt;
+                &lt;/div&gt;
+                &lt;span class&#x3D;&quot;card-action&quot; (click)&#x3D;&quot;navigateToSection(&#x27;events&#x27;)&quot;&gt;Ver todos los eventos&lt;/span&gt;
+            &lt;/div&gt;
+        
+            &lt;div class&#x3D;&quot;dashboard-card&quot;&gt;
+                &lt;h3&gt;&lt;i class&#x3D;&quot;fas fa-paw&quot;&gt;&lt;/i&gt; Mis Mascotas&lt;/h3&gt;
+                &lt;div class&#x3D;&quot;my-pets-preview&quot;&gt;
+                    &lt;div *ngIf&#x3D;&quot;myPets &amp;&amp; myPets.length &gt; 0; else noPets&quot;&gt;
+                        &lt;div class&#x3D;&quot;pet-preview&quot; *ngFor&#x3D;&quot;let pet of myPets.slice(0, 3)&quot;&gt;
+                            &lt;i class&#x3D;&quot;fas fa-{{ pet.type &#x3D;&#x3D;&#x3D; &#x27;Perro&#x27; ? &#x27;dog&#x27; : pet.type &#x3D;&#x3D;&#x3D; &#x27;Gato&#x27; ? &#x27;cat&#x27; : &#x27;paw&#x27; }}&quot;&gt;&lt;/i&gt;
+                            &lt;span&gt;{{ pet.name }}&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;ng-template #noPets&gt;
+                        &lt;p class&#x3D;&quot;no-data&quot;&gt;No tienes mascotas registradas&lt;/p&gt;
+                    &lt;/ng-template&gt;
+                &lt;/div&gt;
+                &lt;span class&#x3D;&quot;card-action&quot; (click)&#x3D;&quot;navigateToSection(&#x27;pets&#x27;)&quot;&gt;Gestionar mascotas&lt;/span&gt;
+            &lt;/div&gt;
+        
+            &lt;div class&#x3D;&quot;dashboard-card&quot;&gt;
+                &lt;h3&gt;&lt;i class&#x3D;&quot;fas fa-info-circle&quot;&gt;&lt;/i&gt; Consejos y Novedades&lt;/h3&gt;
+                &lt;div class&#x3D;&quot;tips-list&quot;&gt;
+                    &lt;div class&#x3D;&quot;tip-item&quot;&gt;
+                        &lt;i class&#x3D;&quot;fas fa-lightbulb&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;Recuerda mantener al día las vacunas de tus mascotas&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Events Section --&gt;
+    &lt;section id&#x3D;&quot;events&quot; class&#x3D;&quot;content-section&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;events&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;section-header&quot;&gt;
+            &lt;h2&gt;Eventos Disponibles&lt;/h2&gt;
+            &lt;div class&#x3D;&quot;filter-tabs&quot;&gt;
+                &lt;button class&#x3D;&quot;tab-btn&quot; [class.active]&#x3D;&quot;activeFilter &#x3D;&#x3D;&#x3D; &#x27;all&#x27;&quot; (click)&#x3D;&quot;filterEvents(&#x27;all&#x27;)&quot;&gt;Todos&lt;/button&gt;
+                &lt;button class&#x3D;&quot;tab-btn&quot; [class.active]&#x3D;&quot;activeFilter &#x3D;&#x3D;&#x3D; &#x27;available&#x27;&quot; (click)&#x3D;&quot;filterEvents(&#x27;available&#x27;)&quot;&gt;Disponibles&lt;/button&gt;
+                &lt;button class&#x3D;&quot;tab-btn&quot; [class.active]&#x3D;&quot;activeFilter &#x3D;&#x3D;&#x3D; &#x27;joined&#x27;&quot; (click)&#x3D;&quot;filterEvents(&#x27;joined&#x27;)&quot;&gt;Apuntado&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;events-grid&quot;&gt;
+            &lt;div *ngFor&#x3D;&quot;let event of filteredEvents&quot; class&#x3D;&quot;event-card&quot;&gt;
+              &lt;div class&#x3D;&quot;event-status&quot; [ngClass]&#x3D;&quot;{
+                  &#x27;status-disponible&#x27;: event.status &#x3D;&#x3D;&#x3D; &#x27;Disponible&#x27;,
+                  &#x27;status-apuntado&#x27;: event.status &#x3D;&#x3D;&#x3D; &#x27;Apuntado&#x27;,
+                  &#x27;status-lleno&#x27;: event.status &#x3D;&#x3D;&#x3D; &#x27;Lleno&#x27;
+                }&quot;&gt;
+                {{ event.status }}
+              &lt;/div&gt;
+              &lt;h3&gt;{{ event.title }}&lt;/h3&gt;
+              &lt;p&gt;{{ event.description }}&lt;/p&gt;
+              &lt;p&gt;&lt;strong&gt;Fecha:&lt;/strong&gt; {{ event.date }} - &lt;strong&gt;Hora:&lt;/strong&gt; {{ event.time }}&lt;/p&gt;
+              &lt;p&gt;&lt;strong&gt;Lugar:&lt;/strong&gt; {{ event.location }}&lt;/p&gt;
+              &lt;p&gt;&lt;strong&gt;Participantes:&lt;/strong&gt; {{ event.participants.length }}/{{ event.maxParticipants }}&lt;/p&gt;
+              &lt;div class&#x3D;&quot;event-actions&quot;&gt;
+                &lt;button *ngIf&#x3D;&quot;event.status &#x3D;&#x3D;&#x3D; &#x27;Disponible&#x27;&quot; class&#x3D;&quot;btn-join&quot; (click)&#x3D;&quot;joinEvent(event.id)&quot;&gt;Unirse&lt;/button&gt;
+                &lt;button *ngIf&#x3D;&quot;event.status &#x3D;&#x3D;&#x3D; &#x27;Apuntado&#x27;&quot; class&#x3D;&quot;btn-leave&quot; (click)&#x3D;&quot;leaveEvent(event.id)&quot;&gt;Salir&lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Pets Section --&gt;
+    &lt;section id&#x3D;&quot;pets&quot; class&#x3D;&quot;content-section&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;pets&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;section-header&quot;&gt;
+            &lt;h2&gt;Mis Mascotas&lt;/h2&gt;
+            &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;openAddPetModal()&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-plus&quot;&gt;&lt;/i&gt;
+                Agregar Mascota
+            &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;pets-grid&quot;&gt;
+            &lt;div *ngFor&#x3D;&quot;let pet of myPets&quot; class&#x3D;&quot;pet-card&quot;&gt;
+                &lt;div class&#x3D;&quot;pet-image&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-paw&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;h4&gt;{{ pet.name }}&lt;/h4&gt;
+                &lt;div class&#x3D;&quot;pet-info&quot;&gt;
+                    &lt;div class&#x3D;&quot;pet-detail&quot;&gt;
+                        &lt;span class&#x3D;&quot;label&quot;&gt;Tipo:&lt;/span&gt;
+                        &lt;span class&#x3D;&quot;value&quot;&gt;{{ pet.type }}&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;pet-detail&quot;&gt;
+                        &lt;span class&#x3D;&quot;label&quot;&gt;Raza:&lt;/span&gt;
+                        &lt;span class&#x3D;&quot;value&quot;&gt;{{ pet.breed }}&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;pet-detail&quot;&gt;
+                        &lt;span class&#x3D;&quot;label&quot;&gt;Edad:&lt;/span&gt;
+                        &lt;span class&#x3D;&quot;value&quot;&gt;{{ pet.age }} años&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;pet-detail&quot;&gt;
+                        &lt;span class&#x3D;&quot;label&quot;&gt;Color:&lt;/span&gt;
+                        &lt;span class&#x3D;&quot;value&quot;&gt;{{ pet.color }}&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;pet-actions&quot;&gt;
+                    &lt;button class&#x3D;&quot;btn-edit-pet&quot; (click)&#x3D;&quot;editPet(pet.id)&quot;&gt;Editar&lt;/button&gt;
+                    &lt;button class&#x3D;&quot;btn-delete-pet&quot; (click)&#x3D;&quot;deletePet(pet.id)&quot;&gt;Eliminar&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Profile Section --&gt;
+    &lt;section id&#x3D;&quot;profile&quot; class&#x3D;&quot;content-section&quot; [class.active]&#x3D;&quot;activeSection &#x3D;&#x3D;&#x3D; &#x27;profile&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;section-header&quot;&gt;
+            &lt;h2&gt;Mi Perfil&lt;/h2&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;profile-content&quot;&gt;
+            &lt;div class&#x3D;&quot;profile-card&quot;&gt;
+              &lt;div class&#x3D;&quot;profile-header&quot;&gt;
+                &lt;div class&#x3D;&quot;profile-avatar&quot; id&#x3D;&quot;profileAvatar&quot;&gt;{{ profileName.charAt(0).toUpperCase() }}&lt;/div&gt;
+                &lt;div class&#x3D;&quot;profile-info&quot;&gt;
+                  &lt;h3&gt;{{ profileName }}&lt;/h3&gt;
+                  &lt;p&gt;{{ profileEmail }}&lt;/p&gt;
+                  &lt;span class&#x3D;&quot;member-since&quot;&gt;Miembro desde &lt;span&gt;{{ memberSince }}&lt;/span&gt;&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;div *ngIf&#x3D;&quot;successMessage&quot; class&#x3D;&quot;success-message&quot;&gt;
+                {{ successMessage }}
+              &lt;/div&gt;
+            
+              &lt;form id&#x3D;&quot;profileForm&quot; class&#x3D;&quot;profile-form&quot; (submit)&#x3D;&quot;updateProfile($event)&quot;&gt;
+                &lt;div class&#x3D;&quot;form-row&quot;&gt;
+                  &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                    &lt;label for&#x3D;&quot;profileNameInput&quot;&gt;Nombre Completo&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;profileNameInput&quot; name&#x3D;&quot;name&quot; [(ngModel)]&#x3D;&quot;formName&quot; required&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                    &lt;label for&#x3D;&quot;profilePhoneInput&quot;&gt;Teléfono&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;tel&quot; id&#x3D;&quot;profilePhoneInput&quot; name&#x3D;&quot;phone&quot; [(ngModel)]&#x3D;&quot;formPhone&quot; required&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              
+                &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                  &lt;label for&#x3D;&quot;profileEmailInput&quot;&gt;Correo Electrónico&lt;/label&gt;
+                  &lt;input type&#x3D;&quot;email&quot; id&#x3D;&quot;profileEmailInput&quot; name&#x3D;&quot;email&quot; [(ngModel)]&#x3D;&quot;formEmail&quot; required&gt;
+                &lt;/div&gt;
+              
+                &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                  &lt;label for&#x3D;&quot;profileAddressInput&quot;&gt;Dirección&lt;/label&gt;
+                  &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;profileAddressInput&quot; name&#x3D;&quot;address&quot; [(ngModel)]&#x3D;&quot;formAddress&quot;&gt;
+                &lt;/div&gt;
+              
+                &lt;div class&#x3D;&quot;form-actions&quot;&gt;
+                  &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;
+                    &lt;i class&#x3D;&quot;fas fa-save&quot;&gt;&lt;/i&gt;
+                    Guardar Cambios
+                  &lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/form&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;activity-card&quot;&gt;
+                &lt;h3&gt;Mi Actividad&lt;/h3&gt;
+                &lt;div class&#x3D;&quot;activity-stats&quot;&gt;
+                    &lt;div class&#x3D;&quot;activity-stat&quot;&gt;
+                        &lt;i class&#x3D;&quot;fas fa-calendar-check&quot;&gt;&lt;/i&gt;
+                        &lt;div&gt;
+                            &lt;span class&#x3D;&quot;stat-number&quot; id&#x3D;&quot;totalEventsJoined&quot;&gt;0&lt;/span&gt;
+                            &lt;span class&#x3D;&quot;stat-label&quot;&gt;Eventos Participados&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;activity-stat&quot;&gt;
+                        &lt;i class&#x3D;&quot;fas fa-paw&quot;&gt;&lt;/i&gt;
+                        &lt;div&gt;
+                            &lt;span class&#x3D;&quot;stat-number&quot; id&#x3D;&quot;totalPetsRegistered&quot;&gt;0&lt;/span&gt;
+                            &lt;span class&#x3D;&quot;stat-label&quot;&gt;Mascotas Registradas&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;!-- Modal para agregar/editar mascota --&gt;
+&lt;div id&#x3D;&quot;petModal&quot; class&#x3D;&quot;modal&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+            &lt;h3&gt;{{ petModalTitle }}&lt;/h3&gt;
+            &lt;button class&#x3D;&quot;modal-close&quot; (click)&#x3D;&quot;closePetModal()&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-times&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;form (ngSubmit)&#x3D;&quot;savePet()&quot; class&#x3D;&quot;modal-form&quot;&gt;
+            &lt;input type&#x3D;&quot;hidden&quot; [(ngModel)]&#x3D;&quot;petForm.id&quot; name&#x3D;&quot;petId&quot;&gt;
+
+            &lt;div class&#x3D;&quot;form-row&quot;&gt;
+                &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                    &lt;label for&#x3D;&quot;petName&quot;&gt;Nombre de la Mascota&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;petName&quot; [(ngModel)]&#x3D;&quot;petForm.name&quot; name&#x3D;&quot;name&quot; required&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                    &lt;label for&#x3D;&quot;petType&quot;&gt;Tipo&lt;/label&gt;
+                    &lt;select id&#x3D;&quot;petType&quot; [(ngModel)]&#x3D;&quot;petForm.type&quot; name&#x3D;&quot;type&quot; required&gt;
+                        &lt;option value&#x3D;&quot;&quot;&gt;Selecciona el tipo&lt;/option&gt;
+                        &lt;option value&#x3D;&quot;Perro&quot;&gt;Perro&lt;/option&gt;
+                        &lt;option value&#x3D;&quot;Gato&quot;&gt;Gato&lt;/option&gt;
+                        &lt;option value&#x3D;&quot;Ave&quot;&gt;Ave&lt;/option&gt;
+                        &lt;option value&#x3D;&quot;Otro&quot;&gt;Otro&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;form-row&quot;&gt;
+                &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                    &lt;label for&#x3D;&quot;petBreed&quot;&gt;Raza&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;petBreed&quot; [(ngModel)]&#x3D;&quot;petForm.breed&quot; name&#x3D;&quot;breed&quot; required&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                    &lt;label for&#x3D;&quot;petAge&quot;&gt;Edad (años)&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;number&quot; id&#x3D;&quot;petAge&quot; [(ngModel)]&#x3D;&quot;petForm.age&quot; name&#x3D;&quot;age&quot; min&#x3D;&quot;0&quot; max&#x3D;&quot;30&quot; required&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                &lt;label for&#x3D;&quot;petColor&quot;&gt;Color&lt;/label&gt;
+                &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;petColor&quot; [(ngModel)]&#x3D;&quot;petForm.color&quot; name&#x3D;&quot;color&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;form-row&quot;&gt;
+                &lt;div class&#x3D;&quot;form-group checkbox-group&quot;&gt;
+                    &lt;label class&#x3D;&quot;checkbox-label&quot;&gt;
+                        &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;petVaccinated&quot; [(ngModel)]&#x3D;&quot;petForm.vaccinated&quot; name&#x3D;&quot;vaccinated&quot;&gt;
+                        &lt;span class&#x3D;&quot;checkmark&quot;&gt;&lt;/span&gt;
+                        Vacunado
+                    &lt;/label&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;form-group checkbox-group&quot;&gt;
+                    &lt;label class&#x3D;&quot;checkbox-label&quot;&gt;
+                        &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;petSterilized&quot; [(ngModel)]&#x3D;&quot;petForm.sterilized&quot; name&#x3D;&quot;sterilized&quot;&gt;
+                        &lt;span class&#x3D;&quot;checkmark&quot;&gt;&lt;/span&gt;
+                        Esterilizado
+                    &lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                &lt;label for&#x3D;&quot;petNotes&quot;&gt;Notas adicionales&lt;/label&gt;
+                &lt;textarea id&#x3D;&quot;petNotes&quot; [(ngModel)]&#x3D;&quot;petForm.notes&quot; name&#x3D;&quot;notes&quot; rows&#x3D;&quot;3&quot; placeholder&#x3D;&quot;Información adicional sobre tu mascota...&quot;&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;modal-actions&quot;&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;closePetModal()&quot;&gt;Cancelar&lt;/button&gt;
+                &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Guardar Mascota&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Modal para eventos --&gt;
+&lt;div id&#x3D;&quot;eventModal&quot; class&#x3D;&quot;modal&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+            &lt;h3&gt;{{ selectedEvent?.title }}&lt;/h3&gt;
+            &lt;button class&#x3D;&quot;modal-close&quot; (click)&#x3D;&quot;closeEventModal()&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-times&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+            &lt;p&gt;&lt;strong&gt;Descripción:&lt;/strong&gt; {{ selectedEvent?.description }}&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Fecha:&lt;/strong&gt; {{ selectedEvent?.date }} - &lt;strong&gt;Hora:&lt;/strong&gt; {{ selectedEvent?.time }}&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Lugar:&lt;/strong&gt; {{ selectedEvent?.location }}&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Participantes:&lt;/strong&gt; {{ selectedEvent?.participants.length }}/{{ selectedEvent?.maxParticipants }}&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;modal-actions&quot;&gt;
+            &lt;button *ngIf&#x3D;&quot;!selectedEvent?.participants.includes(authService.getCurrentUser()?.id)&quot; class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;joinEvent(selectedEvent?.id)&quot;&gt;Inscribirse&lt;/button&gt;
+            &lt;button *ngIf&#x3D;&quot;selectedEvent?.participants.includes(authService.getCurrentUser()?.id)&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;leaveEvent(selectedEvent?.id)&quot;&gt;Desinscribirse&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./socio.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* Estilos para el panel de socio */
+
+.success-message {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+/* Event Status Styles */
+.event-status {
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  color: white;
+}
+
+.status-available {
+  background-color: #28a745; /* Verde */
+}
+
+.status-joined {
+  background-color: #007bff; /* Azul */
+}
+
+.status-full {
+  background-color: #dc3545; /* Rojo */
+}
+
+.event-actions {
+  margin-top: 10px;
+}
+
+.btn-join {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-leave {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.socio-body {
+    margin: 0;
+    font-family: &#x27;Arial&#x27;, sans-serif;
+    background: var(--light-gray);
+    min-height: 100vh;
+}
+
+/* Header */
+.socio-header {
+    background: linear-gradient(135deg, #77c2e9, #c9aff1);
+    /* background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-purple)); */
+    padding: 1rem 0;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.brand i {
+    margin-right: 10px;
+    font-size: 1.8rem;
+}
+
+.main-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 25px;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background: var(--white);
+    color: var(--text-dark);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.nav-btn i {
+    font-size: 1rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.user-name {
+    display: block;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.user-role {
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--white);
+    color: var(--text-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.logout-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Welcome Banner */
+.welcome-banner {
+    background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-green));
+    padding: 3rem;
+    border-radius: 25px;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome-content h1 {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.welcome-content p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.welcome-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.stat-item i {
+    font-size: 2rem;
+    color: var(--soft-pink);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.dashboard-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.dashboard-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+}
+
+.dashboard-card h3 i {
+    color: var(--soft-purple);
+}
+
+.card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--soft-blue);
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+.card-action:hover {
+    color: var(--text-dark);
+}
+
+/* Tips List */
+.tips-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tip-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--light-gray);
+    border-radius: 10px;
+}
+
+.tip-item i {
+    color: var(--soft-green);
+    font-size: 1.1rem;
+}
+
+/* Section Header */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    color: var(--text-dark);
+    font-size: 2rem;
+    margin: 0;
+}
+
+.filter-tabs {
+    display: flex;
+    background: var(--white);
+    border-radius: 25px;
+    padding: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-light);
+}
+
+.tab-btn.active {
+    background: var(--soft-blue);
+    color: var(--white);
+}
+
+/* Events Grid */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.event-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.event-status.joined {
+    background: var(--pastel-green);
+    color: var(--text-dark);
+}
+
+.event-status.available {
+    background: var(--pastel-blue);
+    color: var(--text-dark);
+}
+
+.event-status.full {
+    background: var(--pastel-pink);
+    color: var(--text-dark);
+}
+
+.event-date {
+    background: var(--pastel-yellow);
+    color: var(--text-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.event-card h3 {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.event-card p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.event-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.event-detail i {
+    color: var(--soft-purple);
+    width: 16px;
+}
+
+.event-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-join {
+    background: linear-gradient(135deg, var(--soft-green), var(--pastel-green));
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-leave {
+    background: linear-gradient(135deg, #ff9999, #ffcccc);
+    color: var(--text-dark);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-join:hover,
+.btn-leave:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Pets Grid */
+.pets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.pet-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.pet-card:hover {
+    transform: translateY(-5px);
+}
+
+.pet-image {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--pastel-peach), var(--pastel-yellow));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.pet-image i {
+    font-size: 2.5rem;
+    color: var(--white);
+}
+
+.pet-card h4 {
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.pet-info {
+    margin-bottom: 1.5rem;
+}
+
+.pet-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.pet-detail .label {
+    color: var(--text-light);
+}
+
+.pet-detail .value {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.pet-badges {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.pet-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-edit-pet {
+    background: var(--pastel-yellow);
+    color: var(--text-dark);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-delete-pet {
+    background: #ffcdd2;
+    color: #d32f2f;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-edit-pet:hover,
+.btn-delete-pet:hover {
+    transform: translateY(-2px);
+}
+
+/* Profile Content */
+.profile-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.profile-card,
+.activity-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--soft-pink), var(--pastel-purple));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.profile-info h3 {
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.profile-info p {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.member-since {
+    color: var(--soft-blue);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--pastel-blue);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--soft-blue);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.activity-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+}
+
+.activity-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.activity-stat {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 15px;
+}
+
+.activity-stat i {
+    font-size: 1.5rem;
+    color: var(--soft-green);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+    grid-column: 1 / -1;
+}
+
+.empty-state i {
+    font-size: 4rem;
+    color: var(--pastel-purple);
+    margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+/* Dashboard specific styles */
+.upcoming-event {
+    padding: 1rem;
+    background: var(--light-gray);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.event-date-small {
+    background: var(--pastel-yellow);
+    color: var(--text-dark);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.upcoming-event h4 {
+    margin: 0.5rem 0;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.upcoming-event p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.pet-preview {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--light-gray);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.pet-preview i {
+    color: var(--soft-purple);
+    font-size: 1.2rem;
+}
+
+.pet-preview span {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.no-data {
+    text-align: center;
+    color: var(--text-light);
+    font-style: italic;
+    padding: 2rem;
+}
+
+.pet-notes {
+    background: var(--light-gray);
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: var(--light-gray);
+    color: var(--text-dark);
+}
+
+.modal-form {
+    padding: 2rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Modal specific styles */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.checkbox-label input[type&#x3D;&quot;checkbox&quot;] {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--pastel-purple);
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label input[type&#x3D;&quot;checkbox&quot;]:checked + .checkmark {
+    background: var(--soft-purple);
+    border-color: var(--soft-purple);
+}
+
+.checkbox-label input[type&#x3D;&quot;checkbox&quot;]:checked + .checkmark::after {
+    content: &quot;✓&quot;;
+    position: absolute;
+    color: var(--white);
+    font-size: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .header-left {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .main-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-btn span {
+        display: none;
+    }
+
+    .welcome-banner {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .welcome-stats {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .dashboard-grid,
+    .events-grid,
+    .pets-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-content {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Header --><header class="socio-header">    <div class="header-content">        <div class="header-left">            <div class="brand">                <i class="fas fa-paw"></i>                <span>Patitas Felices</span>            </div>            <nav class="main-nav">                <button class="nav-btn" [class.active]="activeSection === \'dashboard\'" (click)="switchSection(\'dashboard\')">                    <i class="fas fa-home"></i>                    <span>Inicio</span>                </button>                <button class="nav-btn" [class.active]="activeSection === \'events\'" (click)="switchSection(\'events\')">                    <i class="fas fa-calendar"></i>                    <span>Eventos</span>                </button>                <button class="nav-btn" [class.active]="activeSection === \'pets\'" (click)="switchSection(\'pets\')">                    <i class="fas fa-heart"></i>                    <span>Mis Mascotas</span>                </button>                <button class="nav-btn" [class.active]="activeSection === \'profile\'" (click)="switchSection(\'profile\')">                    <i class="fas fa-user"></i>                    <span>Mi Perfil</span>                </button>            </nav>        </div>        <div class="header-right">            <div class="user-menu">                <div class="user-info">                    <span class="user-name">{{ socioName }}</span>                    <span class="user-role">Miembro</span>                </div>                <div class="user-avatar">{{ userAvatar }}</div>                <button (click)="onLogout()" class="logout-btn">                    <i class="fas fa-sign-out-alt"></i>                </button>            </div>            <!-- <a routerLink="/home" class="btn btn-outline">                <i class="fas fa-globe"></i>                Sitio Web            </a> -->        </div>    </div></header><!-- Main Content --><main class="main-content">    <!-- Dashboard Section -->    <section id="dashboard" class="content-section" [class.active]="activeSection === \'dashboard\'">        <div class="welcome-banner">            <div class="welcome-content">                <h1>¡Bienvenido/a, <span>{{ welcomeName }}</span>!</h1>                <p>Gestiona tus mascotas, únete a eventos y mantente conectado con nuestra comunidad</p>            </div>            <div class="welcome-stats">                <div class="stat-item">                    <i class="fas fa-heart"></i>                    <div>                        <span class="stat-number">{{ myPetsCount }}</span>                        <span class="stat-label">Mis Mascotas</span>                    </div>                </div>                <div class="stat-item">                    <i class="fas fa-calendar-check"></i>                    <div>                        <span class="stat-number">{{ myEventsCount }}</span>                        <span class="stat-label">Eventos Apuntado</span>                    </div>                </div>            </div>        </div>        <div class="dashboard-grid">            <div class="dashboard-card">                <h3><i class="fas fa-calendar-alt"></i> Próximos Eventos</h3>                <div class="upcoming-events">                    <div *ngIf="upcomingEvents && upcomingEvents.length > 0; else noEvents">                        <div class="upcoming-event" *ngFor="let event of upcomingEvents">                            <div class="event-date-small">{{ formatDate(event.date) }}</div>                            <h4>{{ event.title }}</h4>                            <p>{{ event.location }}</p>                        </div>                    </div>                    <ng-template #noEvents>                        <p class="no-data">No hay eventos próximos</p>                    </ng-template>                </div>                <span class="card-action" (click)="navigateToSection(\'events\')">Ver todos los eventos</span>            </div>                    <div class="dashboard-card">                <h3><i class="fas fa-paw"></i> Mis Mascotas</h3>                <div class="my-pets-preview">                    <div *ngIf="myPets && myPets.length > 0; else noPets">                        <div class="pet-preview" *ngFor="let pet of myPets.slice(0, 3)">                            <i class="fas fa-{{ pet.type === \'Perro\' ? \'dog\' : pet.type === \'Gato\' ? \'cat\' : \'paw\' }}"></i>                            <span>{{ pet.name }}</span>                        </div>                    </div>                    <ng-template #noPets>                        <p class="no-data">No tienes mascotas registradas</p>                    </ng-template>                </div>                <span class="card-action" (click)="navigateToSection(\'pets\')">Gestionar mascotas</span>            </div>                    <div class="dashboard-card">                <h3><i class="fas fa-info-circle"></i> Consejos y Novedades</h3>                <div class="tips-list">                    <div class="tip-item">                        <i class="fas fa-lightbulb"></i>                        <span>Recuerda mantener al día las vacunas de tus mascotas</span>                    </div>                </div>            </div>        </div>    </section>    <!-- Events Section -->    <section id="events" class="content-section" [class.active]="activeSection === \'events\'">        <div class="section-header">            <h2>Eventos Disponibles</h2>            <div class="filter-tabs">                <button class="tab-btn" [class.active]="activeFilter === \'all\'" (click)="filterEvents(\'all\')">Todos</button>                <button class="tab-btn" [class.active]="activeFilter === \'available\'" (click)="filterEvents(\'available\')">Disponibles</button>                <button class="tab-btn" [class.active]="activeFilter === \'joined\'" (click)="filterEvents(\'joined\')">Apuntado</button>            </div>        </div>        <div class="events-grid">            <div *ngFor="let event of filteredEvents" class="event-card">              <div class="event-status" [ngClass]="{                  \'status-disponible\': event.status === \'Disponible\',                  \'status-apuntado\': event.status === \'Apuntado\',                  \'status-lleno\': event.status === \'Lleno\'                }">                {{ event.status }}              </div>              <h3>{{ event.title }}</h3>              <p>{{ event.description }}</p>              <p><strong>Fecha:</strong> {{ event.date }} - <strong>Hora:</strong> {{ event.time }}</p>              <p><strong>Lugar:</strong> {{ event.location }}</p>              <p><strong>Participantes:</strong> {{ event.participants.length }}/{{ event.maxParticipants }}</p>              <div class="event-actions">                <button *ngIf="event.status === \'Disponible\'" class="btn-join" (click)="joinEvent(event.id)">Unirse</button>                <button *ngIf="event.status === \'Apuntado\'" class="btn-leave" (click)="leaveEvent(event.id)">Salir</button>              </div>            </div>          </div>    </section>    <!-- Pets Section -->    <section id="pets" class="content-section" [class.active]="activeSection === \'pets\'">        <div class="section-header">            <h2>Mis Mascotas</h2>            <button class="btn btn-primary" (click)="openAddPetModal()">                <i class="fas fa-plus"></i>                Agregar Mascota            </button>        </div>        <div class="pets-grid">            <div *ngFor="let pet of myPets" class="pet-card">                <div class="pet-image">                    <i class="fas fa-paw"></i>                </div>                <h4>{{ pet.name }}</h4>                <div class="pet-info">                    <div class="pet-detail">                        <span class="label">Tipo:</span>                        <span class="value">{{ pet.type }}</span>                    </div>                    <div class="pet-detail">                        <span class="label">Raza:</span>                        <span class="value">{{ pet.breed }}</span>                    </div>                    <div class="pet-detail">                        <span class="label">Edad:</span>                        <span class="value">{{ pet.age }} años</span>                    </div>                    <div class="pet-detail">                        <span class="label">Color:</span>                        <span class="value">{{ pet.color }}</span>                    </div>                </div>                <div class="pet-actions">                    <button class="btn-edit-pet" (click)="editPet(pet.id)">Editar</button>                    <button class="btn-delete-pet" (click)="deletePet(pet.id)">Eliminar</button>                </div>            </div>        </div>    </section>    <!-- Profile Section -->    <section id="profile" class="content-section" [class.active]="activeSection === \'profile\'">        <div class="section-header">            <h2>Mi Perfil</h2>        </div>        <div class="profile-content">            <div class="profile-card">              <div class="profile-header">                <div class="profile-avatar" id="profileAvatar">{{ profileName.charAt(0).toUpperCase() }}</div>                <div class="profile-info">                  <h3>{{ profileName }}</h3>                  <p>{{ profileEmail }}</p>                  <span class="member-since">Miembro desde <span>{{ memberSince }}</span></span>                </div>              </div>              <div *ngIf="successMessage" class="success-message">                {{ successMessage }}              </div>                          <form id="profileForm" class="profile-form" (submit)="updateProfile($event)">                <div class="form-row">                  <div class="form-group">                    <label for="profileNameInput">Nombre Completo</label>                    <input type="text" id="profileNameInput" name="name" [(ngModel)]="formName" required>                  </div>                  <div class="form-group">                    <label for="profilePhoneInput">Teléfono</label>                    <input type="tel" id="profilePhoneInput" name="phone" [(ngModel)]="formPhone" required>                  </div>                </div>                              <div class="form-group">                  <label for="profileEmailInput">Correo Electrónico</label>                  <input type="email" id="profileEmailInput" name="email" [(ngModel)]="formEmail" required>                </div>                              <div class="form-group">                  <label for="profileAddressInput">Dirección</label>                  <input type="text" id="profileAddressInput" name="address" [(ngModel)]="formAddress">                </div>                              <div class="form-actions">                  <button type="submit" class="btn btn-primary">                    <i class="fas fa-save"></i>                    Guardar Cambios                  </button>                </div>              </form>            </div>            <div class="activity-card">                <h3>Mi Actividad</h3>                <div class="activity-stats">                    <div class="activity-stat">                        <i class="fas fa-calendar-check"></i>                        <div>                            <span class="stat-number" id="totalEventsJoined">0</span>                            <span class="stat-label">Eventos Participados</span>                        </div>                    </div>                    <div class="activity-stat">                        <i class="fas fa-paw"></i>                        <div>                            <span class="stat-number" id="totalPetsRegistered">0</span>                            <span class="stat-label">Mascotas Registradas</span>                        </div>                    </div>                </div>            </div>        </div>    </section></main><!-- Modal para agregar/editar mascota --><div id="petModal" class="modal">    <div class="modal-content">        <div class="modal-header">            <h3>{{ petModalTitle }}</h3>            <button class="modal-close" (click)="closePetModal()">                <i class="fas fa-times"></i>            </button>        </div>        <form (ngSubmit)="savePet()" class="modal-form">            <input type="hidden" [(ngModel)]="petForm.id" name="petId">            <div class="form-row">                <div class="form-group">                    <label for="petName">Nombre de la Mascota</label>                    <input type="text" id="petName" [(ngModel)]="petForm.name" name="name" required>                </div>                <div class="form-group">                    <label for="petType">Tipo</label>                    <select id="petType" [(ngModel)]="petForm.type" name="type" required>                        <option value="">Selecciona el tipo</option>                        <option value="Perro">Perro</option>                        <option value="Gato">Gato</option>                        <option value="Ave">Ave</option>                        <option value="Otro">Otro</option>                    </select>                </div>            </div>            <div class="form-row">                <div class="form-group">                    <label for="petBreed">Raza</label>                    <input type="text" id="petBreed" [(ngModel)]="petForm.breed" name="breed" required>                </div>                <div class="form-group">                    <label for="petAge">Edad (años)</label>                    <input type="number" id="petAge" [(ngModel)]="petForm.age" name="age" min="0" max="30" required>                </div>            </div>            <div class="form-group">                <label for="petColor">Color</label>                <input type="text" id="petColor" [(ngModel)]="petForm.color" name="color" required>            </div>            <div class="form-row">                <div class="form-group checkbox-group">                    <label class="checkbox-label">                        <input type="checkbox" id="petVaccinated" [(ngModel)]="petForm.vaccinated" name="vaccinated">                        <span class="checkmark"></span>                        Vacunado                    </label>                </div>                <div class="form-group checkbox-group">                    <label class="checkbox-label">                        <input type="checkbox" id="petSterilized" [(ngModel)]="petForm.sterilized" name="sterilized">                        <span class="checkmark"></span>                        Esterilizado                    </label>                </div>            </div>            <div class="form-group">                <label for="petNotes">Notas adicionales</label>                <textarea id="petNotes" [(ngModel)]="petForm.notes" name="notes" rows="3" placeholder="Información adicional sobre tu mascota..."></textarea>            </div>            <div class="modal-actions">                <button type="button" class="btn btn-secondary" (click)="closePetModal()">Cancelar</button>                <button type="submit" class="btn btn-primary">Guardar Mascota</button>            </div>        </form>    </div></div><!-- Modal para eventos --><div id="eventModal" class="modal">    <div class="modal-content">        <div class="modal-header">            <h3>{{ selectedEvent?.title }}</h3>            <button class="modal-close" (click)="closeEventModal()">                <i class="fas fa-times"></i>            </button>        </div>        <div class="modal-body">            <p><strong>Descripción:</strong> {{ selectedEvent?.description }}</p>            <p><strong>Fecha:</strong> {{ selectedEvent?.date }} - <strong>Hora:</strong> {{ selectedEvent?.time }}</p>            <p><strong>Lugar:</strong> {{ selectedEvent?.location }}</p>            <p><strong>Participantes:</strong> {{ selectedEvent?.participants.length }}/{{ selectedEvent?.maxParticipants }}</p>        </div>        <div class="modal-actions">            <button *ngIf="!selectedEvent?.participants.includes(authService.getCurrentUser()?.id)" class="btn btn-primary" (click)="joinEvent(selectedEvent?.id)">Inscribirse</button>            <button *ngIf="selectedEvent?.participants.includes(authService.getCurrentUser()?.id)" class="btn btn-secondary" (click)="leaveEvent(selectedEvent?.id)">Desinscribirse</button>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SocioComponent', 'selector': 'app-socio'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SocioComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SocioComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

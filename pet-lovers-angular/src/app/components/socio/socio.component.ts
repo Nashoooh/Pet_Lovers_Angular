@@ -1,3 +1,15 @@
+/**
+ * @description Componente Socio. Panel principal para usuarios tipo socio.
+ * Permite gestionar perfil, mascotas, eventos y navegación entre secciones.
+ * Incluye lógica de autenticación, persistencia de sesión y actualización en tiempo real de datos.
+ *
+ * @usageNotes
+ * <app-socio></app-socio>
+ *
+ * Este componente requiere que el usuario esté autenticado como socio.
+ * Redirige a login si no hay sesión válida.
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
@@ -79,6 +91,10 @@ export class SocioComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  /**
+   * @description Inicializa los datos del socio logueado y carga las secciones principales.
+   * @param currentUser Usuario autenticado actual.
+   */
   initializeSocio(currentUser: any): void {
     this.socioName = currentUser.name;
     this.welcomeName = currentUser.name;
@@ -90,6 +106,10 @@ export class SocioComponent implements OnInit {
     this.loadProfile(currentUser);
   }
 
+  /**
+   * @description Carga datos del dashboard: cantidad de mascotas, eventos y próximos eventos.
+   * @param currentUser Usuario autenticado actual.
+   */
   loadDashboardData(currentUser: any): void {
     const myPets = this.db?.getPetsByOwner(currentUser.id) || [];
     const allEvents = this.db?.getEvents() || [];
@@ -102,6 +122,10 @@ export class SocioComponent implements OnInit {
     this.upcomingEvents = upcomingEvents;
   }
 
+  /**
+   * @description Carga todos los eventos y marca si el usuario está inscrito en cada uno.
+   * @returns void
+   */
   loadEvents(): void {
     const currentUser = this.authService.getCurrentUser();
     const events = this.db?.getEvents() || [];
@@ -120,26 +144,53 @@ export class SocioComponent implements OnInit {
     this.filterEvents(this.activeFilter); // Aplica el filtro activo
   }
 
-  addEvent(eventData: any): void {
-    this.db?.addEvent(eventData);
-    this.loadEvents();
+  /**
+   * @description Inscribe al usuario en un evento.
+   * @param eventId ID del evento.
+   * @returns void
+   */
+  joinEvent(eventId: string): void {
+    const currentUser = this.authService.getCurrentUser();
+    if (currentUser) {
+      const success = this.db?.joinEvent(eventId, currentUser.id);
+      if (success) {
+        this.loadEvents(); // Recarga los eventos
+        this.filterEvents(this.activeFilter); // Aplica el filtro activo
+      }
+    }
+  }
+  
+  /**
+   * @description Elimina la inscripción del usuario en un evento.
+   * @param eventId ID del evento.
+   * @returns void
+   */
+  leaveEvent(eventId: string): void {
+    const currentUser = this.authService.getCurrentUser();
+    if (currentUser) {
+      const success = this.db?.leaveEvent(eventId, currentUser.id);
+      if (success) {
+        this.loadEvents(); // Recarga los eventos
+        this.filterEvents(this.activeFilter); // Aplica el filtro activo
+      }
+    }
   }
 
-  editEvent(eventId: string, updatedData: any): void {
-    this.db?.updateEvent(eventId, updatedData);
-    this.loadEvents();
-  }
-
-  deleteEvent(eventId: string): void {
-    this.db?.deleteEvent(eventId);
-    this.loadEvents();
-  }
-
+  /**
+   * @description Carga las mascotas del usuario logueado.
+   * @param currentUser Usuario autenticado actual.
+   * @returns void
+   */
   loadMyPets(currentUser: any): void {
     const myPets = this.db?.getPetsByOwner(currentUser.id) || [];
     this.myPets = myPets;
   }
 
+  /**
+   * @description Carga y muestra los datos del perfil del usuario.
+   * @param currentUser Usuario autenticado actual.
+   * @returns void
+   */
   loadProfile(currentUser: any): void {
     this.profileName = currentUser.name;
     this.profileEmail = currentUser.email;
@@ -174,6 +225,10 @@ export class SocioComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Abre el modal para agregar o editar una mascota.
+   * @returns void
+   */
   openPetModal(): void {
     const modal = document.getElementById('petModal');
     if (modal) {
@@ -181,6 +236,10 @@ export class SocioComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Cierra el modal de mascota.
+   * @returns void
+   */
   closePetModal(): void {
     const modal = document.getElementById('petModal');
     if (modal) {
@@ -188,6 +247,30 @@ export class SocioComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Cambia la sección activa del panel socio.
+   * @param section Nombre de la sección a mostrar.
+   * @returns void
+   */
+  switchSection(section: string): void {
+    this.activeSection = section;
+  }
+
+  /**
+   * @description Navega a una sección específica del panel socio.
+   * @param section Nombre de la sección a la que se navega.
+   * @returns void
+   */
+  navigateToSection(section: string): void {
+    this.switchSection(section);
+  }
+
+  /**
+   * @description Guarda una mascota nueva o editada. Asigna ownerId si es nueva.
+   * @returns void
+   * @usageNotes
+   * Llama a este método desde el formulario de mascota con (ngSubmit)="savePet()".
+   */
   savePet(): void {
     const currentUser = this.authService.getCurrentUser();
     if (!currentUser) {
@@ -208,6 +291,11 @@ export class SocioComponent implements OnInit {
     this.closePetModal();
   }
 
+  /**
+   * @description Filtra los eventos según el filtro activo.
+   * @param filter Filtro a aplicar ('all', 'available', 'joined').
+   * @returns void
+   */
   filterEvents(filter: string): void {
     this.activeFilter = filter;
   
@@ -223,88 +311,10 @@ export class SocioComponent implements OnInit {
     }
   }
 
-  openEventModal(eventId: string): void {
-    const event = this.events.find(e => e.id === eventId);
-    if (event) {
-      const modal = document.getElementById('eventModal');
-      if (modal) {
-        modal.style.display = 'block';
-        const modalTitle = modal.querySelector('.modal-title');
-        const modalBody = modal.querySelector('.modal-body');
-        const modalButton = modal.querySelector('.modal-button');
-
-        if (modalTitle) modalTitle.textContent = event.name;
-        if (modalBody) modalBody.textContent = `Participantes: ${event.participants.length}`;
-        if (modalButton) {
-          const currentUser = this.authService.getCurrentUser();
-          modalButton.textContent = currentUser && event.participants.includes(currentUser.id) ? 'Desinscribirse' : 'Inscribirse';
-          modalButton.replaceWith(modalButton.cloneNode(true));
-          const newButton = modal.querySelector('.modal-button');
-          if (newButton) {
-            newButton.addEventListener('click', () => {
-              if (currentUser && event.participants.includes(currentUser.id)) {
-                this.leaveEvent(event.id);
-              } else {
-                this.joinEvent(event.id);
-              }
-            });
-          }
-        }
-      }
-    }
-  }
-
-  closeEventModal(): void {
-    const modal = document.getElementById('eventModal');
-    if (modal) {
-      modal.style.display = 'none';
-    }
-  }
-
-  joinEvent(eventId: string): void {
-    const currentUser = this.authService.getCurrentUser();
-    if (currentUser) {
-      const success = this.db?.joinEvent(eventId, currentUser.id);
-      if (success) {
-        this.loadEvents(); // Recarga los eventos
-        this.filterEvents(this.activeFilter); // Aplica el filtro activo
-      }
-    }
-  }
-  
-  leaveEvent(eventId: string): void {
-    const currentUser = this.authService.getCurrentUser();
-    if (currentUser) {
-      const success = this.db?.leaveEvent(eventId, currentUser.id);
-      if (success) {
-        this.loadEvents(); // Recarga los eventos
-        this.filterEvents(this.activeFilter); // Aplica el filtro activo
-      }
-    }
-  }
-
-  switchSection(section: string): void {
-    this.activeSection = section;
-  }
-
-  navigateToSection(section: string): void {
-    this.switchSection(section);
-  }
-
-  editPet(petId: string): void {
-    const pet = this.myPets.find(p => p.id === petId);
-    if (pet) {
-      this.petForm = { ...pet };
-      this.petModalTitle = 'Editar Mascota';
-      this.openPetModal();
-    }
-  }
-
-  deletePet(petId: string): void {
-    this.db?.deletePet(petId);
-    this.loadMyPets(this.authService.getCurrentUser());
-  }
-
+  /**
+   * @description Abre el modal de mascota para agregar una nueva mascota.
+   * @returns void
+   */
   openAddPetModal(): void {
     this.petForm = {
       id: null,
@@ -321,11 +331,35 @@ export class SocioComponent implements OnInit {
     this.openPetModal();
   }
 
-  formatDate(date: string): string {
-    const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'short', year: 'numeric' };
-    return new Date(date).toLocaleDateString('es-ES', options);
+  /**
+   * @description Abre el modal de mascota para editar una mascota existente.
+   * @param petId ID de la mascota a editar.
+   * @returns void
+   */
+  editPet(petId: string): void {
+    const pet = this.myPets.find(p => p.id === petId);
+    if (pet) {
+      this.petForm = { ...pet };
+      this.petModalTitle = 'Editar Mascota';
+      this.openPetModal();
+    }
   }
 
+  /**
+   * @description Elimina una mascota del usuario.
+   * @param petId ID de la mascota a eliminar.
+   * @returns void
+   */
+  deletePet(petId: string): void {
+    this.db?.deletePet(petId);
+    this.loadMyPets(this.authService.getCurrentUser());
+  }
+
+  /**
+   * @description Actualiza los datos del perfil del usuario.
+   * @param event Evento del formulario.
+   * @returns void
+   */
   updateProfile(event: Event): void {
     event.preventDefault(); // Evita el comportamiento predeterminado del formulario
 

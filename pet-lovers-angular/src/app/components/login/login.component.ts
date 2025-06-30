@@ -1,3 +1,14 @@
+/**
+ * @description Componente de inicio de sesión.
+ * Permite a los usuarios autenticarse, recordarlos y navegar según su tipo (socio/admin).
+ * Incluye validaciones, feedback visual y autocompletado de email.
+ *
+ * @usageNotes
+ * <app-login></app-login>
+ *
+ * Este componente es la puerta de entrada para usuarios registrados.
+ */
+
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -25,6 +36,10 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  /**
+   * @description Inicializa el componente, autocompleta email si está guardado y verifica sesión activa.
+   * @returns void
+   */
   ngOnInit(): void {
     const rememberedUser = this.authService.checkRememberedUser();
     if (rememberedUser) {
@@ -34,6 +49,12 @@ export class LoginComponent {
     }
   }
 
+  /**
+   * @description Realiza el proceso de login, validando credenciales y gestionando la sesión.
+   * @returns void
+   * @usageNotes
+   * Llama a este método desde el formulario con (ngSubmit)="login()".
+   */
   onLogin(): void {
     if (!this.email || !this.password) {
       this.removeMessages();
@@ -65,6 +86,38 @@ export class LoginComponent {
     }, 1000);
   }
 
+  /**
+   * @description Cambia la visibilidad de la contraseña en el input.
+   * @returns void
+   */
+  togglePasswordVisibility(): void {
+    const passwordField = document.querySelector('input[name="password"]') as HTMLInputElement;
+    const passwordToggle = document.querySelector('.password-toggle');
+
+    if (passwordField && passwordToggle) {
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        passwordToggle.classList.add('visible');
+      } else {
+        passwordField.type = 'password';
+        passwordToggle.classList.remove('visible');
+      }
+    }
+  }
+
+  /**
+   * @description Redirige al usuario a la pantalla de recuperación de contraseña.
+   * @returns void
+   */
+  goToForgotPassword(): void {
+    this.router.navigate(['/forgot-password']);
+  }
+
+  /**
+   * @description Maneja el cambio de tipo de usuario y autocompleta los campos según el tipo seleccionado.
+   * @param event Evento de cambio del select.
+   * @returns void
+   */
   onUserTypeChange(event: Event): void {
     const selectedType = (event.target as HTMLSelectElement).value;
     if (selectedType === 'admin') {
@@ -79,6 +132,11 @@ export class LoginComponent {
     }
   }
 
+  /**
+   * @description Valida la fortaleza de la contraseña ingresada.
+   * @param password Contraseña a validar.
+   * @returns boolean True si la contraseña es fuerte, false en caso contrario.
+   */
   validatePassword(password: string): boolean {
     const minLength = 8;
     const hasUpper = /[A-Z]/.test(password);
@@ -88,6 +146,11 @@ export class LoginComponent {
     return password.length >= minLength && hasUpper && hasLower && hasNumber && hasSymbol;
   }
 
+  /**
+   * @description Muestra un mensaje de error en pantalla.
+   * @param message Mensaje a mostrar.
+   * @returns void
+   */
   showError(message: string): void {
     this.loginError = message;
     setTimeout(() => {
@@ -95,10 +158,19 @@ export class LoginComponent {
     }, 5000);
   }
 
+  /**
+   * @description Muestra un mensaje de éxito en pantalla.
+   * @param message Mensaje a mostrar.
+   * @returns void
+   */
   showSuccess(message: string): void {
     alert(message); // Puedes reemplazar esto con una lógica más avanzada de mensajes en el DOM
   }
 
+  /**
+   * @description Verifica el estado de autenticación y redirige según el tipo de usuario.
+   * @returns void
+   */
   checkAuthStatus(): void {
     const currentUser = this.authService.getCurrentUser();
 
@@ -113,6 +185,11 @@ export class LoginComponent {
     }
   }
 
+  /**
+   * @description Valida un campo de formulario y aplica estilos de error si corresponde.
+   * @param field Campo de formulario a validar.
+   * @returns void
+   */
   validateField(field: HTMLInputElement): void {
     const value = field.value.trim();
 
@@ -137,15 +214,31 @@ export class LoginComponent {
     field.classList.remove('error');
   }
 
+  /**
+   * @description Valida el formato de un email.
+   * @param email Email a validar.
+   * @returns boolean True si el email es válido, false en caso contrario.
+   */
   isValidEmail(email: string): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
 
+  /**
+   * @description Muestra u oculta el indicador de carga.
+   * @param show True para mostrar, false para ocultar.
+   * @returns void
+   */
   showLoading(show: boolean): void {
     this.loading = show;
   }
 
+  /**
+   * @description Muestra un mensaje de error o éxito en pantalla.
+   * @param type Tipo de mensaje ('error' | 'success').
+   * @param message Mensaje a mostrar.
+   * @returns void
+   */
   showMessage(type: 'error' | 'success', message: string): void {
     const messageDiv = document.createElement('div');
     messageDiv.className = type === 'error' ? 'error-message' : 'success-message';
@@ -161,6 +254,10 @@ export class LoginComponent {
     }, type === 'error' ? 5000 : 3000);
   }
 
+  /**
+   * @description Elimina todos los mensajes de error o éxito del DOM.
+   * @returns void
+   */
   removeMessages(): void {
     const existingMessages = document.querySelectorAll('.error-message, .success-message');
     existingMessages.forEach(msg => {
