@@ -12,12 +12,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgFor, CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { db } from '../../data/data';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, NgFor, CommonModule],
+  imports: [RouterLink, NgFor, CommonModule, FormsModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -27,6 +28,16 @@ export class HomeComponent implements OnInit {
   currentIndex: number = 0;
   itemsPerRow: number = 3;
   isMenuOpen: boolean = false;
+
+  contactName: string = '';
+  contactEmail: string = '';
+  contactMessage: string = '';
+  contactNameError: string = '';
+  contactEmailError: string = '';
+  contactMessageError: string = '';
+  isContactModalOpen: boolean = false;
+  isContactErrorModalOpen: boolean = false;
+  contactSuccess: boolean = false;
 
   /**
    * @description Inicializa el componente y carga datos iniciales si es necesario.
@@ -87,6 +98,78 @@ export class HomeComponent implements OnInit {
    */
   closeMenu(): void {
     this.isMenuOpen = false; // Cierra el menú
+  }
+
+  /**
+   * @description Valida el campo nombre en tiempo real.
+   * @returns void
+   */
+  validateContactName(): void {
+    if (!this.contactName.trim()) {
+      this.contactNameError = 'El nombre es obligatorio.';
+    } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/.test(this.contactName.trim())) {
+      this.contactNameError = 'Solo letras y espacios.';
+    } else {
+      this.contactNameError = '';
+    }
+  }
+
+  /**
+   * @description Valida el campo email en tiempo real.
+   * @returns void
+   */
+  validateContactEmail(): void {
+    if (!this.contactEmail.trim()) {
+      this.contactEmailError = 'El email es obligatorio.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.contactEmail.trim())) {
+      this.contactEmailError = 'El email no es válido.';
+    } else {
+      this.contactEmailError = '';
+    }
+  }
+
+  /**
+   * @description Valida el campo mensaje en tiempo real.
+   * @returns void
+   */
+  validateContactMessage(): void {
+    if (!this.contactMessage.trim()) {
+      this.contactMessageError = 'El mensaje es obligatorio.';
+    } else if (this.contactMessage.trim().length < 10) {
+      this.contactMessageError = 'El mensaje debe tener al menos 10 caracteres.';
+    } else {
+      this.contactMessageError = '';
+    }
+  }
+
+  /**
+   * @description Valida y simula el envío del formulario de contacto.
+   * @returns void
+   */
+  onContactSubmit(): void {
+    this.validateContactName();
+    this.validateContactEmail();
+    this.validateContactMessage();
+    if (this.contactNameError || this.contactEmailError || this.contactMessageError) {
+      this.isContactErrorModalOpen = true;
+      this.contactSuccess = false;
+      return;
+    }
+    // Simulación de envío exitoso
+    this.isContactModalOpen = true;
+    this.contactSuccess = true;
+    this.contactName = '';
+    this.contactEmail = '';
+    this.contactMessage = '';
+  }
+
+  /**
+   * @description Cierra el modal de contacto (éxito o error).
+   * @returns void
+   */
+  closeContactModal(): void {
+    this.isContactModalOpen = false;
+    this.isContactErrorModalOpen = false;
   }
 
 }

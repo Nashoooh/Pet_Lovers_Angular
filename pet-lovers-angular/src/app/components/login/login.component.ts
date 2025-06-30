@@ -123,9 +123,11 @@ export class LoginComponent {
     if (selectedType === 'admin') {
       this.email = 'admin@patitasfelices.org';
       this.password = 'admin123';
+      setTimeout(() => { this.userType = ''; }, 0); // Permite volver a seleccionar
     } else if (selectedType === 'socio') {
       this.email = 'socio1@email.com';
       this.password = 'socio123';
+      setTimeout(() => { this.userType = ''; }, 0); // Permite volver a seleccionar
     } else {
       this.email = '';
       this.password = '';

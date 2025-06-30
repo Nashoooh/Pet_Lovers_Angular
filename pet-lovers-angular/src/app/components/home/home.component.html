@@ -177,16 +177,63 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
-                        <input type="text" placeholder="Nombre" required>
-                        <input type="email" placeholder="Email" required>
-                        <textarea placeholder="Mensaje" rows="5" required></textarea>
-                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    <form id="contactForm" (ngSubmit)="onContactSubmit()">
+                        <input type="text" placeholder="Nombre" required [(ngModel)]="contactName" name="contactName"
+                            (input)="validateContactName()" [ngClass]="{'is-invalid': contactNameError}">
+                        <div *ngIf="contactNameError" class="invalid-feedback text-danger">{{ contactNameError }}</div>
+
+                        <input type="email" placeholder="Email" required [(ngModel)]="contactEmail" name="contactEmail"
+                            (input)="validateContactEmail()" [ngClass]="{'is-invalid': contactEmailError}">
+                        <div *ngIf="contactEmailError" class="invalid-feedback text-danger">{{ contactEmailError }}</div>
+
+                        <textarea placeholder="Mensaje" rows="5" required [(ngModel)]="contactMessage" name="contactMessage"
+                            (input)="validateContactMessage()" [ngClass]="{'is-invalid': contactMessageError}"></textarea>
+                        <div *ngIf="contactMessageError" class="invalid-feedback text-danger">{{ contactMessageError }}</div>
+
+                        <button type="submit" class="btn btn-primary" [disabled]="contactNameError || contactEmailError || contactMessageError || !contactName || !contactEmail || !contactMessage">
+                            Enviar Mensaje
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal de éxito -->
+    <div *ngIf="isContactModalOpen && contactSuccess" class="modal show">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>¡Mensaje enviado!</h3>
+          <button class="modal-close" (click)="closeContactModal()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Datos enviados correctamente. Nos pondremos en contacto a la brevedad.</p>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-primary" (click)="closeContactModal()">Aceptar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de error -->
+    <div *ngIf="isContactErrorModalOpen && !contactSuccess" class="modal show">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Error en el formulario</h3>
+          <button class="modal-close" (click)="closeContactModal()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Por favor corrige los errores antes de enviar el mensaje.</p>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-primary" (click)="closeContactModal()">Aceptar</button>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -228,5 +275,4 @@
         </div>
     </footer>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 

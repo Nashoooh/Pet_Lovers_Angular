@@ -19,21 +19,21 @@
             <div class="form-group">
                 <label for="name"><i class="fas fa-user"></i> Nombre Completo *</label>
                 <input type="text" id="name" required [(ngModel)]="name" name="name" placeholder="Tu nombre completo" #nameCtrl="ngModel" [ngClass]="{'is-invalid': nameCtrl.invalid && (nameCtrl.touched || nameCtrl.dirty)}">
-                <div class="invalid-feedback" *ngIf="nameCtrl.invalid && (nameCtrl.touched || nameCtrl.dirty)">
+                <div class="invalid-feedback text-danger" *ngIf="nameCtrl.invalid && (nameCtrl.touched || nameCtrl.dirty)">
                     El nombre es obligatorio.
                 </div>
             </div>
             <div class="form-group">
                 <label for="email"><i class="fas fa-envelope"></i> Correo Electrónico *</label>
                 <input type="email" id="email" required [(ngModel)]="email" name="email" placeholder="tu@email.com" #emailCtrl="ngModel" [ngClass]="{'is-invalid': emailCtrl.invalid && (emailCtrl.touched || emailCtrl.dirty)}">
-                <div class="invalid-feedback" *ngIf="emailCtrl.invalid && (emailCtrl.touched || emailCtrl.dirty)">
+                <div class="invalid-feedback text-danger" *ngIf="emailCtrl.invalid && (emailCtrl.touched || emailCtrl.dirty)">
                     El correo es obligatorio y debe ser válido.
                 </div>
             </div>
             <div class="form-group">
                 <label for="phone"><i class="fas fa-phone"></i> Teléfono *</label>
                 <input type="tel" id="phone" required [(ngModel)]="phone" name="phone" placeholder="+1 234 567 8900" #phoneCtrl="ngModel" [ngClass]="{'is-invalid': phoneCtrl.invalid && (phoneCtrl.touched || phoneCtrl.dirty)}">
-                <div class="invalid-feedback" *ngIf="phoneCtrl.invalid && (phoneCtrl.touched || phoneCtrl.dirty)">
+                <div class="invalid-feedback text-danger" *ngIf="phoneCtrl.invalid && (phoneCtrl.touched || phoneCtrl.dirty)">
                     El teléfono es obligatorio.
                 </div>
             </div>
@@ -45,7 +45,7 @@
                 <label for="password"><i class="fas fa-lock"></i> Contraseña *</label>
                 <input type="password" id="password" required [(ngModel)]="password" name="password" placeholder="••••••••" minlength="8" #passwordCtrl="ngModel" [ngClass]="{'is-invalid': passwordCtrl.invalid && (passwordCtrl.touched || passwordCtrl.dirty)}">
                 <small class="field-hint">Mínimo 8 caracteres, incluir mayúscula, minúscula, número y símbolo</small>
-                <div class="invalid-feedback" *ngIf="passwordCtrl.invalid && (passwordCtrl.touched || passwordCtrl.dirty)">
+                <div class="invalid-feedback text-danger" *ngIf="passwordCtrl.invalid && (passwordCtrl.touched || passwordCtrl.dirty)">
                     La contraseña es obligatoria y debe tener al menos 8 caracteres.
                 </div>
                 <div class="password-strength" *ngIf="password">
@@ -57,7 +57,7 @@
             <div class="form-group">
                 <label for="confirmPassword"><i class="fas fa-lock"></i> Confirmar Contraseña *</label>
                 <input type="password" id="confirmPassword" required [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="••••••••" #confirmPasswordCtrl="ngModel" [ngClass]="{'is-invalid': (confirmPassword !== password) && (confirmPasswordCtrl.touched || confirmPasswordCtrl.dirty)}">
-                <div class="invalid-feedback" *ngIf="(confirmPassword !== password) && (confirmPasswordCtrl.touched || confirmPasswordCtrl.dirty)">
+                <div class="invalid-feedback text-danger" *ngIf="(confirmPassword !== password) && (confirmPasswordCtrl.touched || confirmPasswordCtrl.dirty)">
                     Las contraseñas no coinciden.
                 </div>
             </div>
@@ -67,7 +67,7 @@
                 <span class="checkmark"></span>
                 Acepto los <a href="#" class="terms-link">términos y condiciones</a>
                 </label>
-                <div class="invalid-feedback" *ngIf="termsCtrl.invalid && (termsCtrl.touched || termsCtrl.dirty)">
+                <div class="invalid-feedback text-danger" *ngIf="termsCtrl.invalid && (termsCtrl.touched || termsCtrl.dirty)">
                     Debes aceptar los términos y condiciones.
                 </div>
             </div>
