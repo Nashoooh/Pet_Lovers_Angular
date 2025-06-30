@@ -44,9 +44,8 @@ export class SocioComponent implements OnInit {
   formPhone: string = '';
   formEmail: string = '';
   formAddress: string = '';
-  activeFilter: string = 'all'; // Filtro activo: 'all', 'available', 'joined'
-  filteredEvents: any[] = []; // Eventos filtrados
-  
+  activeFilter: string = 'all';
+  filteredEvents: any[] = [];
   petForm: any = {
     id: null,
     name: '',
@@ -58,19 +57,28 @@ export class SocioComponent implements OnInit {
     sterilized: false,
     notes: ''
   };
-
   petModalTitle: string = 'Agregar Mascota';
-
   activeSection: string = 'dashboard';
-
   selectedEvent: any = null;
 
+  /**
+   * @description Constructor. Inyecta servicios de autenticación y router.
+   * @param authService Servicio de autenticación.
+   * @param router Servicio de navegación.
+   */
   constructor(public authService: AuthService, private router: Router) {
     this.authService = authService;
   }
 
+  /**
+   * @description Referencia a la base de datos simulada.
+   */
   db = db;
 
+  /**
+   * @description Inicializa el componente y carga los datos del socio.
+   * @returns void
+   */
   ngOnInit(): void {
     const currentUser = this.authService.getCurrentUser();
     if (!currentUser || currentUser.type !== 'socio') {
@@ -86,6 +94,10 @@ export class SocioComponent implements OnInit {
       this.formAddress = currentUser.address || '';
     }
 
+  /**
+   * @description Cierra la sesión y redirige al login.
+   * @returns void
+   */
   onLogout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
@@ -248,6 +260,17 @@ export class SocioComponent implements OnInit {
   }
 
   /**
+   * @description Cierra el modal de evento.
+   * @returns void
+   */
+  closeEventModal(): void {
+    const modal = document.getElementById('eventModal');
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+  /**
    * @description Cambia la sección activa del panel socio.
    * @param section Nombre de la sección a mostrar.
    * @returns void
@@ -401,5 +424,15 @@ export class SocioComponent implements OnInit {
         this.successMessage = ''; // Limpia el mensaje después de 3 segundos
       }, 3000);
     }
+  }
+
+  /**
+   * @description Formatea una fecha en formato dd/mm/yyyy.
+   * @param date Fecha a formatear.
+   * @returns string Fecha formateada.
+   */
+  formatDate(date: string): string {
+    const d = new Date(date);
+    return `${d.getDate().toString().padStart(2, '0')}/${(d.getMonth() + 1).toString().padStart(2, '0')}/${d.getFullYear()}`;
   }
 }
