@@ -83,11 +83,8 @@
         <div class="container">
             <h2>Próximos Eventos</h2>
             <div class="carousel" style="position: relative;">
-                <button class="carousel-control prev" (click)="prev()" style="position: absolute; top: 50%; left: -40px; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
-                    <i class="fas fa-chevron-left" style="font-size: 36px; color: #333;"></i>
-                </button>
-                <div class="carousel-track" style="display: flex; gap: 16px; overflow: hidden;">
-                    <div *ngFor="let evento of visibleEventos" class="event-card" style="flex: 0 0 calc(33.333% - 16px);">
+                <div class="carousel-track">
+                    <div *ngFor="let evento of visibleEventos" class="event-card">
                         <h3>{{ evento.title }}</h3>
                         <p>{{ evento.description }}</p>
                         <p><strong>Fecha:</strong> {{ evento.date }} - <strong>Hora:</strong> {{ evento.time }}</p>
@@ -95,9 +92,20 @@
                         <p><strong>Participantes:</strong> {{ evento.participants.length }}/{{ evento.maxParticipants }}</p>
                     </div>
                 </div>
+                <button class="carousel-control prev" (click)="prev()" style="position: absolute; top: 50%; left: -40px; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
+                    <i class="fas fa-chevron-left" style="font-size: 36px; color: #333;"></i>
+                </button>
                 <button class="carousel-control next" (click)="next()" style="position: absolute; top: 50%; right: -40px; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
                     <i class="fas fa-chevron-right" style="font-size: 36px; color: #333;"></i>
                 </button>
+            </div>
+            <div class="carousel-dots" *ngIf="eventos.length > 1">
+              <span
+                *ngFor="let evento of eventos; let i = index"
+                class="carousel-dot"
+                [class.active]="i === currentIndex"
+                (click)="goToSlide(i)">
+              </span>
             </div>
             <div class="events-cta">
                 <p>¿Quieres participar en nuestros eventos?</p>

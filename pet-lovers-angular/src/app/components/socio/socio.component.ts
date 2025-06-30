@@ -60,6 +60,13 @@ export class SocioComponent implements OnInit {
   petModalTitle: string = 'Agregar Mascota';
   activeSection: string = 'dashboard';
   selectedEvent: any = null;
+  petFormErrors: any = {
+    name: '',
+    type: '',
+    breed: '',
+    age: '',
+    color: ''
+  };
 
   /**
    * @description Constructor. Inyecta servicios de autenticación y router.
@@ -295,6 +302,17 @@ export class SocioComponent implements OnInit {
    * Llama a este método desde el formulario de mascota con (ngSubmit)="savePet()".
    */
   savePet(): void {
+    this.validatePetForm();
+    if (
+      this.petFormErrors.name ||
+      this.petFormErrors.type ||
+      this.petFormErrors.breed ||
+      this.petFormErrors.age ||
+      this.petFormErrors.color
+    ) {
+      return;
+    }
+
     const currentUser = this.authService.getCurrentUser();
     if (!currentUser) {
         console.error('No se encontró un usuario logueado.');
@@ -351,6 +369,7 @@ export class SocioComponent implements OnInit {
       notes: ''
     };
     this.petModalTitle = 'Agregar Mascota';
+    this.petFormErrors = { name: '', type: '', breed: '', age: '', color: '' };
     this.openPetModal();
   }
 
@@ -364,6 +383,7 @@ export class SocioComponent implements OnInit {
     if (pet) {
       this.petForm = { ...pet };
       this.petModalTitle = 'Editar Mascota';
+      this.petFormErrors = { name: '', type: '', breed: '', age: '', color: '' };
       this.openPetModal();
     }
   }
@@ -434,5 +454,42 @@ export class SocioComponent implements OnInit {
   formatDate(date: string): string {
     const d = new Date(date);
     return `${d.getDate().toString().padStart(2, '0')}/${(d.getMonth() + 1).toString().padStart(2, '0')}/${d.getFullYear()}`;
+  }
+
+  /**
+   * @description Valida el formulario de mascota en tiempo real.
+   * @returns void
+   */
+  validatePetForm(): void {
+    // Nombre: solo letras y obligatorio
+    if (!this.petForm.name || !/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/.test(this.petForm.name)) {
+      this.petFormErrors.name = this.petForm.name ? 'Solo letras y espacios.' : 'El nombre es obligatorio.';
+    } else {
+      this.petFormErrors.name = '';
+    }
+    // Tipo: obligatorio
+    this.petFormErrors.type = this.petForm.type ? '' : 'El tipo es obligatorio.';
+    // Raza: solo letras y obligatorio
+    if (!this.petForm.breed || !/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/.test(this.petForm.breed)) {
+      this.petFormErrors.breed = this.petForm.breed ? 'Solo letras y espacios.' : 'La raza es obligatoria.';
+    } else {
+      this.petFormErrors.breed = '';
+    }
+    // Edad: solo números, obligatorio, entre 0 y 30
+    if (this.petForm.age === null || this.petForm.age === undefined || this.petForm.age === '') {
+      this.petFormErrors.age = 'La edad es obligatoria.';
+    } else if (!/^[0-9]+$/.test(String(this.petForm.age))) {
+      this.petFormErrors.age = 'Solo números.';
+    } else if (this.petForm.age < 0 || this.petForm.age > 30) {
+      this.petFormErrors.age = 'Debe estar entre 0 y 30.';
+    } else {
+      this.petFormErrors.age = '';
+    }
+    // Color: solo letras y obligatorio
+    if (!this.petForm.color || !/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/.test(this.petForm.color)) {
+      this.petFormErrors.color = this.petForm.color ? 'Solo letras y espacios.' : 'El color es obligatorio.';
+    } else {
+      this.petFormErrors.color = '';
+    }
   }
 }

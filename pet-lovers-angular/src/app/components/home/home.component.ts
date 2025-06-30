@@ -28,7 +28,10 @@ export class HomeComponent implements OnInit {
   currentIndex: number = 0;
   itemsPerRow: number = 3;
   isMenuOpen: boolean = false;
+  // Referencia al carrusel para scroll manual
+  carouselTrackRef: any;
 
+  // Contacto
   contactName: string = '';
   contactEmail: string = '';
   contactMessage: string = '';
@@ -46,9 +49,24 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     if (db) {
       this.eventos = db.getEvents();
+      this.setItemsPerRow();
       this.updateVisibleEventos();
+      setTimeout(() => this.attachScrollListener(), 0);
     } else {
       this.eventos = [];
+    }
+  }
+
+  /**
+   * @description Ajusta la cantidad de eventos visibles según el ancho de pantalla.
+   */
+  setItemsPerRow(): void {
+    if (window.innerWidth <= 768) {
+      this.itemsPerRow = 1;
+    } else if (window.innerWidth <= 1024) {
+      this.itemsPerRow = 2;
+    } else {
+      this.itemsPerRow = 3;
     }
   }
 
@@ -60,7 +78,6 @@ export class HomeComponent implements OnInit {
     const start = this.currentIndex;
     const end = start + this.itemsPerRow;
     this.visibleEventos = [];
-
     for (let i = start; i < end; i++) {
       this.visibleEventos.push(this.eventos[i % this.eventos.length]);
     }
@@ -73,6 +90,7 @@ export class HomeComponent implements OnInit {
   next(): void {
     this.currentIndex = (this.currentIndex + 1) % this.eventos.length;
     this.updateVisibleEventos();
+    this.scrollToCurrent();
   }
 
   /**
@@ -82,6 +100,54 @@ export class HomeComponent implements OnInit {
   prev(): void {
     this.currentIndex = (this.currentIndex - 1 + this.eventos.length) % this.eventos.length;
     this.updateVisibleEventos();
+    this.scrollToCurrent();
+  }
+
+  /**
+   * @description Navega a un slide específico (usado por los dots en mobile).
+   * @param i Índice del slide
+   */
+  goToSlide(i: number): void {
+    this.currentIndex = i;
+    this.updateVisibleEventos();
+    this.scrollToCurrent();
+  }
+
+  /**
+   * @description Hace scroll suave al slide actual en mobile.
+   */
+  scrollToCurrent(): void {
+    if (window.innerWidth > 768) return;
+    const track = document.querySelector('.carousel-track');
+    if (track) {
+      const card = track.children[this.currentIndex] as HTMLElement;
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
+  }
+
+  /**
+   * @description Escucha el scroll manual para actualizar el dot activo en mobile.
+   */
+  attachScrollListener(): void {
+    if (window.innerWidth > 768) return;
+    const track = document.querySelector('.carousel-track');
+    if (track) {
+      track.addEventListener('scroll', () => {
+        let minDist = Infinity;
+        let idx = 0;
+        Array.from(track.children).forEach((el: any, i) => {
+          const rect = el.getBoundingClientRect();
+          const dist = Math.abs(rect.left - track.getBoundingClientRect().left);
+          if (dist < minDist) {
+            minDist = dist;
+            idx = i;
+          }
+        });
+        this.currentIndex = idx;
+      });
+    }
   }
 
   /**

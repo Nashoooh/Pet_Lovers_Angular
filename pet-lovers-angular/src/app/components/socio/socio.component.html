@@ -282,34 +282,39 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="petName">Nombre de la Mascota</label>
-                    <input type="text" id="petName" [(ngModel)]="petForm.name" name="name" required>
+                    <input type="text" id="petName" [(ngModel)]="petForm.name" name="name" required (ngModelChange)="validatePetForm()">
+                    <div class="invalid-feedback" *ngIf="petFormErrors.name">{{ petFormErrors.name }}</div>
                 </div>
                 <div class="form-group">
                     <label for="petType">Tipo</label>
-                    <select id="petType" [(ngModel)]="petForm.type" name="type" required>
+                    <select id="petType" [(ngModel)]="petForm.type" name="type" required (ngModelChange)="validatePetForm()">
                         <option value="">Selecciona el tipo</option>
                         <option value="Perro">Perro</option>
                         <option value="Gato">Gato</option>
                         <option value="Ave">Ave</option>
                         <option value="Otro">Otro</option>
                     </select>
+                    <div class="invalid-feedback" *ngIf="petFormErrors.type">{{ petFormErrors.type }}</div>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label for="petBreed">Raza</label>
-                    <input type="text" id="petBreed" [(ngModel)]="petForm.breed" name="breed" required>
+                    <input type="text" id="petBreed" [(ngModel)]="petForm.breed" name="breed" required (ngModelChange)="validatePetForm()">
+                    <div class="invalid-feedback" *ngIf="petFormErrors.breed">{{ petFormErrors.breed }}</div>
                 </div>
                 <div class="form-group">
                     <label for="petAge">Edad (años)</label>
-                    <input type="number" id="petAge" [(ngModel)]="petForm.age" name="age" min="0" max="30" required>
+                    <input type="number" id="petAge" [(ngModel)]="petForm.age" name="age" min="0" max="30" required (ngModelChange)="validatePetForm()">
+                    <div class="invalid-feedback" *ngIf="petFormErrors.age">{{ petFormErrors.age }}</div>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="petColor">Color</label>
-                <input type="text" id="petColor" [(ngModel)]="petForm.color" name="color" required>
+                <input type="text" id="petColor" [(ngModel)]="petForm.color" name="color" required (ngModelChange)="validatePetForm()">
+                <div class="invalid-feedback" *ngIf="petFormErrors.color">{{ petFormErrors.color }}</div>
             </div>
 
             <div class="form-row">

@@ -43,6 +43,14 @@ export class AdminComponent implements OnInit {
   searchTerm: string = '';
   filteredSocios: any[] = [];
   isSidebarOpen: boolean = false; // Controla el estado del sidebar
+  eventFormErrors: any = {
+    title: '',
+    description: '',
+    date: '',
+    time: '',
+    location: '',
+    maxParticipants: ''
+  };
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -232,10 +240,61 @@ export class AdminComponent implements OnInit {
   }
   
   /**
+   * @description Valida el formulario de evento antes de guardar.
+   * @returns boolean
+   */
+  validateEventForm(): boolean {
+    let valid = true;
+    const today = new Date();
+    const eventDate = new Date(this.eventFormData.date + 'T' + (this.eventFormData.time || '00:00'));
+    // Título
+    this.eventFormErrors.title = this.eventFormData.title?.trim() ? '' : 'El título es obligatorio.';
+    if (!this.eventFormData.title?.trim()) valid = false;
+    // Descripción
+    if (!this.eventFormData.description?.trim()) {
+      this.eventFormErrors.description = 'La descripción es obligatoria.';
+      valid = false;
+    } else if (this.eventFormData.description.trim().length < 20) {
+      this.eventFormErrors.description = 'La descripción debe tener al menos 20 caracteres.';
+      valid = false;
+    } else {
+      this.eventFormErrors.description = '';
+    }
+    // Fecha
+    if (!this.eventFormData.date) {
+      this.eventFormErrors.date = 'La fecha es obligatoria.';
+      valid = false;
+    } else if (eventDate <= today) {
+      this.eventFormErrors.date = 'La fecha debe ser posterior a hoy.';
+      valid = false;
+    } else {
+      this.eventFormErrors.date = '';
+    }
+    // Hora
+    this.eventFormErrors.time = this.eventFormData.time ? '' : 'La hora es obligatoria.';
+    if (!this.eventFormData.time) valid = false;
+    // Lugar
+    this.eventFormErrors.location = this.eventFormData.location?.trim() ? '' : 'El lugar es obligatorio.';
+    if (!this.eventFormData.location?.trim()) valid = false;
+    // Participantes
+    if (!this.eventFormData.maxParticipants || isNaN(this.eventFormData.maxParticipants)) {
+      this.eventFormErrors.maxParticipants = 'Ingrese un número válido.';
+      valid = false;
+    } else if (this.eventFormData.maxParticipants < 20) {
+      this.eventFormErrors.maxParticipants = 'Debe ser al menos 20 participantes.';
+      valid = false;
+    } else {
+      this.eventFormErrors.maxParticipants = '';
+    }
+    return valid;
+  }
+
+  /**
    * @description Guarda un evento (crea o edita según corresponda).
    * @returns void
    */
   saveEvent(): void {
+    if (!this.validateEventForm()) return;
     if (this.eventFormData.id) {
       // Editar evento existente usando updateEvent
       if (db) {

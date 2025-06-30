@@ -962,3 +962,11 @@
         align-items: stretch;
     }
 }
+
+.invalid-feedback {
+  color: #d32f2f;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  min-height: 1.2em;
+}

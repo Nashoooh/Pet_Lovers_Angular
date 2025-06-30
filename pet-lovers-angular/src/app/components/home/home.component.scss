@@ -702,6 +702,137 @@ body {
     .hero-buttons {
         justify-content: center;
     }
+
+    .carousel {
+        max-width: 100vw;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .carousel-track {
+        gap: 0;
+        padding: 0;
+        justify-content: center;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    .event-card {
+        flex: 0 0 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 20px;
+        box-sizing: border-box;
+    }
+    .carousel-control {
+        width: 36px;
+        height: 36px;
+        background: rgba(255,255,255,0.95);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .carousel-control.prev {
+        left: 8px;
+    }
+    .carousel-control.next {
+        right: 8px;
+    }
+}
+
+/* Carrusel de eventos responsivo (ajuste para botones internos) */
+.carousel {
+  position: relative;
+}
+.carousel-track {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+  padding-left: 48px; /* espacio para botón izquierdo */
+  padding-right: 48px; /* espacio para botón derecho */
+}
+.event-card {
+  flex: 0 0 calc(33.333% - 1rem);
+  min-width: 240px;
+  max-width: 340px;
+  scroll-snap-align: start;
+  margin-bottom: 1rem;
+}
+.carousel-control.prev {
+  left: 0;
+}
+.carousel-control.next {
+  right: 0;
+}
+@media (max-width: 1024px) {
+  .event-card {
+    flex: 0 0 calc(50% - 0.8rem);
+    max-width: 320px;
+  }
+  .carousel-track {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .carousel {
+    max-width: 100vw;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .carousel-track {
+    gap: 0;
+    padding: 0;
+    justify-content: center;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  .event-card {
+    flex: 0 0 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 20px;
+    box-sizing: border-box;
+  }
+  .carousel-control {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.95);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .carousel-control.prev {
+    left: 8px;
+  }
+  .carousel-control.next {
+    right: 8px;
+  }
+}
+
+/* Oculta la barra de scroll horizontal en navegadores modernos */
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.carousel-track {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Animaciones */
@@ -909,4 +1040,71 @@ body {
 
 .terms-link {
     margin-left: 0.25em;
+}
+
+/* Botones de navegación del carrusel */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.85);
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.carousel-control i {
+  font-size: 28px;
+  color: #333;
+}
+.carousel-control:hover {
+  background: #e0f2ff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+.carousel-control.prev {
+  left: -40px;
+}
+.carousel-control.next {
+  right: -40px;
+}
+
+@media (max-width: 1024px) {
+  .carousel-control.prev {
+    left: -16px;
+  }
+  .carousel-control.next {
+    right: -16px;
+  }
+}
+@media (max-width: 768px) {
+  .carousel-control {
+    display: none !important;
+  }
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d1d1d1;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .carousel-dot.active {
+    background: var(--soft-blue);
+    transform: scale(1.3);
+    box-shadow: 0 0 0 2px var(--pastel-blue);
+  }
 }

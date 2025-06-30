@@ -277,33 +277,39 @@
         <form (ngSubmit)="saveEvent()">
             <div class="form-group">
             <label for="eventTitle">Título del Evento</label>
-            <input type="text" id="eventTitle" [(ngModel)]="eventFormData.title" name="title" required>
+            <input type="text" id="eventTitle" [(ngModel)]="eventFormData.title" name="title" required (ngModelChange)="validateEventForm()">
+            <div class="invalid-feedback text-danger" *ngIf="eventFormErrors.title">{{ eventFormErrors.title }}</div>
             </div>
     
             <div class="form-group">
             <label for="eventDescription">Descripción</label>
-            <textarea id="eventDescription" [(ngModel)]="eventFormData.description" name="description" rows="3" required></textarea>
+            <textarea id="eventDescription" [(ngModel)]="eventFormData.description" name="description" rows="3" required (ngModelChange)="validateEventForm()"></textarea>
+            <div class="invalid-feedback text-danger" *ngIf="eventFormErrors.description">{{ eventFormErrors.description }}</div>
             </div>
     
             <div class="form-row">
             <div class="form-group">
                 <label for="eventDate">Fecha</label>
-                <input type="date" id="eventDate" [(ngModel)]="eventFormData.date" name="date" required>
+                <input type="date" id="eventDate" [(ngModel)]="eventFormData.date" name="date" required (ngModelChange)="validateEventForm()">
+                <div class="invalid-feedback text-danger" *ngIf="eventFormErrors.date">{{ eventFormErrors.date }}</div>
             </div>
             <div class="form-group">
                 <label for="eventTime">Hora</label>
-                <input type="time" id="eventTime" [(ngModel)]="eventFormData.time" name="time" required>
+                <input type="time" id="eventTime" [(ngModel)]="eventFormData.time" name="time" required (ngModelChange)="validateEventForm()">
+                <div class="invalid-feedback text-danger" *ngIf="eventFormErrors.time">{{ eventFormErrors.time }}</div>
             </div>
             </div>
     
             <div class="form-group">
             <label for="eventLocation">Ubicación</label>
-            <input type="text" id="eventLocation" [(ngModel)]="eventFormData.location" name="location" required>
+            <input type="text" id="eventLocation" [(ngModel)]="eventFormData.location" name="location" required (ngModelChange)="validateEventForm()">
+            <div class="invalid-feedback text-danger" *ngIf="eventFormErrors.location">{{ eventFormErrors.location }}</div>
             </div>
     
             <div class="form-group">
             <label for="eventMaxParticipants">Máximo de Participantes</label>
-            <input type="number" id="eventMaxParticipants" [(ngModel)]="eventFormData.maxParticipants" name="maxParticipants" min="1" required>
+            <input type="number" id="eventMaxParticipants" [(ngModel)]="eventFormData.maxParticipants" name="maxParticipants" min="20" required (ngModelChange)="validateEventForm()">
+            <div class="invalid-feedback text-danger" *ngIf="eventFormErrors.maxParticipants">{{ eventFormErrors.maxParticipants }}</div>
             </div>
     
             <div class="modal-actions">
