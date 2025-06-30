@@ -4,7 +4,7 @@
             <i class="fas fa-paw"></i>
             <span>Patitas Felices</span>
         </div>
-        <button class="sidebar-close">
+        <button class="sidebar-close" (click)="closeSidebar()">
             <i class="fas fa-times"></i>
         </button>
     </div>
@@ -12,25 +12,25 @@
     <nav class="sidebar-nav">
         <ul>
             <li class="nav-item" [class.active]="activeSection === 'dashboard'">
-                <a class="nav-link" (click)="handleNavigation('dashboard')">
+                <a class="nav-link" (click)="handleNavigation('dashboard'); closeSidebar()">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="nav-item" [class.active]="activeSection === 'events'">
-                <a class="nav-link" (click)="handleNavigation('events')">
+                <a class="nav-link" (click)="handleNavigation('events'); closeSidebar()">
                     <i class="fas fa-calendar"></i>
                     <span>Eventos</span>
                 </a>
             </li>
             <li class="nav-item" [class.active]="activeSection === 'socios'">
-                <a class="nav-link" (click)="handleNavigation('socios')">
+                <a class="nav-link" (click)="handleNavigation('socios'); closeSidebar()">
                     <i class="fas fa-users"></i>
                     <span>Socios</span>
                 </a>
             </li>
             <li class="nav-item" [class.active]="activeSection === 'pets'">
-                <a class="nav-link" (click)="handleNavigation('pets')">
+                <a class="nav-link" (click)="handleNavigation('pets'); closeSidebar()">
                     <i class="fas fa-heart"></i>
                     <span>Mascotas</span>
                 </a>
@@ -56,18 +56,12 @@
 <main class="main-content">
     <!-- Header -->
     <header class="content-header">
-        <div class="header-left">
-            <button class="sidebar-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <h1 id="pageTitle">Dashboard</h1>
-        </div>
-        <!-- <div class="header-right">
-            <a routerLink="/home" class="btn btn-outline">
-                <i class="fas fa-home"></i>
-                Ver Sitio Web
-            </a>
-        </div> -->
+      <div class="header-left">
+          <button class="sidebar-toggle" (click)="toggleSidebar()">
+              <i class="fas fa-bars"></i>
+          </button>
+          <h1 id="pageTitle">Dashboard</h1>
+      </div>
     </header>
 
     <!-- Dashboard Section -->

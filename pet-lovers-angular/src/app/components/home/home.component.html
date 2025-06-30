@@ -4,15 +4,15 @@
                 <i class="fas fa-paw"></i>
                 <span>Patitas Felices</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#eventos">Eventos</a></li>
-                <li><a href="#mascotas">Mascotas</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a routerLink="/login" class="btn-login">Ingresar</a></li>
+            <ul class="nav-menu" [class.active]="isMenuOpen">
+                <li><a href="#inicio" (click)="closeMenu()">Inicio</a></li>
+                <li><a href="#nosotros" (click)="closeMenu()">Nosotros</a></li>
+                <li><a href="#eventos" (click)="closeMenu()">Eventos</a></li>
+                <li><a href="#mascotas" (click)="closeMenu()">Mascotas</a></li>
+                <li><a href="#contacto" (click)="closeMenu()">Contacto</a></li>
+                <li><a routerLink="/login" class="btn-login" (click)="closeMenu()">Ingresar</a></li>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger" (click)="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -229,6 +229,4 @@
     </footer>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-<!-- 
-    <script src="js/data.js"></script>
-    <script src="js/script.js"></script> -->
+

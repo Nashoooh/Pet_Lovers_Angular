@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   visibleEventos: any[] = [];
   currentIndex: number = 0;
   itemsPerRow: number = 3;
+  isMenuOpen: boolean = false;
 
   ngOnInit() {
     if (db) {
@@ -43,5 +44,13 @@ export class HomeComponent implements OnInit {
   prev() {
     this.currentIndex = (this.currentIndex - 1 + this.eventos.length) % this.eventos.length;
     this.updateVisibleEventos();
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen; // Alterna entre abierto y cerrado
+  }
+
+  closeMenu(): void {
+    this.isMenuOpen = false; // Cierra el menú
   }
 }

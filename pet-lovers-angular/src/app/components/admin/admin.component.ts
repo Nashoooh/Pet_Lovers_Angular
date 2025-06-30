@@ -31,6 +31,7 @@ export class AdminComponent implements OnInit {
   eventToDeleteTitle: string | null = null; // Título del evento a eliminar
   searchTerm: string = '';
   filteredSocios: any[] = [];
+  isSidebarOpen: boolean = false; // Controla el estado del sidebar
 
   constructor(private authService: AuthService, private router: Router) {}
 
