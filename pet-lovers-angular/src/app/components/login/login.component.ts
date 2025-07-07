@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { DatabaseService } from '../../services/database.service';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +35,11 @@ export class LoginComponent {
     { valor: 'admin', texto: 'Administrador' }
   ];
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private db: DatabaseService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   /**
    * @description Inicializa el componente, autocompleta email si está guardado y verifica sesión activa.
@@ -64,11 +69,14 @@ export class LoginComponent {
 
     this.showLoading(true);
 
-    setTimeout(() => {
-      const user = this.authService.login(this.email, this.password, this.rememberMe);
+    // Espera a que los usuarios estén cargados
+    this.db.getUsers().subscribe(users => {
+      const user = users.find(u => u.email === this.email && u.password === this.password);
+
       this.showLoading(false);
 
       if (user) {
+        this.db.setCurrentUser(user.id); // Si quieres mantener la sesión
         this.removeMessages();
         this.showMessage('success', `¡Bienvenido/a ${user.name}!`);
 
@@ -83,7 +91,7 @@ export class LoginComponent {
         this.removeMessages();
         this.showMessage('error', 'Credenciales incorrectas. Verifica tu email y contraseña.');
       }
-    }, 1000);
+    });
   }
 
   /**

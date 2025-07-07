@@ -1,0 +1,50 @@
+[
+  {
+    "id": "event-1",
+    "title": "Jornada de Adopción",
+    "description": "Ven y conoce a nuestras adorables mascotas que buscan un hogar. Contaremos con veterinarios y voluntarios para responder todas tus preguntas.",
+    "date": "2025-08-07",
+    "time": "10:00",
+    "location": "Parque Central",
+    "maxParticipants": 50,
+    "participants": ["socio-1", "socio-2"],
+    "createdAt": "2025-05-01",
+    "createdBy": "admin-1"
+  },
+  {
+    "id": "event-2",
+    "title": "Campaña de Vacunación",
+    "description": "Vacunación gratuita para mascotas de socios. Incluye vacunas básicas y desparasitación.",
+    "date": "2025-07-22",
+    "time": "09:00",
+    "location": "Clínica Veterinaria Central",
+    "maxParticipants": 30,
+    "participants": ["socio-2"],
+    "createdAt": "2025-06-01",
+    "createdBy": "admin-1"
+  },
+  {
+    "id": "event-3",
+    "title": "Taller de Cuidado Animal",
+    "description": "Aprende sobre nutrición, cuidados básicos y primeros auxilios para mascotas.",
+    "date": "2025-08-30",
+    "time": "14:00",
+    "location": "Sede de la Fundación",
+    "maxParticipants": 25,
+    "participants": ["socio-1"],
+    "createdAt": "2025-03-01",
+    "createdBy": "admin-1"
+  },
+  {
+    "id": "event-4",
+    "title": "Taller de Alimentación y Salud Dietética Animal",
+    "description": "Charla y taller práctico sobre nutrición adecuada, dietas especiales y salud digestiva para perros y gatos. Incluye consultas con veterinarios y entrega de folletos informativos.",
+    "date": "2025-09-30",
+    "time": "11:00",
+    "location": "Sede de la Fundación",
+    "maxParticipants": 30,
+    "participants": ["socio-1", "socio-2"],
+    "createdAt": "2025-06-07",
+    "createdBy": "admin-1"
+  }
+]

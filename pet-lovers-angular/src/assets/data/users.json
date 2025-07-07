@@ -1,0 +1,31 @@
+[
+  {
+    "id": "admin-1",
+    "email": "admin@patitasfelices.org",
+    "password": "admin123",
+    "type": "admin",
+    "name": "Ignacio Andana",
+    "phone": "+569 7946 1780",
+    "createdAt": "2020-01-01"
+  },
+  {
+    "id": "socio-1",
+    "email": "socio1@email.com",
+    "password": "socio123",
+    "type": "socio",
+    "name": "Juan Pérez",
+    "phone": "+569 9876 5432",
+    "address": "Calle Falsa 123",
+    "createdAt": "2025-02-15"
+  },
+  {
+    "id": "socio-2",
+    "email": "socio2@email.com",
+    "password": "socio123",
+    "type": "socio",
+    "name": "Jovanka",
+    "phone": "+569 6543 2101",
+    "address": "Calle Falsa 123",
+    "createdAt": "2025-01-15"
+  }
+]

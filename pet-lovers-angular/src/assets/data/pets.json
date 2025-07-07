@@ -1,0 +1,28 @@
+[
+  {
+    "id": "pet-1",
+    "ownerId": "socio-1",
+    "name": "Bobby",
+    "type": "Perro",
+    "breed": "Labrador",
+    "age": 3,
+    "color": "Dorado",
+    "vaccinated": true,
+    "sterilized": true,
+    "notes": "Muy cariñoso y juguetón",
+    "createdAt": "2025-02-20"
+  },
+  {
+    "id": "pet-2",
+    "ownerId": "socio-1",
+    "name": "Cholo",
+    "type": "Perro",
+    "breed": "Mestizo",
+    "age": 5,
+    "color": "Negro",
+    "vaccinated": true,
+    "sterilized": false,
+    "notes": "Muy alegre y fiel",
+    "createdAt": "2025-02-20"
+  }
+]
