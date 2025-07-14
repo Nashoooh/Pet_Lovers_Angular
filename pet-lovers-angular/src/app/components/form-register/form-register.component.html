@@ -1,0 +1,162 @@
+<form class="auth-form" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <div class="form-group">
+        <label for="name"><i class="fas fa-user"></i> Nombre Completo *</label>
+        <input type="text" id="name" formControlName="name" placeholder="Tu nombre completo" [ngClass]="{'is-invalid': f['name'].invalid && (f['name'].touched || f['name'].dirty)}">
+        <div class="invalid-feedback text-danger" *ngIf="f['name'].invalid && (f['name'].touched || f['name'].dirty)">
+            <div *ngIf="f['name'].errors?.['required']">El nombre es obligatorio.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email"><i class="fas fa-envelope"></i> Correo Electrónico *</label>
+        <input type="email" id="email" formControlName="email" placeholder="tu@email.com" [ngClass]="{'is-invalid': f['email'].invalid && (f['email'].touched || f['email'].dirty)}">
+        <div class="invalid-feedback text-danger" *ngIf="f['email'].invalid && (f['email'].touched || f['email'].dirty)">
+            <div *ngIf="f['email'].errors?.['required']">El correo es obligatorio.</div>
+            <div *ngIf="f['email'].errors?.['email']">El formato del correo no es válido.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="phone"><i class="fas fa-phone"></i> Teléfono *</label>
+        <input type="tel" id="phone" formControlName="phone" placeholder="+1 234 567 8900" [ngClass]="{'is-invalid': f['phone'].invalid && (f['phone'].touched || f['phone'].dirty)}">
+        <div class="invalid-feedback text-danger" *ngIf="f['phone'].invalid && (f['phone'].touched || f['phone'].dirty)">
+            <div *ngIf="f['phone'].errors?.['required']">El teléfono es obligatorio.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="address"><i class="fas fa-map-marker-alt"></i> Dirección</label>
+        <input type="text" id="address" formControlName="address" placeholder="Tu dirección (opcional)">
+    </div>
+
+    <div class="form-group">
+        <label for="password"><i class="fas fa-lock"></i> Contraseña *</label>
+        <input type="password" id="password" formControlName="password" placeholder="••••••••" [ngClass]="{'is-invalid': f['password'].invalid && (f['password'].touched || f['password'].dirty)}">
+        <small class="field-hint">Mínimo 8 caracteres, mayúscula, minúscula, número y símbolo.</small>
+        <div class="invalid-feedback text-danger" *ngIf="f['password'].errors && (f['password'].touched || f['password'].dirty)">
+            <div *ngIf="f['password'].errors?.['required']">La contraseña es obligatoria.</div>
+            <div *ngIf="f['password'].errors?.['passwordStrength']">
+                La contraseña debe contener al menos:
+                <ul>
+                    <li [class.text-success]="f['password'].errors['passwordStrength'].isLongEnough">8 caracteres</li>
+                    <li [class.text-success]="f['password'].errors['passwordStrength'].hasUpperCase">1 mayúscula</li>
+                    <li [class.text-success]="f['password'].errors['passwordStrength'].hasLowerCase">1 minúscula</li>
+                    <li [class.text-success]="f['password'].errors['passwordStrength'].hasNumeric">1 número</li>
+                    <li [class.text-success]="f['password'].errors['passwordStrength'].hasSymbol">1 símbolo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="confirmPassword"><i class="fas fa-lock"></i> Confirmar Contraseña *</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="••••••••" [ngClass]="{'is-invalid': (registerForm.errors?.['passwordMismatch'] || f['confirmPassword'].invalid) && (f['confirmPassword'].touched || f['confirmPassword'].dirty)}">
+        <div class="invalid-feedback text-danger" *ngIf="(f['confirmPassword'].touched || f['confirmPassword'].dirty)">
+            <div *ngIf="f['confirmPassword'].errors?.['required']">Confirmar la contraseña es obligatorio.</div>
+            <div *ngIf="registerForm.errors?.['passwordMismatch']">Las contraseñas no coinciden.</div>
+        </div>
+    </div>
+
+    <div class="form-options">
+        <label class="checkbox-label">
+            <input type="checkbox" formControlName="termsAccepted">
+            <span class="checkmark"></span>
+            Acepto los <a href="#" class="terms-link">términos y condiciones</a>
+        </label>
+        <div class="invalid-feedback text-danger" *ngIf="f['termsAccepted'].invalid && (f['termsAccepted'].touched || f['termsAccepted'].dirty)">
+            Debes aceptar los términos y condiciones.
+        </div>
+    </div>
+
+    <div class="form-options">
+        <label class="checkbox-label">
+            <input type="checkbox" formControlName="newsletter">
+            <span class="checkmark"></span>
+            Quiero recibir noticias y eventos por email (opcional)
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-full" [disabled]="registerForm.invalid">
+        <i class="fas fa-user-plus"></i>
+        Crear Cuenta
+    </button>
+
+    <div class="auth-divider">
+        <span>o</span>
+    </div>
+
+    <div class="auth-footer">
+        <p>¿Ya tienes una cuenta?</p>
+        <a routerLink="/login" class="btn btn-secondary btn-outline">
+            <i class="fas fa-sign-in-alt"></i>
+            Iniciar Sesión
+        </a>
+    </div>
+
+    <!-- Información adicional -->
+    <div class="info-section">
+        <h4><i class="fas fa-heart"></i> Beneficios de ser Socio</h4>
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <i class="fas fa-calendar-check"></i>
+                <span>Acceso exclusivo a eventos</span>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-percent"></i>
+                <span>Descuentos en servicios veterinarios</span>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-users"></i>
+                <span>Comunidad de amantes de mascotas</span>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-paw"></i>
+                <span>Gestión digital de tus mascotas</span>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Loading overlay -->
+<div *ngIf="loading" class="loading-overlay">
+    <div class="loading-spinner">
+        <i class="fas fa-user-plus"></i>
+        <p>Creando tu cuenta...</p>
+    </div>
+</div>
+
+<!-- Modal de éxito -->
+<div *ngIf="isSuccessModalOpen" class="modal show">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>¡Registro exitoso!</h3>
+            <button class="modal-close" (click)="closeSuccessModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>Tu cuenta ha sido creada correctamente. Ahora puedes iniciar sesión.</p>
+        </div>
+        <div class="modal-actions">
+            <button class="btn btn-primary" (click)="closeSuccessModal()">Aceptar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de error -->
+<div *ngIf="isErrorModalOpen" class="modal show">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Error</h3>
+            <button class="modal-close" (click)="closeErrorModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>{{ modalErrorMessage }}</p>
+        </div>
+        <div class="modal-actions">
+            <button class="btn btn-primary" (click)="closeErrorModal()">Aceptar</button>
+        </div>
+    </div>
+</div>

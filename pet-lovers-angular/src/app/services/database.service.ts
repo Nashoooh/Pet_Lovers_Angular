@@ -21,9 +21,38 @@ export class DatabaseService {
   }
 
   private loadAll() {
-    this.http.get<any[]>(this.usersUrl).pipe(catchError(this.handleError)).subscribe(data => this.users$.next(data || []));
-    this.http.get<any[]>(this.eventsUrl).pipe(catchError(this.handleError)).subscribe(data => this.events$.next(data || []));
-    this.http.get<any[]>(this.petsUrl).pipe(catchError(this.handleError)).subscribe(data => this.pets$.next(data || []));
+    // Intentar cargar desde localStorage primero, si no existe cargar desde JSON
+    const savedUsers = localStorage.getItem('pf_users');
+    const savedEvents = localStorage.getItem('pf_events');
+    const savedPets = localStorage.getItem('pf_pets');
+
+    if (savedUsers) {
+      this.users$.next(JSON.parse(savedUsers));
+    } else {
+      this.http.get<any[]>(this.usersUrl).pipe(catchError(this.handleError)).subscribe(data => {
+        this.users$.next(data || []);
+        // Guardar los datos iniciales en localStorage
+        if (data) localStorage.setItem('pf_users', JSON.stringify(data));
+      });
+    }
+
+    if (savedEvents) {
+      this.events$.next(JSON.parse(savedEvents));
+    } else {
+      this.http.get<any[]>(this.eventsUrl).pipe(catchError(this.handleError)).subscribe(data => {
+        this.events$.next(data || []);
+        if (data) localStorage.setItem('pf_events', JSON.stringify(data));
+      });
+    }
+
+    if (savedPets) {
+      this.pets$.next(JSON.parse(savedPets));
+    } else {
+      this.http.get<any[]>(this.petsUrl).pipe(catchError(this.handleError)).subscribe(data => {
+        this.pets$.next(data || []);
+        if (data) localStorage.setItem('pf_pets', JSON.stringify(data));
+      });
+    }
   }
 
   // Métodos para usuarios
@@ -33,8 +62,8 @@ export class DatabaseService {
 
   saveUsers(users: any[]): void {
     this.users$.next(users);
-    // Si quieres persistir en localStorage, descomenta:
-    // localStorage.setItem('pf_users', JSON.stringify(users));
+    // Persistir en localStorage
+    localStorage.setItem('pf_users', JSON.stringify(users));
   }
 
   addUser(user: any): any {
@@ -88,7 +117,7 @@ export class DatabaseService {
 
   saveEvents(events: any[]): void {
     this.events$.next(events);
-    // localStorage.setItem('pf_events', JSON.stringify(events));
+    localStorage.setItem('pf_events', JSON.stringify(events));
   }
 
   addEvent(event: any): any {
@@ -162,7 +191,7 @@ export class DatabaseService {
 
   savePets(pets: any[]): void {
     this.pets$.next(pets);
-    // localStorage.setItem('pf_pets', JSON.stringify(pets));
+    localStorage.setItem('pf_pets', JSON.stringify(pets));
   }
 
   getPetsByOwner(ownerId: string): any[] {
