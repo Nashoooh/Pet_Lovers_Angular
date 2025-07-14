@@ -63,6 +63,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/ForgotPasswordComponent.html" data-type="entity-link" >ForgotPasswordComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/FormRegisterComponent.html" data-type="entity-link" >FormRegisterComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/HomeComponent.html" data-type="entity-link" >HomeComponent</a>
                             </li>
                             <li class="link">
@@ -103,6 +106,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <li class="link">
                                     <a href="injectables/AuthService.html" data-type="entity-link" >AuthService</a>
                                 </li>
+                                <li class="link">
+                                    <a href="injectables/DatabaseService.html" data-type="entity-link" >DatabaseService</a>
+                                </li>
                             </ul>
                         </li>
                     <li class="chapter">
@@ -113,6 +119,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
+                            <li class="link">
+                                <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                            </li>
                             <li class="link">
                                 <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                             </li>

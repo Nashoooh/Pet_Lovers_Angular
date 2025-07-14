@@ -286,7 +286,9 @@
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    provideHttpClient(),
   ]
 }</code>
                     </td>

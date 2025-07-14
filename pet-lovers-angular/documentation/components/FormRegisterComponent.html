@@ -1,0 +1,1342 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pet-lovers-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">pet-lovers-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  FormRegisterComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/form-register/form-register.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-form-register</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>RouterLink</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./form-register.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./form-register.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isErrorModalOpen" >isErrorModalOpen</a>
+                            </li>
+                            <li>
+                                <a href="#isSuccessModalOpen" >isSuccessModalOpen</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#modalErrorMessage" >modalErrorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#registerForm" >registerForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeErrorModal" >closeErrorModal</a>
+                            </li>
+                            <li>
+                                <a href="#closeSuccessModal" >closeSuccessModal</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onRegister" >onRegister</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#f" >f</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, databaseService: <a href="../injectables/DatabaseService.html" target="_self">DatabaseService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/components/form-register/form-register.component.ts:58</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>databaseService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DatabaseService.html" target="_self" >DatabaseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeErrorModal"></a>
+                    <span class="name">
+                        <span ><b>closeErrorModal</b></span>
+                        <a href="#closeErrorModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeErrorModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/app/components/form-register/form-register.component.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeSuccessModal"></a>
+                    <span class="name">
+                        <span ><b>closeSuccessModal</b></span>
+                        <a href="#closeSuccessModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeSuccessModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/components/form-register/form-register.component.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/app/components/form-register/form-register.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onRegister"></a>
+                    <span class="name">
+                        <span ><b>onRegister</b></span>
+                        <a href="#onRegister"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onRegister()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/app/components/form-register/form-register.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isErrorModalOpen"></a>
+                    <span class="name">
+                        <span ><b>isErrorModalOpen</b></span>
+                        <a href="#isErrorModalOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/components/form-register/form-register.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSuccessModalOpen"></a>
+                    <span class="name">
+                        <span ><b>isSuccessModalOpen</b></span>
+                        <a href="#isSuccessModalOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/components/form-register/form-register.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/components/form-register/form-register.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalErrorMessage"></a>
+                    <span class="name">
+                        <span ><b>modalErrorMessage</b></span>
+                        <a href="#modalErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/components/form-register/form-register.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerForm"></a>
+                    <span class="name">
+                        <span ><b>registerForm</b></span>
+                        <a href="#registerForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/form-register/form-register.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="f"></a>
+                        <span class="name"><b>f</b><a href="#f"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>f()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/components/form-register/form-register.component.ts:80</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
+import { Router, RouterLink } from &#x27;@angular/router&#x27;;
+import { AuthService } from &#x27;../../services/auth.service&#x27;;
+import { DatabaseService } from &#x27;../../services/database.service&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+
+// Custom validator for password strength
+export function passwordStrengthValidator(): (control: AbstractControl) &#x3D;&gt; ValidationErrors | null {
+  return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+    const value: string &#x3D; control.value || &#x27;&#x27;;
+    if (!value) {
+      return null;
+    }
+    const hasUpperCase &#x3D; /[A-Z]/.test(value);
+    const hasLowerCase &#x3D; /[a-z]/.test(value);
+    const hasNumeric &#x3D; /[0-9]/.test(value);
+    const hasSymbol &#x3D; /[!@#$%^&amp;*(),.?&quot;:{}|&lt;&gt;]/.test(value);
+    const isLongEnough &#x3D; value.length &gt;&#x3D; 8;
+
+    const passwordValid &#x3D; hasUpperCase &amp;&amp; hasLowerCase &amp;&amp; hasNumeric &amp;&amp; hasSymbol &amp;&amp; isLongEnough;
+
+    if (!passwordValid) {
+      return {
+        passwordStrength: {
+          hasUpperCase,
+          hasLowerCase,
+          hasNumeric,
+          hasSymbol,
+          isLongEnough
+        }
+      };
+    }
+    return null;
+  };
+}
+
+// Custom validator for matching passwords
+export function passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
+  const password &#x3D; control.get(&#x27;password&#x27;)?.value;
+  const confirmPassword &#x3D; control.get(&#x27;confirmPassword&#x27;)?.value;
+  return password &#x3D;&#x3D;&#x3D; confirmPassword ? null : { passwordMismatch: true };
+}
+
+@Component({
+  selector: &#x27;app-form-register&#x27;,
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  templateUrl: &#x27;./form-register.component.html&#x27;,
+  styleUrls: [&#x27;./form-register.component.scss&#x27;]
+})
+export class FormRegisterComponent implements OnInit {
+  registerForm!: FormGroup;
+  loading &#x3D; false;
+  isSuccessModalOpen &#x3D; false;
+  isErrorModalOpen &#x3D; false;
+  modalErrorMessage &#x3D; &#x27;&#x27;;
+
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private databaseService: DatabaseService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.registerForm &#x3D; this.fb.group({
+      name: [&#x27;&#x27;, Validators.required],
+      email: [&#x27;&#x27;, [Validators.required, Validators.email]],
+      phone: [&#x27;&#x27;, Validators.required],
+      address: [&#x27;&#x27;],
+      password: [&#x27;&#x27;, [Validators.required, passwordStrengthValidator()]],
+      confirmPassword: [&#x27;&#x27;, Validators.required],
+      termsAccepted: [false, Validators.requiredTrue],
+      newsletter: [false]
+    }, { validators: passwordMatchValidator });
+  }
+
+  get f() { return this.registerForm.controls; }
+
+  onRegister(): void {
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
+      return;
+    }
+
+    this.loading &#x3D; true;
+    const { name, email, password, phone, address, newsletter } &#x3D; this.registerForm.value;
+
+    // Check if user already exists
+    if (this.databaseService.getUserByEmail(email)) {
+      this.loading &#x3D; false;
+      this.modalErrorMessage &#x3D; &#x27;El correo electrónico ya está registrado.&#x27;;
+      this.isErrorModalOpen &#x3D; true;
+      return;
+    }
+
+    // Add new user
+    const newUser &#x3D; {
+      name,
+      email,
+      password, // In a real app, hash this password
+      phone,
+      address,
+      newsletter,
+      type: &#x27;socio&#x27;
+    };
+
+    this.databaseService.addUser(newUser);
+    this.loading &#x3D; false;
+    this.isSuccessModalOpen &#x3D; true;
+  }
+
+  closeSuccessModal(): void {
+    this.isSuccessModalOpen &#x3D; false;
+    this.router.navigate([&#x27;/login&#x27;]);
+  }
+
+  closeErrorModal(): void {
+    this.isErrorModalOpen &#x3D; false;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;form class&#x3D;&quot;auth-form&quot; [formGroup]&#x3D;&quot;registerForm&quot; (ngSubmit)&#x3D;&quot;onRegister()&quot;&gt;
+    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;name&quot;&gt;&lt;i class&#x3D;&quot;fas fa-user&quot;&gt;&lt;/i&gt; Nombre Completo *&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;name&quot; formControlName&#x3D;&quot;name&quot; placeholder&#x3D;&quot;Tu nombre completo&quot; [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: f[&#x27;name&#x27;].invalid &amp;&amp; (f[&#x27;name&#x27;].touched || f[&#x27;name&#x27;].dirty)}&quot;&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback text-danger&quot; *ngIf&#x3D;&quot;f[&#x27;name&#x27;].invalid &amp;&amp; (f[&#x27;name&#x27;].touched || f[&#x27;name&#x27;].dirty)&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;f[&#x27;name&#x27;].errors?.[&#x27;required&#x27;]&quot;&gt;El nombre es obligatorio.&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;email&quot;&gt;&lt;i class&#x3D;&quot;fas fa-envelope&quot;&gt;&lt;/i&gt; Correo Electrónico *&lt;/label&gt;
+        &lt;input type&#x3D;&quot;email&quot; id&#x3D;&quot;email&quot; formControlName&#x3D;&quot;email&quot; placeholder&#x3D;&quot;tu@email.com&quot; [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: f[&#x27;email&#x27;].invalid &amp;&amp; (f[&#x27;email&#x27;].touched || f[&#x27;email&#x27;].dirty)}&quot;&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback text-danger&quot; *ngIf&#x3D;&quot;f[&#x27;email&#x27;].invalid &amp;&amp; (f[&#x27;email&#x27;].touched || f[&#x27;email&#x27;].dirty)&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;f[&#x27;email&#x27;].errors?.[&#x27;required&#x27;]&quot;&gt;El correo es obligatorio.&lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;f[&#x27;email&#x27;].errors?.[&#x27;email&#x27;]&quot;&gt;El formato del correo no es válido.&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;phone&quot;&gt;&lt;i class&#x3D;&quot;fas fa-phone&quot;&gt;&lt;/i&gt; Teléfono *&lt;/label&gt;
+        &lt;input type&#x3D;&quot;tel&quot; id&#x3D;&quot;phone&quot; formControlName&#x3D;&quot;phone&quot; placeholder&#x3D;&quot;+1 234 567 8900&quot; [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: f[&#x27;phone&#x27;].invalid &amp;&amp; (f[&#x27;phone&#x27;].touched || f[&#x27;phone&#x27;].dirty)}&quot;&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback text-danger&quot; *ngIf&#x3D;&quot;f[&#x27;phone&#x27;].invalid &amp;&amp; (f[&#x27;phone&#x27;].touched || f[&#x27;phone&#x27;].dirty)&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;f[&#x27;phone&#x27;].errors?.[&#x27;required&#x27;]&quot;&gt;El teléfono es obligatorio.&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;address&quot;&gt;&lt;i class&#x3D;&quot;fas fa-map-marker-alt&quot;&gt;&lt;/i&gt; Dirección&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;address&quot; formControlName&#x3D;&quot;address&quot; placeholder&#x3D;&quot;Tu dirección (opcional)&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;password&quot;&gt;&lt;i class&#x3D;&quot;fas fa-lock&quot;&gt;&lt;/i&gt; Contraseña *&lt;/label&gt;
+        &lt;input type&#x3D;&quot;password&quot; id&#x3D;&quot;password&quot; formControlName&#x3D;&quot;password&quot; placeholder&#x3D;&quot;••••••••&quot; [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: f[&#x27;password&#x27;].invalid &amp;&amp; (f[&#x27;password&#x27;].touched || f[&#x27;password&#x27;].dirty)}&quot;&gt;
+        &lt;small class&#x3D;&quot;field-hint&quot;&gt;Mínimo 8 caracteres, mayúscula, minúscula, número y símbolo.&lt;/small&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback text-danger&quot; *ngIf&#x3D;&quot;f[&#x27;password&#x27;].errors &amp;&amp; (f[&#x27;password&#x27;].touched || f[&#x27;password&#x27;].dirty)&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;f[&#x27;password&#x27;].errors?.[&#x27;required&#x27;]&quot;&gt;La contraseña es obligatoria.&lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;f[&#x27;password&#x27;].errors?.[&#x27;passwordStrength&#x27;]&quot;&gt;
+                La contraseña debe contener al menos:
+                &lt;ul&gt;
+                    &lt;li [class.text-success]&#x3D;&quot;f[&#x27;password&#x27;].errors[&#x27;passwordStrength&#x27;].isLongEnough&quot;&gt;8 caracteres&lt;/li&gt;
+                    &lt;li [class.text-success]&#x3D;&quot;f[&#x27;password&#x27;].errors[&#x27;passwordStrength&#x27;].hasUpperCase&quot;&gt;1 mayúscula&lt;/li&gt;
+                    &lt;li [class.text-success]&#x3D;&quot;f[&#x27;password&#x27;].errors[&#x27;passwordStrength&#x27;].hasLowerCase&quot;&gt;1 minúscula&lt;/li&gt;
+                    &lt;li [class.text-success]&#x3D;&quot;f[&#x27;password&#x27;].errors[&#x27;passwordStrength&#x27;].hasNumeric&quot;&gt;1 número&lt;/li&gt;
+                    &lt;li [class.text-success]&#x3D;&quot;f[&#x27;password&#x27;].errors[&#x27;passwordStrength&#x27;].hasSymbol&quot;&gt;1 símbolo&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;confirmPassword&quot;&gt;&lt;i class&#x3D;&quot;fas fa-lock&quot;&gt;&lt;/i&gt; Confirmar Contraseña *&lt;/label&gt;
+        &lt;input type&#x3D;&quot;password&quot; id&#x3D;&quot;confirmPassword&quot; formControlName&#x3D;&quot;confirmPassword&quot; placeholder&#x3D;&quot;••••••••&quot; [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: (registerForm.errors?.[&#x27;passwordMismatch&#x27;] || f[&#x27;confirmPassword&#x27;].invalid) &amp;&amp; (f[&#x27;confirmPassword&#x27;].touched || f[&#x27;confirmPassword&#x27;].dirty)}&quot;&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback text-danger&quot; *ngIf&#x3D;&quot;(f[&#x27;confirmPassword&#x27;].touched || f[&#x27;confirmPassword&#x27;].dirty)&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;f[&#x27;confirmPassword&#x27;].errors?.[&#x27;required&#x27;]&quot;&gt;Confirmar la contraseña es obligatorio.&lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;registerForm.errors?.[&#x27;passwordMismatch&#x27;]&quot;&gt;Las contraseñas no coinciden.&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;form-options&quot;&gt;
+        &lt;label class&#x3D;&quot;checkbox-label&quot;&gt;
+            &lt;input type&#x3D;&quot;checkbox&quot; formControlName&#x3D;&quot;termsAccepted&quot;&gt;
+            &lt;span class&#x3D;&quot;checkmark&quot;&gt;&lt;/span&gt;
+            Acepto los &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;terms-link&quot;&gt;términos y condiciones&lt;/a&gt;
+        &lt;/label&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback text-danger&quot; *ngIf&#x3D;&quot;f[&#x27;termsAccepted&#x27;].invalid &amp;&amp; (f[&#x27;termsAccepted&#x27;].touched || f[&#x27;termsAccepted&#x27;].dirty)&quot;&gt;
+            Debes aceptar los términos y condiciones.
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;form-options&quot;&gt;
+        &lt;label class&#x3D;&quot;checkbox-label&quot;&gt;
+            &lt;input type&#x3D;&quot;checkbox&quot; formControlName&#x3D;&quot;newsletter&quot;&gt;
+            &lt;span class&#x3D;&quot;checkmark&quot;&gt;&lt;/span&gt;
+            Quiero recibir noticias y eventos por email (opcional)
+        &lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary btn-full&quot; [disabled]&#x3D;&quot;registerForm.invalid&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-user-plus&quot;&gt;&lt;/i&gt;
+        Crear Cuenta
+    &lt;/button&gt;
+
+    &lt;div class&#x3D;&quot;auth-divider&quot;&gt;
+        &lt;span&gt;o&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;auth-footer&quot;&gt;
+        &lt;p&gt;¿Ya tienes una cuenta?&lt;/p&gt;
+        &lt;a routerLink&#x3D;&quot;/login&quot; class&#x3D;&quot;btn btn-secondary btn-outline&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-sign-in-alt&quot;&gt;&lt;/i&gt;
+            Iniciar Sesión
+        &lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Información adicional --&gt;
+    &lt;div class&#x3D;&quot;info-section&quot;&gt;
+        &lt;h4&gt;&lt;i class&#x3D;&quot;fas fa-heart&quot;&gt;&lt;/i&gt; Beneficios de ser Socio&lt;/h4&gt;
+        &lt;div class&#x3D;&quot;benefits-list&quot;&gt;
+            &lt;div class&#x3D;&quot;benefit-item&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-calendar-check&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;Acceso exclusivo a eventos&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;benefit-item&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-percent&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;Descuentos en servicios veterinarios&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;benefit-item&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-users&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;Comunidad de amantes de mascotas&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;benefit-item&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-paw&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;Gestión digital de tus mascotas&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;!-- Loading overlay --&gt;
+&lt;div *ngIf&#x3D;&quot;loading&quot; class&#x3D;&quot;loading-overlay&quot;&gt;
+    &lt;div class&#x3D;&quot;loading-spinner&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-user-plus&quot;&gt;&lt;/i&gt;
+        &lt;p&gt;Creando tu cuenta...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Modal de éxito --&gt;
+&lt;div *ngIf&#x3D;&quot;isSuccessModalOpen&quot; class&#x3D;&quot;modal show&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+            &lt;h3&gt;¡Registro exitoso!&lt;/h3&gt;
+            &lt;button class&#x3D;&quot;modal-close&quot; (click)&#x3D;&quot;closeSuccessModal()&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-times&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+            &lt;p&gt;Tu cuenta ha sido creada correctamente. Ahora puedes iniciar sesión.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;modal-actions&quot;&gt;
+            &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;closeSuccessModal()&quot;&gt;Aceptar&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Modal de error --&gt;
+&lt;div *ngIf&#x3D;&quot;isErrorModalOpen&quot; class&#x3D;&quot;modal show&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+            &lt;h3&gt;Error&lt;/h3&gt;
+            &lt;button class&#x3D;&quot;modal-close&quot; (click)&#x3D;&quot;closeErrorModal()&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-times&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+            &lt;p&gt;{{ modalErrorMessage }}&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;modal-actions&quot;&gt;
+            &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;closeErrorModal()&quot;&gt;Aceptar&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./form-register.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* Estilos para el formulario de registro y sus elementos específicos */
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.form-group label i {
+    margin-right: 0.5rem;
+    color: var(--soft-blue);
+}
+
+.form-group input {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--soft-blue);
+}
+
+.form-group input.is-invalid {
+    border-color: var(--soft-pink);
+}
+
+.invalid-feedback {
+    color: var(--soft-pink);
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+.invalid-feedback ul {
+    padding-left: 1rem;
+    margin: 0.25rem 0 0 0;
+}
+
+.field-hint {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 0.25rem;
+}
+
+.form-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.checkbox-label input[type&#x3D;&quot;checkbox&quot;] {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--light-gray);
+    border-radius: 4px;
+    margin-right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label input[type&#x3D;&quot;checkbox&quot;]:checked + .checkmark {
+    background: var(--soft-blue);
+    border-color: var(--soft-blue);
+}
+
+.checkbox-label input[type&#x3D;&quot;checkbox&quot;]:checked + .checkmark::after {
+    content: &quot;✓&quot;;
+    color: var(--white);
+    font-size: 14px;
+}
+
+.terms-link {
+    color: var(--soft-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.auth-divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    color: var(--text-light);
+    position: relative;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: &#x27;&#x27;;
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: var(--light-gray);
+}
+
+.auth-divider::before {
+    left: 0;
+}
+
+.auth-divider::after {
+    right: 0;
+}
+
+.auth-footer {
+    text-align: center;
+}
+
+.auth-footer p {
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.info-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--light-gray);
+}
+
+.info-section h4 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.info-section h4 i {
+    margin-right: 0.5rem;
+    color: var(--soft-pink);
+}
+
+.benefits-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.benefit-item i {
+    color: var(--soft-green);
+}
+
+/* Modals and Loading */
+.loading-overlay, .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.loading-spinner {
+    text-align: center;
+    color: var(--white);
+}
+
+.loading-spinner i {
+    font-size: 3rem;
+    animation: spin 1.5s linear infinite;
+}
+
+.loading-spinner p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    margin-bottom: 1rem;
+}
+
+.modal-header h3 {
+    color: var(--text-dark);
+}
+
+/* Modal actions */
+.modal-actions .btn {
+    width: 100%;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><form class="auth-form" [formGroup]="registerForm" (ngSubmit)="onRegister()">    <div class="form-group">        <label for="name"><i class="fas fa-user"></i> Nombre Completo *</label>        <input type="text" id="name" formControlName="name" placeholder="Tu nombre completo" [ngClass]="{\'is-invalid\': f[\'name\'].invalid && (f[\'name\'].touched || f[\'name\'].dirty)}">        <div class="invalid-feedback text-danger" *ngIf="f[\'name\'].invalid && (f[\'name\'].touched || f[\'name\'].dirty)">            <div *ngIf="f[\'name\'].errors?.[\'required\']">El nombre es obligatorio.</div>        </div>    </div>    <div class="form-group">        <label for="email"><i class="fas fa-envelope"></i> Correo Electrónico *</label>        <input type="email" id="email" formControlName="email" placeholder="tu@email.com" [ngClass]="{\'is-invalid\': f[\'email\'].invalid && (f[\'email\'].touched || f[\'email\'].dirty)}">        <div class="invalid-feedback text-danger" *ngIf="f[\'email\'].invalid && (f[\'email\'].touched || f[\'email\'].dirty)">            <div *ngIf="f[\'email\'].errors?.[\'required\']">El correo es obligatorio.</div>            <div *ngIf="f[\'email\'].errors?.[\'email\']">El formato del correo no es válido.</div>        </div>    </div>    <div class="form-group">        <label for="phone"><i class="fas fa-phone"></i> Teléfono *</label>        <input type="tel" id="phone" formControlName="phone" placeholder="+1 234 567 8900" [ngClass]="{\'is-invalid\': f[\'phone\'].invalid && (f[\'phone\'].touched || f[\'phone\'].dirty)}">        <div class="invalid-feedback text-danger" *ngIf="f[\'phone\'].invalid && (f[\'phone\'].touched || f[\'phone\'].dirty)">            <div *ngIf="f[\'phone\'].errors?.[\'required\']">El teléfono es obligatorio.</div>        </div>    </div>    <div class="form-group">        <label for="address"><i class="fas fa-map-marker-alt"></i> Dirección</label>        <input type="text" id="address" formControlName="address" placeholder="Tu dirección (opcional)">    </div>    <div class="form-group">        <label for="password"><i class="fas fa-lock"></i> Contraseña *</label>        <input type="password" id="password" formControlName="password" placeholder="••••••••" [ngClass]="{\'is-invalid\': f[\'password\'].invalid && (f[\'password\'].touched || f[\'password\'].dirty)}">        <small class="field-hint">Mínimo 8 caracteres, mayúscula, minúscula, número y símbolo.</small>        <div class="invalid-feedback text-danger" *ngIf="f[\'password\'].errors && (f[\'password\'].touched || f[\'password\'].dirty)">            <div *ngIf="f[\'password\'].errors?.[\'required\']">La contraseña es obligatoria.</div>            <div *ngIf="f[\'password\'].errors?.[\'passwordStrength\']">                La contraseña debe contener al menos:                <ul>                    <li [class.text-success]="f[\'password\'].errors[\'passwordStrength\'].isLongEnough">8 caracteres</li>                    <li [class.text-success]="f[\'password\'].errors[\'passwordStrength\'].hasUpperCase">1 mayúscula</li>                    <li [class.text-success]="f[\'password\'].errors[\'passwordStrength\'].hasLowerCase">1 minúscula</li>                    <li [class.text-success]="f[\'password\'].errors[\'passwordStrength\'].hasNumeric">1 número</li>                    <li [class.text-success]="f[\'password\'].errors[\'passwordStrength\'].hasSymbol">1 símbolo</li>                </ul>            </div>        </div>    </div>    <div class="form-group">        <label for="confirmPassword"><i class="fas fa-lock"></i> Confirmar Contraseña *</label>        <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="••••••••" [ngClass]="{\'is-invalid\': (registerForm.errors?.[\'passwordMismatch\'] || f[\'confirmPassword\'].invalid) && (f[\'confirmPassword\'].touched || f[\'confirmPassword\'].dirty)}">        <div class="invalid-feedback text-danger" *ngIf="(f[\'confirmPassword\'].touched || f[\'confirmPassword\'].dirty)">            <div *ngIf="f[\'confirmPassword\'].errors?.[\'required\']">Confirmar la contraseña es obligatorio.</div>            <div *ngIf="registerForm.errors?.[\'passwordMismatch\']">Las contraseñas no coinciden.</div>        </div>    </div>    <div class="form-options">        <label class="checkbox-label">            <input type="checkbox" formControlName="termsAccepted">            <span class="checkmark"></span>            Acepto los <a href="#" class="terms-link">términos y condiciones</a>        </label>        <div class="invalid-feedback text-danger" *ngIf="f[\'termsAccepted\'].invalid && (f[\'termsAccepted\'].touched || f[\'termsAccepted\'].dirty)">            Debes aceptar los términos y condiciones.        </div>    </div>    <div class="form-options">        <label class="checkbox-label">            <input type="checkbox" formControlName="newsletter">            <span class="checkmark"></span>            Quiero recibir noticias y eventos por email (opcional)        </label>    </div>    <button type="submit" class="btn btn-primary btn-full" [disabled]="registerForm.invalid">        <i class="fas fa-user-plus"></i>        Crear Cuenta    </button>    <div class="auth-divider">        <span>o</span>    </div>    <div class="auth-footer">        <p>¿Ya tienes una cuenta?</p>        <a routerLink="/login" class="btn btn-secondary btn-outline">            <i class="fas fa-sign-in-alt"></i>            Iniciar Sesión        </a>    </div>    <!-- Información adicional -->    <div class="info-section">        <h4><i class="fas fa-heart"></i> Beneficios de ser Socio</h4>        <div class="benefits-list">            <div class="benefit-item">                <i class="fas fa-calendar-check"></i>                <span>Acceso exclusivo a eventos</span>            </div>            <div class="benefit-item">                <i class="fas fa-percent"></i>                <span>Descuentos en servicios veterinarios</span>            </div>            <div class="benefit-item">                <i class="fas fa-users"></i>                <span>Comunidad de amantes de mascotas</span>            </div>            <div class="benefit-item">                <i class="fas fa-paw"></i>                <span>Gestión digital de tus mascotas</span>            </div>        </div>    </div></form><!-- Loading overlay --><div *ngIf="loading" class="loading-overlay">    <div class="loading-spinner">        <i class="fas fa-user-plus"></i>        <p>Creando tu cuenta...</p>    </div></div><!-- Modal de éxito --><div *ngIf="isSuccessModalOpen" class="modal show">    <div class="modal-content">        <div class="modal-header">            <h3>¡Registro exitoso!</h3>            <button class="modal-close" (click)="closeSuccessModal()">                <i class="fas fa-times"></i>            </button>        </div>        <div class="modal-body">            <p>Tu cuenta ha sido creada correctamente. Ahora puedes iniciar sesión.</p>        </div>        <div class="modal-actions">            <button class="btn btn-primary" (click)="closeSuccessModal()">Aceptar</button>        </div>    </div></div><!-- Modal de error --><div *ngIf="isErrorModalOpen" class="modal show">    <div class="modal-content">        <div class="modal-header">            <h3>Error</h3>            <button class="modal-close" (click)="closeErrorModal()">                <i class="fas fa-times"></i>            </button>        </div>        <div class="modal-body">            <p>{{ modalErrorMessage }}</p>        </div>        <div class="modal-actions">            <button class="btn btn-primary" (click)="closeErrorModal()">Aceptar</button>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormRegisterComponent', 'selector': 'app-form-register'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SocioComponent', 'selector': 'app-socio'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'FormRegisterComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FormRegisterComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
