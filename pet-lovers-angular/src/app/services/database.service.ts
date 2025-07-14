@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +21,9 @@ export class DatabaseService {
   }
 
   private loadAll() {
-    this.http.get<any[]>(this.usersUrl).subscribe(data => this.users$.next(data));
-    this.http.get<any[]>(this.eventsUrl).subscribe(data => this.events$.next(data));
-    this.http.get<any[]>(this.petsUrl).subscribe(data => this.pets$.next(data));
+    this.http.get<any[]>(this.usersUrl).pipe(catchError(this.handleError)).subscribe(data => this.users$.next(data || []));
+    this.http.get<any[]>(this.eventsUrl).pipe(catchError(this.handleError)).subscribe(data => this.events$.next(data || []));
+    this.http.get<any[]>(this.petsUrl).pipe(catchError(this.handleError)).subscribe(data => this.pets$.next(data || []));
   }
 
   // Métodos para usuarios
@@ -40,8 +41,12 @@ export class DatabaseService {
     const users = this.users$.getValue();
     user.id = 'user-' + Date.now();
     user.createdAt = new Date().toISOString().split('T')[0];
+    
+    // Simulación de POST y actualización en memoria
+    this.http.post(this.usersUrl, user).pipe(catchError(this.handleError)).subscribe();
     users.push(user);
     this.saveUsers(users);
+    
     return user;
   }
 
@@ -54,11 +59,26 @@ export class DatabaseService {
     const users = this.users$.getValue();
     const index = users.findIndex((user: any) => user.id === userId);
     if (index !== -1) {
-      users[index] = { ...users[index], ...userData };
+      const updatedUser = { ...users[index], ...userData };
+      
+      // Simulación de PUT y actualización en memoria
+      this.http.put(`${this.usersUrl}/${userId}`, updatedUser).pipe(catchError(this.handleError)).subscribe();
+      users[index] = updatedUser;
       this.saveUsers(users);
+      
       return users[index];
     }
     return null;
+  }
+
+  deleteUser(userId: string): boolean {
+    // Simulación de DELETE y actualización en memoria
+    this.http.delete(`${this.usersUrl}/${userId}`).pipe(catchError(this.handleError)).subscribe();
+    
+    const users = this.users$.getValue();
+    const filteredUsers = users.filter((user: any) => user.id !== userId);
+    this.saveUsers(filteredUsers);
+    return true;
   }
 
   // Métodos para eventos
@@ -76,8 +96,12 @@ export class DatabaseService {
     event.id = 'event-' + Date.now();
     event.createdAt = new Date().toISOString().split('T')[0];
     event.participants = [];
+
+    // Simulación de POST y actualización en memoria
+    this.http.post(this.eventsUrl, event).pipe(catchError(this.handleError)).subscribe();
     events.push(event);
     this.saveEvents(events);
+
     return event;
   }
 
@@ -85,14 +109,22 @@ export class DatabaseService {
     const events = this.events$.getValue();
     const index = events.findIndex((event: any) => event.id === eventId);
     if (index !== -1) {
-      events[index] = { ...events[index], ...eventData };
+      const updatedEvent = { ...events[index], ...eventData };
+
+      // Simulación de PUT y actualización en memoria
+      this.http.put(`${this.eventsUrl}/${eventId}`, updatedEvent).pipe(catchError(this.handleError)).subscribe();
+      events[index] = updatedEvent;
       this.saveEvents(events);
+
       return events[index];
     }
     return null;
   }
 
   deleteEvent(eventId: string): boolean {
+    // Simulación de DELETE y actualización en memoria
+    this.http.delete(`${this.eventsUrl}/${eventId}`).pipe(catchError(this.handleError)).subscribe();
+
     const events = this.events$.getValue();
     const filteredEvents = events.filter((event: any) => event.id !== eventId);
     this.saveEvents(filteredEvents);
@@ -142,8 +174,12 @@ export class DatabaseService {
     const pets = this.pets$.getValue();
     pet.id = 'pet-' + Date.now();
     pet.createdAt = new Date().toISOString().split('T')[0];
+
+    // Simulación de POST y actualización en memoria
+    this.http.post(this.petsUrl, pet).pipe(catchError(this.handleError)).subscribe();
     pets.push(pet);
     this.savePets(pets);
+
     return pet;
   }
 
@@ -151,14 +187,22 @@ export class DatabaseService {
     const pets = this.pets$.getValue();
     const index = pets.findIndex((pet: any) => pet.id === petId);
     if (index !== -1) {
-      pets[index] = { ...pets[index], ...petData };
+      const updatedPet = { ...pets[index], ...petData };
+
+      // Simulación de PUT y actualización en memoria
+      this.http.put(`${this.petsUrl}/${petId}`, updatedPet).pipe(catchError(this.handleError)).subscribe();
+      pets[index] = updatedPet;
       this.savePets(pets);
+
       return pets[index];
     }
     return null;
   }
 
   deletePet(petId: string): boolean {
+    // Simulación de DELETE y actualización en memoria
+    this.http.delete(`${this.petsUrl}/${petId}`).pipe(catchError(this.handleError)).subscribe();
+
     const pets = this.pets$.getValue();
     const filteredPets = pets.filter((pet: any) => pet.id !== petId);
     this.savePets(filteredPets);
@@ -245,6 +289,12 @@ export class DatabaseService {
       totalParticipants: totalParticipants,
       upcomingEvents: events.filter((event: any) => !this.isEventPast(event.date)).length
     };
+  }
+
+  private handleError(error: any) {
+    console.error('Error en la solicitud HTTP:', error);
+    // Devuelve un observable vacío para que la aplicación no se bloquee
+    return throwError(() => new Error('Algo salió mal; por favor, inténtelo de nuevo más tarde.'));
   }
 
   // Puedes agregar aquí métodos para agregar, editar, eliminar en memoria
