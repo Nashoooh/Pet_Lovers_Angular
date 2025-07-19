@@ -293,7 +293,8 @@ export class Database {
     // Método para actualizar contraseña
     updateUserPassword(email: string, newPassword: string) {
         const users = this.getUsers();
-        const userIndex = users.findIndex((user: any) => user.email === email);
+        const normalizedEmail = email.trim().toLowerCase();
+        const userIndex = users.findIndex((user: any) => user.email.trim().toLowerCase() === normalizedEmail);
         if (userIndex !== -1) {
             users[userIndex].password = newPassword;
             this.saveUsers(users);

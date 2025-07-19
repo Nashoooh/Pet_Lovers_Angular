@@ -51,11 +51,12 @@ export class AuthService {
       console.error('La base de datos no está disponible.');
       return false;
     }
-  
+    // Normaliza el email para evitar problemas de espacios o mayúsculas
+    const normalizedEmail = email.trim().toLowerCase();
     // Usa el método updateUserPassword de la clase Database
-    const isUpdated = db.updateUserPassword(email, newPassword);
+    const isUpdated = db.updateUserPassword(normalizedEmail, newPassword);
     if (isUpdated) {
-      console.log(`Contraseña actualizada para el usuario con correo: ${email}`);
+      console.log(`Contraseña actualizada para el usuario con correo: ${normalizedEmail}`);
       return true;
     } else {
       console.error('No se pudo actualizar la contraseña. Usuario no encontrado.');
@@ -65,7 +66,8 @@ export class AuthService {
 
   verifyEmail(email: string): boolean {
     if (!db) return false;
-    const user = db.getUsers().find((user: { email: string }) => user.email === email);
+    const normalizedEmail = email.trim().toLowerCase();
+    const user = db.getUsers().find((user: { email: string }) => user.email.trim().toLowerCase() === normalizedEmail);
     return !!user; // Devuelve true si el usuario existe, false si no.
   }
   
